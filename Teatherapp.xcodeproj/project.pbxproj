@@ -1,0 +1,745 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A2002EE22AAB750C006D9AB8 /* TFBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2002EE12AAB750C006D9AB8 /* TFBottomBar.swift */; };
+		A2097B252AB35251003C27C6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2097B242AB35251003C27C6 /* SettingView.swift */; };
+		A2097B272AB38216003C27C6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2097B262AB38216003C27C6 /* Helpers.swift */; };
+		A2163D962AB4B28900A981CC /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2163D952AB4B28900A981CC /* NotificationView.swift */; };
+		A2163D982AB4B32800A981CC /* ChatHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2163D972AB4B32800A981CC /* ChatHomeView.swift */; };
+		A2163D9B2AB4BD3E00A981CC /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2163D9A2AB4BD3E00A981CC /* ChatView.swift */; };
+		A2163D9F2AB4C0FC00A981CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2163D9C2AB4C0FC00A981CC /* User.swift */; };
+		A2163DA02AB4C0FC00A981CC /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2163D9D2AB4C0FC00A981CC /* Room.swift */; };
+		A2163DA12AB4C0FC00A981CC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2163D9E2AB4C0FC00A981CC /* Message.swift */; };
+		A2163DA42AB4C1C500A981CC /* ViewportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2163DA32AB4C1C400A981CC /* ViewportHelper.swift */; };
+		A254CC012AA7826200FAE281 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A254CC002AA7826200FAE281 /* SignupView.swift */; };
+		A254CC032AA788BD00FAE281 /* UnderLinePincodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A254CC022AA788BD00FAE281 /* UnderLinePincodeView.swift */; };
+		A254CC052AA78F4500FAE281 /* TFCapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A254CC042AA78F4500FAE281 /* TFCapsuleButton.swift */; };
+		A26446802ADFC0D1006A9885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A264467F2ADFC0D1006A9885 /* Assets.xcassets */; };
+		A2BCBB672AA0FE9800DE6255 /* TeatherappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBB662AA0FE9800DE6255 /* TeatherappApp.swift */; };
+		A2BCBB692AA0FE9800DE6255 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBB682AA0FE9800DE6255 /* LoginView.swift */; };
+		A2BCBB6E2AA0FE9A00DE6255 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BCBB6D2AA0FE9A00DE6255 /* Preview Assets.xcassets */; };
+		A2BCBB752AA10AC400DE6255 /* TFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBB742AA10AC400DE6255 /* TFButton.swift */; };
+		A2CEE1922AA642D800BDFF30 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CEE1912AA642D800BDFF30 /* RootView.swift */; };
+		A2CEE1952AA6442900BDFF30 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CEE1932AA6442900BDFF30 /* Colors.xcassets */; };
+		A2CEE1982AA647D200BDFF30 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CEE1972AA647D200BDFF30 /* ResetPassword.swift */; };
+		A2CEE19A2AA649C800BDFF30 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CEE1992AA649C800BDFF30 /* HomeView.swift */; };
+		A2DED4012AAF77D6004CF21B /* CheckinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DED4002AAF77D6004CF21B /* CheckinView.swift */; };
+		A2DED4032AAF7CCE004CF21B /* ShapeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DED4022AAF7CCE004CF21B /* ShapeClasses.swift */; };
+		A2E8FD942AAA2CB20020C6E6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8FD932AAA2CB20020C6E6 /* HistoryView.swift */; };
+		A2E8FD962AAA33F10020C6E6 /* DashboardMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8FD952AAA33F10020C6E6 /* DashboardMap.swift */; };
+		BD0ACE172AE4B29A005FD207 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0ACE162AE4B29A005FD207 /* LocationManager.swift */; };
+		BD0F55F62AE44F4700198F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F55F52AE44F4700198F67 /* AppDelegate.swift */; };
+		BD0F55F82AE44F8500198F67 /* GoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */; };
+		BD0F55FB2AE4556B00198F67 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F55FA2AE4556B00198F67 /* CalendarView.swift */; };
+		BD12A8CE2AE3A79B00A61445 /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD12A8CD2AE3A79B00A61445 /* CountryPicker.swift */; };
+		BD38F4672AEA4B560032FAC7 /* UnderLineTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38F4662AEA4B560032FAC7 /* UnderLineTabBarView.swift */; };
+		BD38F4692AEA55B90032FAC7 /* DispatchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38F4682AEA55B90032FAC7 /* DispatchHistoryView.swift */; };
+		BD38F46B2AEA55CB0032FAC7 /* CheckInHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38F46A2AEA55CB0032FAC7 /* CheckInHistoryView.swift */; };
+		BD3AECAD2AE2C29700DEB032 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECAC2AE2C29700DEB032 /* Constant.swift */; };
+		BD3AECAF2AE2C49E00DEB032 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECAE2AE2C49E00DEB032 /* LoginModel.swift */; };
+		BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECB02AE2D0C400DEB032 /* SignupModel.swift */; };
+		BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECB22AE2D1C100DEB032 /* SignupViewModel.swift */; };
+		BD51B72D2AE66B5800EB6106 /* TFBottomBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */; };
+		BDB60B8E2AE1B1BA002ABBBC /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B8D2AE1B1BA002ABBBC /* TextFields.swift */; };
+		BDB60B902AE1B4B4002ABBBC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */; };
+		BDB60B922AE1B55D002ABBBC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B912AE1B55D002ABBBC /* APIManager.swift */; };
+		BDB60B952AE1B609002ABBBC /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B942AE1B609002ABBBC /* Services.swift */; };
+		BDD6F73A2AE849700080AC4C /* HeaderBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6F7392AE849700080AC4C /* HeaderBarView.swift */; };
+		BDE020A82AEA74DF00DCB17E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDE020A72AEA74DF00DCB17E /* LaunchScreen.storyboard */; };
+		DDA9B35A878D118E911B96CC /* Pods_Teatherapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teatherapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2002EE12AAB750C006D9AB8 /* TFBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFBottomBar.swift; sourceTree = "<group>"; };
+		A2097B242AB35251003C27C6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		A2097B262AB38216003C27C6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		A2163D952AB4B28900A981CC /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		A2163D972AB4B32800A981CC /* ChatHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeView.swift; sourceTree = "<group>"; };
+		A2163D9A2AB4BD3E00A981CC /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		A2163D9C2AB4C0FC00A981CC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A2163D9D2AB4C0FC00A981CC /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		A2163D9E2AB4C0FC00A981CC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A2163DA32AB4C1C400A981CC /* ViewportHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewportHelper.swift; sourceTree = "<group>"; };
+		A254CC002AA7826200FAE281 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		A254CC022AA788BD00FAE281 /* UnderLinePincodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLinePincodeView.swift; sourceTree = "<group>"; };
+		A254CC042AA78F4500FAE281 /* TFCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFCapsuleButton.swift; sourceTree = "<group>"; };
+		A264467F2ADFC0D1006A9885 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A2BCBB632AA0FE9800DE6255 /* Tethr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tethr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2BCBB662AA0FE9800DE6255 /* TeatherappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeatherappApp.swift; sourceTree = "<group>"; };
+		A2BCBB682AA0FE9800DE6255 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A2BCBB6D2AA0FE9A00DE6255 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2BCBB742AA10AC400DE6255 /* TFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFButton.swift; sourceTree = "<group>"; };
+		A2CEE1912AA642D800BDFF30 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A2CEE1932AA6442900BDFF30 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		A2CEE1972AA647D200BDFF30 /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		A2CEE1992AA649C800BDFF30 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A2DED4002AAF77D6004CF21B /* CheckinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinView.swift; sourceTree = "<group>"; };
+		A2DED4022AAF7CCE004CF21B /* ShapeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeClasses.swift; sourceTree = "<group>"; };
+		A2E8FD932AAA2CB20020C6E6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		A2E8FD952AAA33F10020C6E6 /* DashboardMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMap.swift; sourceTree = "<group>"; };
+		A47B9C91E5D8751B30D135CE /* Pods-Teatherapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teatherapp.debug.xcconfig"; path = "Target Support Files/Pods-Teatherapp/Pods-Teatherapp.debug.xcconfig"; sourceTree = "<group>"; };
+		AFBCE7539916E841B8948DDA /* Pods-Teatherapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teatherapp.release.xcconfig"; path = "Target Support Files/Pods-Teatherapp/Pods-Teatherapp.release.xcconfig"; sourceTree = "<group>"; };
+		BD0ACE162AE4B29A005FD207 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BD0F55F52AE44F4700198F67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsView.swift; sourceTree = "<group>"; };
+		BD0F55FA2AE4556B00198F67 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		BD12A8CD2AE3A79B00A61445 /* CountryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
+		BD38F4662AEA4B560032FAC7 /* UnderLineTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineTabBarView.swift; sourceTree = "<group>"; };
+		BD38F4682AEA55B90032FAC7 /* DispatchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchHistoryView.swift; sourceTree = "<group>"; };
+		BD38F46A2AEA55CB0032FAC7 /* CheckInHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInHistoryView.swift; sourceTree = "<group>"; };
+		BD3AECAC2AE2C29700DEB032 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		BD3AECAE2AE2C49E00DEB032 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		BD3AECB02AE2D0C400DEB032 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		BD3AECB22AE2D1C100DEB032 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFBottomBarModel.swift; sourceTree = "<group>"; };
+		BDB60B8D2AE1B1BA002ABBBC /* TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
+		BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BDB60B912AE1B55D002ABBBC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		BDB60B942AE1B609002ABBBC /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		BDD6F7392AE849700080AC4C /* HeaderBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBarView.swift; sourceTree = "<group>"; };
+		BDE020A72AEA74DF00DCB17E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDE020A92AEA781C00DCB17E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A2BCBB602AA0FE9800DE6255 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA9B35A878D118E911B96CC /* Pods_Teatherapp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A2097B232AB35237003C27C6 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				A2097B242AB35251003C27C6 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		A2163D932AB4B26300A981CC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BD3AECAE2AE2C49E00DEB032 /* LoginModel.swift */,
+				A2BCBB682AA0FE9800DE6255 /* LoginView.swift */,
+				BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A2163D942AB4B26B00A981CC /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				BD3AECB02AE2D0C400DEB032 /* SignupModel.swift */,
+				A254CC002AA7826200FAE281 /* SignupView.swift */,
+				BD3AECB22AE2D1C100DEB032 /* SignupViewModel.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		A2163D992AB4B33200A981CC /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A2163D972AB4B32800A981CC /* ChatHomeView.swift */,
+				A2163D9A2AB4BD3E00A981CC /* ChatView.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A2163DA22AB4C10500A981CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2163D9E2AB4C0FC00A981CC /* Message.swift */,
+				A2163D9D2AB4C0FC00A981CC /* Room.swift */,
+				A2163D9C2AB4C0FC00A981CC /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A2BCBB5A2AA0FE9800DE6255 = {
+			isa = PBXGroup;
+			children = (
+				A2BCBB652AA0FE9800DE6255 /* Teatherapp */,
+				A2BCBB642AA0FE9800DE6255 /* Products */,
+				B3D637B612F118D97E6754DD /* Pods */,
+				EE1CE420CD132D0C251FAED9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A2BCBB642AA0FE9800DE6255 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2BCBB632AA0FE9800DE6255 /* Tethr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2BCBB652AA0FE9800DE6255 /* Teatherapp */ = {
+			isa = PBXGroup;
+			children = (
+				BDE020A92AEA781C00DCB17E /* Info.plist */,
+				BD0F55F52AE44F4700198F67 /* AppDelegate.swift */,
+				A2BCBB662AA0FE9800DE6255 /* TeatherappApp.swift */,
+				A2163DA22AB4C10500A981CC /* Models */,
+				A2CEE1902AA63D4F00BDFF30 /* Views */,
+				A2BCBB762AA10ACF00DE6255 /* UI Components */,
+				BD45FC472AE30EB100B5989A /* Map */,
+				A2DED4042AAF8764004CF21B /* Helpers */,
+				BDB60B932AE1B5E6002ABBBC /* Services */,
+				A2BCBB6C2AA0FE9A00DE6255 /* Preview Content */,
+				A2CEE1932AA6442900BDFF30 /* Colors.xcassets */,
+				A264467F2ADFC0D1006A9885 /* Assets.xcassets */,
+			);
+			path = Teatherapp;
+			sourceTree = "<group>";
+		};
+		A2BCBB6C2AA0FE9A00DE6255 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A2BCBB6D2AA0FE9A00DE6255 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A2BCBB762AA10ACF00DE6255 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				A2BCBB742AA10AC400DE6255 /* TFButton.swift */,
+				A254CC022AA788BD00FAE281 /* UnderLinePincodeView.swift */,
+				A254CC042AA78F4500FAE281 /* TFCapsuleButton.swift */,
+				BDB60B8D2AE1B1BA002ABBBC /* TextFields.swift */,
+				BD12A8CD2AE3A79B00A61445 /* CountryPicker.swift */,
+				BDD6F7392AE849700080AC4C /* HeaderBarView.swift */,
+				BD38F4662AEA4B560032FAC7 /* UnderLineTabBarView.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		A2CEE1902AA63D4F00BDFF30 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDE020A72AEA74DF00DCB17E /* LaunchScreen.storyboard */,
+				A2CEE1912AA642D800BDFF30 /* RootView.swift */,
+				A2163D932AB4B26300A981CC /* Login */,
+				A2163D942AB4B26B00A981CC /* Signup */,
+				A2DED4052AAF87DD004CF21B /* Reset */,
+				A2E8FD912AAA2C9A0020C6E6 /* Home */,
+				BDB60B8A2AE1A8B0002ABBBC /* HistoryView */,
+				BDB60B8B2AE1A8D7002ABBBC /* Checkin */,
+				BD0F55F92AE4555500198F67 /* Calendar */,
+				A2097B232AB35237003C27C6 /* Setting */,
+				A2163D992AB4B33200A981CC /* Chat */,
+				BDB60B8C2AE1A8F1002ABBBC /* Notification */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A2DED4042AAF8764004CF21B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A2163DA32AB4C1C400A981CC /* ViewportHelper.swift */,
+				A2DED4022AAF7CCE004CF21B /* ShapeClasses.swift */,
+				A2097B262AB38216003C27C6 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A2DED4052AAF87DD004CF21B /* Reset */ = {
+			isa = PBXGroup;
+			children = (
+				A2CEE1972AA647D200BDFF30 /* ResetPassword.swift */,
+			);
+			path = Reset;
+			sourceTree = "<group>";
+		};
+		A2E8FD912AAA2C9A0020C6E6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8FD952AAA33F10020C6E6 /* DashboardMap.swift */,
+				A2CEE1992AA649C800BDFF30 /* HomeView.swift */,
+				A2002EE12AAB750C006D9AB8 /* TFBottomBar.swift */,
+				BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B3D637B612F118D97E6754DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A47B9C91E5D8751B30D135CE /* Pods-Teatherapp.debug.xcconfig */,
+				AFBCE7539916E841B8948DDA /* Pods-Teatherapp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BD0F55F92AE4555500198F67 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				BD0F55FA2AE4556B00198F67 /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		BD45FC472AE30EB100B5989A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */,
+				BD0ACE162AE4B29A005FD207 /* LocationManager.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		BDB60B8A2AE1A8B0002ABBBC /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8FD932AAA2CB20020C6E6 /* HistoryView.swift */,
+				BD38F4682AEA55B90032FAC7 /* DispatchHistoryView.swift */,
+				BD38F46A2AEA55CB0032FAC7 /* CheckInHistoryView.swift */,
+			);
+			path = HistoryView;
+			sourceTree = "<group>";
+		};
+		BDB60B8B2AE1A8D7002ABBBC /* Checkin */ = {
+			isa = PBXGroup;
+			children = (
+				A2DED4002AAF77D6004CF21B /* CheckinView.swift */,
+			);
+			path = Checkin;
+			sourceTree = "<group>";
+		};
+		BDB60B8C2AE1A8F1002ABBBC /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				A2163D952AB4B28900A981CC /* NotificationView.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		BDB60B932AE1B5E6002ABBBC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BDB60B912AE1B55D002ABBBC /* APIManager.swift */,
+				BDB60B942AE1B609002ABBBC /* Services.swift */,
+				BD3AECAC2AE2C29700DEB032 /* Constant.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EE1CE420CD132D0C251FAED9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A2BCBB622AA0FE9800DE6255 /* Teatherapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2BCBB712AA0FE9A00DE6255 /* Build configuration list for PBXNativeTarget "Teatherapp" */;
+			buildPhases = (
+				CF0AA532B4FE184320A01D16 /* [CP] Check Pods Manifest.lock */,
+				A2BCBB5F2AA0FE9800DE6255 /* Sources */,
+				A2BCBB602AA0FE9800DE6255 /* Frameworks */,
+				A2BCBB612AA0FE9800DE6255 /* Resources */,
+				BC92EC0762B0CD3C4F182241 /* [CP] Embed Pods Frameworks */,
+				2ECBFF8C56D60992641534AE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Teatherapp;
+			packageProductDependencies = (
+			);
+			productName = Teatherapp;
+			productReference = A2BCBB632AA0FE9800DE6255 /* Tethr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A2BCBB5B2AA0FE9800DE6255 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A2BCBB622AA0FE9800DE6255 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A2BCBB5E2AA0FE9800DE6255 /* Build configuration list for PBXProject "Teatherapp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A2BCBB5A2AA0FE9800DE6255;
+			packageReferences = (
+			);
+			productRefGroup = A2BCBB642AA0FE9800DE6255 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2BCBB622AA0FE9800DE6255 /* Teatherapp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A2BCBB612AA0FE9800DE6255 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2CEE1952AA6442900BDFF30 /* Colors.xcassets in Resources */,
+				BDE020A82AEA74DF00DCB17E /* LaunchScreen.storyboard in Resources */,
+				A26446802ADFC0D1006A9885 /* Assets.xcassets in Resources */,
+				A2BCBB6E2AA0FE9A00DE6255 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2ECBFF8C56D60992641534AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Teatherapp/Pods-Teatherapp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Teatherapp/Pods-Teatherapp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Teatherapp/Pods-Teatherapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC92EC0762B0CD3C4F182241 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Teatherapp/Pods-Teatherapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Teatherapp/Pods-Teatherapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Teatherapp/Pods-Teatherapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0AA532B4FE184320A01D16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Teatherapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A2BCBB5F2AA0FE9800DE6255 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2163D9B2AB4BD3E00A981CC /* ChatView.swift in Sources */,
+				BD38F4692AEA55B90032FAC7 /* DispatchHistoryView.swift in Sources */,
+				A254CC032AA788BD00FAE281 /* UnderLinePincodeView.swift in Sources */,
+				A2163DA02AB4C0FC00A981CC /* Room.swift in Sources */,
+				A254CC012AA7826200FAE281 /* SignupView.swift in Sources */,
+				A2CEE1922AA642D800BDFF30 /* RootView.swift in Sources */,
+				A2E8FD942AAA2CB20020C6E6 /* HistoryView.swift in Sources */,
+				BDB60B902AE1B4B4002ABBBC /* LoginViewModel.swift in Sources */,
+				BD3AECAD2AE2C29700DEB032 /* Constant.swift in Sources */,
+				A2002EE22AAB750C006D9AB8 /* TFBottomBar.swift in Sources */,
+				BD0F55FB2AE4556B00198F67 /* CalendarView.swift in Sources */,
+				A2BCBB692AA0FE9800DE6255 /* LoginView.swift in Sources */,
+				A2163D962AB4B28900A981CC /* NotificationView.swift in Sources */,
+				BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */,
+				BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */,
+				BD0F55F82AE44F8500198F67 /* GoogleMapsView.swift in Sources */,
+				BDB60B922AE1B55D002ABBBC /* APIManager.swift in Sources */,
+				BD12A8CE2AE3A79B00A61445 /* CountryPicker.swift in Sources */,
+				A2163D9F2AB4C0FC00A981CC /* User.swift in Sources */,
+				A2097B252AB35251003C27C6 /* SettingView.swift in Sources */,
+				A2163DA42AB4C1C500A981CC /* ViewportHelper.swift in Sources */,
+				BD0F55F62AE44F4700198F67 /* AppDelegate.swift in Sources */,
+				A2CEE1982AA647D200BDFF30 /* ResetPassword.swift in Sources */,
+				BD51B72D2AE66B5800EB6106 /* TFBottomBarModel.swift in Sources */,
+				A254CC052AA78F4500FAE281 /* TFCapsuleButton.swift in Sources */,
+				BDB60B952AE1B609002ABBBC /* Services.swift in Sources */,
+				BD38F46B2AEA55CB0032FAC7 /* CheckInHistoryView.swift in Sources */,
+				A2E8FD962AAA33F10020C6E6 /* DashboardMap.swift in Sources */,
+				A2CEE19A2AA649C800BDFF30 /* HomeView.swift in Sources */,
+				A2097B272AB38216003C27C6 /* Helpers.swift in Sources */,
+				A2DED4012AAF77D6004CF21B /* CheckinView.swift in Sources */,
+				BDD6F73A2AE849700080AC4C /* HeaderBarView.swift in Sources */,
+				A2163DA12AB4C0FC00A981CC /* Message.swift in Sources */,
+				BD3AECAF2AE2C49E00DEB032 /* LoginModel.swift in Sources */,
+				A2BCBB752AA10AC400DE6255 /* TFButton.swift in Sources */,
+				A2DED4032AAF7CCE004CF21B /* ShapeClasses.swift in Sources */,
+				A2163D982AB4B32800A981CC /* ChatHomeView.swift in Sources */,
+				A2BCBB672AA0FE9800DE6255 /* TeatherappApp.swift in Sources */,
+				BDB60B8E2AE1B1BA002ABBBC /* TextFields.swift in Sources */,
+				BD38F4672AEA4B560032FAC7 /* UnderLineTabBarView.swift in Sources */,
+				BD0ACE172AE4B29A005FD207 /* LocationManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A2BCBB6F2AA0FE9A00DE6255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A2BCBB702AA0FE9A00DE6255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A2BCBB722AA0FE9A00DE6255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A47B9C91E5D8751B30D135CE /* Pods-Teatherapp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Teatherapp/Preview Content\"";
+				DEVELOPMENT_TEAM = KAXG27M44N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Teatherapp/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Save events";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location for checkins";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tethrfamily.Tether;
+				PRODUCT_NAME = Tethr;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A2BCBB732AA0FE9A00DE6255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFBCE7539916E841B8948DDA /* Pods-Teatherapp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Teatherapp/Preview Content\"";
+				DEVELOPMENT_TEAM = KAXG27M44N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Teatherapp/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Save events";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location for checkins";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tethrfamily.Tether;
+				PRODUCT_NAME = Tethr;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A2BCBB5E2AA0FE9800DE6255 /* Build configuration list for PBXProject "Teatherapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2BCBB6F2AA0FE9A00DE6255 /* Debug */,
+				A2BCBB702AA0FE9A00DE6255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2BCBB712AA0FE9A00DE6255 /* Build configuration list for PBXNativeTarget "Teatherapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2BCBB722AA0FE9A00DE6255 /* Debug */,
+				A2BCBB732AA0FE9A00DE6255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A2BCBB5B2AA0FE9800DE6255 /* Project object */;
+}
