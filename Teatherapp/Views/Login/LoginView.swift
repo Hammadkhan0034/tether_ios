@@ -92,19 +92,16 @@ struct LoginView: View {
             //                    .background(Capsule())
             //            })
             TFButton(label: "Login") {
-                
-                loginCallBack()
-                
-//                if !username.isEmpty && !password.isEmpty {
-//                    viewModel.logIn(email: username,
-//                                    password: password,
-//                                    device_id: uuid,
-//                                    device_type: "IOS")
-//                }
-//                else {
-//                    self.errorMessage = "All fields are mandatory."
-//                    self.showingAlert = true
-//                }
+                if !username.isEmpty && !password.isEmpty {
+                    viewModel.logIn(email: username,
+                                    password: password,
+                                    device_id: uuid,
+                                    device_type: "IOS")
+                }
+                else {
+                    self.errorMessage = "All fields are mandatory."
+                    self.showingAlert = true
+                }
             }
             .padding(.top)
         }
