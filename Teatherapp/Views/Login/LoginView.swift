@@ -92,6 +92,7 @@ struct LoginView: View {
             //                    .background(Capsule())
             //            })
             TFButton(label: "Login") {
+//                loginCallBack()
                 if !username.isEmpty && !password.isEmpty {
                     viewModel.logIn(email: username,
                                     password: password,

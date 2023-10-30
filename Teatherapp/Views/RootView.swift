@@ -26,7 +26,7 @@ struct RootView: View {
     
     func onLoginPressed(){
         print("true")
-        isLoggedIn=true
+        isLoggedIn = true
     }
 }
 

@@ -9,7 +9,8 @@ import Combine
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject {
-    private let locationManager = CLLocationManager()
+    
+    let locationManager = CLLocationManager()
 
     // 1
      @Published var location: CLLocation? {

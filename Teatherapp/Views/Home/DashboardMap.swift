@@ -12,19 +12,18 @@ struct DashboardMap: View {
     @EnvironmentObject var tfModel: TFBottomBarModel
     
     @State var showFilters : Bool = false
+    
+    @State var isCurrentLocation : Bool = false
     @State var isSatellite : Bool = false
     
     var body: some View {
-        VStack{
-            VStack {
-                //            Map()
-                //                .mapStyle(isSatellite ? .imagery : .standard)
-                GoogleMapsView()
+        ZStack{
+            //MARK: - Google Map
+                GoogleMapsView(isSatellite: self.$isSatellite, isCurrentLocation: self.$isCurrentLocation)
                     .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
                     .edgesIgnoringSafeArea(.all)
-            }
-        }
-        .overlay{
+            
+            //MARK: - Google Map Ovelay View
             VStack{
                 VStack{
                     HStack(alignment: .top){
@@ -98,6 +97,7 @@ struct DashboardMap: View {
                     }
                     .padding(.horizontal)
                 }
+                
                 VStack(alignment:.trailing){
                     if showFilters{
                         VStack{
@@ -149,22 +149,46 @@ struct DashboardMap: View {
                     
                     Spacer()
                     
-                    TFCapsuleButton(label: "SOS",
-                                    image: "light.beacon.max.fill",
-                                    buttonColor: .white,
-                                    textColor: Color.appBlue)
+                    //MARK: - SOS
+                    NavigationLink(destination: {
+                        SOSView()
+                    }, label: {
+                        HStack{
+                            Image(systemName: "light.beacon.max.fill")
+                                .foregroundColor(Color.appBlue)
+                            
+                            Text("SOS")
+                                .foregroundColor(Color.appBlue)
+                                .fontWeight(.bold)
+                        }
+                        .padding(10)
+                        .background(Capsule().fill(Color.white))
+
+                    })
                     
                     Spacer()
                     
-                    TFCapsuleButton(label: "CLOCKIN",
-                                    image: "clock.fill",
-                                    buttonColor: Color.appBlue,
-                                    textColor: .white)
-                    
-                    Spacer()
-                    
+                    //MARK: - Check in
                     Button(action: {
-                        
+                        self.tfModel.selectedIndex = 3
+                    }, label: {
+                        HStack{
+                            Image(systemName: "clock.fill")
+                                .foregroundColor(.white)
+                            
+                            Text("CLOCKIN")
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                        }
+                        .padding(10)
+                        .background(Capsule().fill(Color.appBlue))
+                    })
+                    
+                    Spacer()
+                    
+                    //MARK: - Current Location
+                    Button(action: {
+                        isCurrentLocation = !isCurrentLocation
                     }, label: {
                         Image("img_gps")
                             .frame(width: 25, height: 25)

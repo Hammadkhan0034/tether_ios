@@ -15,7 +15,9 @@ struct TFCapsuleButton: View {
     let textColor:Color
     
     var body: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            
+        }, label: {
             HStack{
                 Image(systemName: image)
                     .foregroundColor(textColor)

@@ -46,6 +46,7 @@
 		BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECB02AE2D0C400DEB032 /* SignupModel.swift */; };
 		BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECB22AE2D1C100DEB032 /* SignupViewModel.swift */; };
 		BD51B72D2AE66B5800EB6106 /* TFBottomBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */; };
+		BD691B0D2AEFB038009869D8 /* SOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691B0C2AEFB038009869D8 /* SOSView.swift */; };
 		BDB60B8E2AE1B1BA002ABBBC /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B8D2AE1B1BA002ABBBC /* TextFields.swift */; };
 		BDB60B902AE1B4B4002ABBBC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */; };
 		BDB60B922AE1B55D002ABBBC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B912AE1B55D002ABBBC /* APIManager.swift */; };
@@ -99,6 +100,7 @@
 		BD3AECB02AE2D0C400DEB032 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		BD3AECB22AE2D1C100DEB032 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFBottomBarModel.swift; sourceTree = "<group>"; };
+		BD691B0C2AEFB038009869D8 /* SOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSView.swift; sourceTree = "<group>"; };
 		BDB60B8D2AE1B1BA002ABBBC /* TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BDB60B912AE1B55D002ABBBC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -194,7 +196,7 @@
 				A2163DA22AB4C10500A981CC /* Models */,
 				A2CEE1902AA63D4F00BDFF30 /* Views */,
 				A2BCBB762AA10ACF00DE6255 /* UI Components */,
-				BD45FC472AE30EB100B5989A /* Map */,
+				BD45FC472AE30EB100B5989A /* GoogleMap */,
 				A2DED4042AAF8764004CF21B /* Helpers */,
 				BDB60B932AE1B5E6002ABBBC /* Services */,
 				A2BCBB6C2AA0FE9A00DE6255 /* Preview Content */,
@@ -270,6 +272,7 @@
 				A2CEE1992AA649C800BDFF30 /* HomeView.swift */,
 				A2002EE12AAB750C006D9AB8 /* TFBottomBar.swift */,
 				BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */,
+				BD691B0C2AEFB038009869D8 /* SOSView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -291,13 +294,13 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
-		BD45FC472AE30EB100B5989A /* Map */ = {
+		BD45FC472AE30EB100B5989A /* GoogleMap */ = {
 			isa = PBXGroup;
 			children = (
 				BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */,
 				BD0ACE162AE4B29A005FD207 /* LocationManager.swift */,
 			);
-			path = Map;
+			path = GoogleMap;
 			sourceTree = "<group>";
 		};
 		BDB60B8A2AE1A8B0002ABBBC /* HistoryView */ = {
@@ -494,6 +497,7 @@
 				A2002EE22AAB750C006D9AB8 /* TFBottomBar.swift in Sources */,
 				BD0F55FB2AE4556B00198F67 /* CalendarView.swift in Sources */,
 				A2BCBB692AA0FE9800DE6255 /* LoginView.swift in Sources */,
+				BD691B0D2AEFB038009869D8 /* SOSView.swift in Sources */,
 				A2163D962AB4B28900A981CC /* NotificationView.swift in Sources */,
 				BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */,
 				BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */,
