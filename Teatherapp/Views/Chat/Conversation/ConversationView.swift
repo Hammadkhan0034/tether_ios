@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatHomeView: View {
+struct ConversationView: View {
     
     @Environment(\.dismiss) var dismiss
     
@@ -72,5 +72,5 @@ struct ChatHomeView: View {
 }
 
 #Preview {
-    ChatHomeView()
+    ConversationView()
 }
