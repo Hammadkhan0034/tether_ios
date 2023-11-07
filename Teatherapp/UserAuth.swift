@@ -10,8 +10,8 @@ import Combine
 
 class UserAuth: ObservableObject {
     
-    @Published var isLoggedin = false
-
+    @Published var isLoggedin = UserDefaults.standard.bool(forKey: "loggedIn")
+    
     func login() {
         // login request... on success:
         self.isLoggedin = true

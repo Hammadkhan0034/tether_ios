@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct AnimationData {
-        var delay: TimeInterval
-        var ty: CGFloat
-    }
+    var delay: TimeInterval
+    var ty: CGFloat
+}
 
 let ITEMS = [
-        AnimationData(delay: 0.0, ty: -50),
-        AnimationData(delay: 0.1, ty: -60),
-        AnimationData(delay: 0.2, ty: -70),
-    ]
+    AnimationData(delay: 0.0, ty: -30),
+    AnimationData(delay: 0.1, ty: -40),
+    AnimationData(delay: 0.2, ty: -50),
+    AnimationData(delay: 0.2, ty: -60),
+]
 
 struct LoadingView: View {
     
@@ -28,6 +29,7 @@ struct LoadingView: View {
             DotView(transY: $transY[0])
             DotView(transY: $transY[1])
             DotView(transY: $transY[2])
+            DotView(transY: $transY[3])
         }
         .onAppear {
             animateDots() // Not defined yet
@@ -42,7 +44,7 @@ struct LoadingView: View {
                 animateDot(binding: $transY[index], animationData: data)
             }
         }
-
+        
         //Repeat main loop
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             animateDots()
@@ -53,7 +55,7 @@ struct LoadingView: View {
         withAnimation(animation) {
             binding.wrappedValue = animationData.ty
         }
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             withAnimation(animation) {
                 binding.wrappedValue = 0
@@ -67,9 +69,10 @@ struct DotView: View {
     @Binding var transY: CGFloat
     
     var body: some View {
-            VStack{}.frame(width: 40, height: 40, alignment: .center)
-                .background(Color.white)
-                .cornerRadius(20.0)
-                .offset(x: 0, y: transY)
+        VStack{}
+            .frame(width: 20, height: 20, alignment: .center)
+            .background(Color.appBlue)
+            .cornerRadius(10.0)
+            .offset(x: 0, y: transY)
     }
 }

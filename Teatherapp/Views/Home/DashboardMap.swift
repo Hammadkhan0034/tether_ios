@@ -10,6 +10,8 @@ import SwiftUI
 struct DashboardMap: View {
     
     @EnvironmentObject var tfModel: TFBottomBarModel
+    @EnvironmentObject var userAuth : UserAuth
+    @EnvironmentObject var locationManager: LocationManager
     
     @State var showFilters : Bool = false
     
@@ -29,7 +31,8 @@ struct DashboardMap: View {
                     HStack(alignment: .top){
                         //MARK: - Menu
                         Button(action: {
-                            
+                            UserDefaults.standard.setValue(false, forKey: "loggedIn")
+                            userAuth.logout()
                         }, label: {
                             Image("menu_icon")
                                 .padding()
@@ -52,7 +55,7 @@ struct DashboardMap: View {
                         VStack{
                             //MARK: - Chat
                             NavigationLink{
-                                ChatHomeView()
+                                ConversationView()
                             }label:{
                                 Image(systemName: "text.bubble.fill")
                                     .frame(width: 25, height: 25)

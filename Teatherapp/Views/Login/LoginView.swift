@@ -9,15 +9,15 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @StateObject var viewModel =  LoginViewModel()
+    @ObservedObject var viewModel =  LoginViewModel()
+    @EnvironmentObject var userAuth : UserAuth
+    @EnvironmentObject var locationManager: LocationManager
     
     @State var username = ""
     @State var password = ""
     @State var uuid = ""
     
     @State var isSecured: Bool = true
-    
-    var loginCallBack:()->Void
     
     @State var showingAlert = false
     @State var errorMessage = ""
@@ -81,23 +81,10 @@ struct LoginView: View {
                         .fontWeight(.semibold)
                 })
             }
-            //            NavigationLink(destination: {
-            //                HomeView()
-            //            }, label: {
-            //                Text("Login")
-            //                    .foregroundStyle(.white)
-            //                    .font(.system(size: 22,weight: .bold))
-            //                    .frame(height: 60)
-            //                    .frame(maxWidth: .infinity)
-            //                    .background(Capsule())
-            //            })
+
             TFButton(label: "Login") {
-//                loginCallBack()
                 if !username.isEmpty && !password.isEmpty {
-                    viewModel.logIn(email: username,
-                                    password: password,
-                                    device_id: uuid,
-                                    device_type: "IOS")
+                    login()
                 }
                 else {
                     self.errorMessage = "All fields are mandatory."
@@ -106,23 +93,28 @@ struct LoginView: View {
             }
             .padding(.top)
         }
-        .alert(self.errorMessage, isPresented: $showingAlert) {
-                    Button("OK", role: .cancel) { }
-                }
         .padding()
-        .overlay(self.viewModel.isLoading ? ProgressView(): nil)
-        .onAppear{
+        .navigationBarBackButtonHidden()
+        .overlay(self.viewModel.isLoading ? LoadingView(): nil)
+        
+        .alert(self.errorMessage,
+               isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
+        }
+        .onAppear {
             self.uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         }
         .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
-            loginCallBack()
+            userAuth.login()
         }
-        .navigationBarBackButtonHidden()
     }
 }
 
-#Preview {
-    LoginView {
-        print("anjlfnsa")
+extension LoginView {
+    func login () {
+        viewModel.logIn(email: username,
+                        password: password,
+                        device_id: uuid,
+                        device_type: "IOS")
     }
 }

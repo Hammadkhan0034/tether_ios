@@ -14,6 +14,8 @@ class SignupViewModel: ObservableObject {
     @Published var isLoading : Bool = false
     @Published var apiSuccessFullyCalled : Bool = false
     
+    var signupModel : SignupModel?
+
     func signUp(name : String,
                 email : String,
                 username: String,
@@ -40,21 +42,24 @@ class SignupViewModel: ObservableObject {
         
         isLoading = true
         
-        APIManager.shared.requestPOST(url: Services.getEndpoint(.signup), parameter: params) { jsonData, error in
+        APIManager.shared.requestPOST(url: Services.Endpoint(.signup), parameter: params) { result, error in
             
-            self.isLoading = false
-            
-            let json = JSON(jsonData ?? "")
-            
-            if error != nil {
+            if result != nil {
+                print(String(data: try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted), encoding: .utf8)!)
+                print("Data received from server successfully")
                 
-                return
-            }
-            else {
-                if json != nil {
+                do {
+                    self.signupModel = try JSONDecoder().decode(SignupModel.self, from: result!)
                     
                     self.apiSuccessFullyCalled = true
+                    self.isLoading = false
                 }
+                catch {
+                    print("Error:- \(error.localizedDescription)")
+                }
+            }
+            else {
+                
             }
         }
     }

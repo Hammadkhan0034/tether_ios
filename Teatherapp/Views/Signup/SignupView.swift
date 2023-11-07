@@ -10,7 +10,7 @@ import SwiftUI
 struct SignupView: View {
     
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel =  SignupViewModel()
+    @ObservedObject var viewModel =  SignupViewModel()
     
     @State var fname = ""
     @State var lname = ""
@@ -143,16 +143,7 @@ struct SignupView: View {
                     
                     TFButton(label: "Signup") {
                         if !fname.isEmpty && !lname.isEmpty && !email.isEmpty && !username.isEmpty && !password.isEmpty && !phoneCode.isEmpty && !phoneNumber.isEmpty && !address.isEmpty && !timeZone.isEmpty {
-                            viewModel.signUp(name: "\(self.fname + self.lname)",
-                                             email: self.email,
-                                             username: self.username,
-                                             password: self.password,
-                                             phoneCode: self.phoneCode,
-                                             phoneNumber: self.phoneNumber,
-                                             address: self.address,
-                                             deviceType: "IOS",
-                                             timeZone: self.timeZone,
-                                             deviceID: self.uuid)
+                            signUpAPICalled()
                         }
                         else {
                             self.errorMessage = "All fields are mandatory."
@@ -162,18 +153,19 @@ struct SignupView: View {
                 }
             }
         }
-        .alert(self.errorMessage, isPresented: $showingAlert) {
+        .alert(self.errorMessage,
+               isPresented: $showingAlert) {
                     Button("OK", role: .cancel) { }
                 }
         .padding()
-        .overlay(self.viewModel.isLoading ? ProgressView(): nil)
+        .navigationBarBackButtonHidden()
+        .overlay(self.viewModel.isLoading ? LoadingView(): nil)
         .onAppear{
             self.uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         }
         .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
                 dismiss()
         }
-        .navigationBarBackButtonHidden()
     }
 }
 
@@ -181,3 +173,18 @@ struct SignupView: View {
 //    SignupView()
 //}
 
+extension SignupView {
+    
+    func signUpAPICalled() {
+        viewModel.signUp(name: "\(self.fname + self.lname)",
+                         email: self.email,
+                         username: self.username,
+                         password: self.password,
+                         phoneCode: self.phoneCode,
+                         phoneNumber: self.phoneNumber,
+                         address: self.address,
+                         deviceType: "IOS",
+                         timeZone: self.timeZone,
+                         deviceID: self.uuid)
+    }
+}

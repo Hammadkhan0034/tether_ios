@@ -10,15 +10,16 @@ import SwiftUI
 struct ChatView: View {
     
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var viewModel =  ChatViewModel()
     
-    @StateObject var chatRoom : ChatRoom = ChatRoom(id: 0, personOne: nil, personTwo: nil, messages: [
-        MessageModel(id: 0,text: "Hi there how are you"),
-        MessageModel(id: 1,text: "Hi there how are you"),
-        MessageModel(id: 2,text: "Hi there how are you"),
-        MessageModel(id: 3,text: "Hi there how are you"),
-        MessageModel(id: 4,text: "Hi there how are you"),
-        MessageModel(id: 5,text: "Hi there how are you"),
-        MessageModel(id: 6,text: "Hi there how are you"),])
+//    @StateObject var chatRoom : ChatRoom = ChatRoom(id: 0, personOne: nil, personTwo: nil, messages: [
+//        MessageModel(id: 0,text: "Hi there how are you"),
+//        MessageModel(id: 1,text: "Hi there how are you"),
+//        MessageModel(id: 2,text: "Hi there how are you"),
+//        MessageModel(id: 3,text: "Hi there how are you"),
+//        MessageModel(id: 4,text: "Hi there how are you"),
+//        MessageModel(id: 5,text: "Hi there how are you"),
+//        MessageModel(id: 6,text: "Hi there how are you"),])
     
     @State var msg : String = ""
     
@@ -50,11 +51,11 @@ struct ChatView: View {
             VStack{
                 ScrollView{
                     VStack(alignment: .leading,spacing: 10){
-                        ForEach(chatRoom.messages.indices, id: \.self) {i in
-                            if chatRoom.messages[i].text != nil{
-                                chatBubble(text: chatRoom.messages[i].text!,isReceiver: i%2==0)
-                            }
-                        }
+//                        ForEach(chatRoom.messages.indices, id: \.self) {i in
+//                            if chatRoom.messages[i].text != nil{
+//                                chatBubble(text: chatRoom.messages[i].text!,isReceiver: i%2==0)
+//                            }
+//                        }
                     }
                     .padding(.top,getRelativeHeight(30))
                     .frame(width: getRelativeWidth(375))

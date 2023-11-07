@@ -17,9 +17,9 @@ enum Endpoint : String {
 
 let ENV = "staging"
 let base_URL = "https://tether.mydispatchapp.com/V2/services/"
-let Header : HTTPHeaders = ["Content-Type": "application/json",
-                                      "API_KEY":"9185042346",
-                                      "Ocp-Apim-Subscription-Key":"efac157530e540059a2d54678e56bcf6" ]
+//let Header : HTTPHeaders = ["Content-Type": "application/json",
+//                                      "API_KEY":"9185042346",
+//                                      "Ocp-Apim-Subscription-Key":"efac157530e540059a2d54678e56bcf6" ]
 
 class Services : NSObject {
     class func Endpoint(_ endpoint : Endpoint) -> String {
