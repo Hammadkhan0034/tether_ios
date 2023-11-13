@@ -10,7 +10,8 @@ import SwiftUI
 struct SignupView: View {
     
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel =  SignupViewModel()
+    
+    @StateObject var viewModel =  SignupViewModel()
     
     @State var fname = ""
     @State var lname = ""

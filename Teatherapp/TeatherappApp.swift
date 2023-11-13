@@ -13,31 +13,18 @@ struct TeatherappApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @Environment(\.scenePhase) var scenePhase
-    
-    init() {
-        // disable log constraints
-        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-    }
-    
-    @StateObject var locationManager = LocationManager()
+
     @StateObject var userAuth = UserAuth()
-    
-    var tfModel = TFBottomBarModel()
+    @StateObject var locationManager = LocationManager()
+    @StateObject var tfModel = TFBottomBarModel()
     
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-                if !userAuth.isLoggedin {
-                    LoginView()
-                        .environmentObject(userAuth)
-                        .environmentObject(locationManager)
-                }
-                else {
-                    HomeView()
-                        .environmentObject(tfModel)
-                        .environmentObject(userAuth)
-                        .environmentObject(locationManager)
-                }
+                RootViewController()
+                    .environmentObject(userAuth)
+                    .environmentObject(locationManager)
+                    .environmentObject(tfModel)
             }
         }
         .onChange(of: scenePhase) { newScenePhase in

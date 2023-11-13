@@ -11,11 +11,13 @@ struct CheckinView: View {
     
     @EnvironmentObject var tfModel: TFBottomBarModel
     
+    @State var name : String = ""
+    @State var showCameraPicker : Bool = false
     @State var notes : String = ""
     
     var body: some View {
         VStack{
-            Text("Hi UserName")
+            Text("Hi \(self.name)")
                 .font(.headline)
                 .foregroundColor(Color.appBlue)
             
@@ -24,7 +26,7 @@ struct CheckinView: View {
                 .foregroundColor(Color.appBlue)
             
             Button(action: {
-                
+                showCameraPicker = true
             }, label: {
                 HStack{
                     Image(systemName: "camera")
@@ -46,8 +48,9 @@ struct CheckinView: View {
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .autocorrectionDisabled()
+                .offset(y: -25)
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
-                .padding(.bottom, 4)
+                .padding(.bottom, 2)
             
             Button(action: {
                 
@@ -62,6 +65,9 @@ struct CheckinView: View {
         }
         .padding()
         .background(Rectangle().fill(.white).cornerRadius(20))
+        .onAppear{
+            self.name = UserDefaults.standard.string(forKey: "name") ?? ""
+        }
     }
 }
 

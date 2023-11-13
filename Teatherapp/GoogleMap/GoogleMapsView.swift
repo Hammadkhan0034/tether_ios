@@ -9,24 +9,23 @@ import SwiftUI
 import GoogleMaps
 
 struct GoogleMapsView: UIViewRepresentable {
-    // 1
-    @ObservedObject var locationManager = LocationManager()
-    
+
+    @EnvironmentObject var locationManager: LocationManager
+
     @Binding var isSatellite : Bool
     @Binding var isCurrentLocation : Bool
+    
     private let zoom: Float = 20.0
     
-    // 2
     func makeUIView(context: Self.Context) -> GMSMapView {
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.latitude, longitude: locationManager.longitude, zoom: zoom)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.camera = camera
         
-        // 4 Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: locationManager.latitude, longitude: locationManager.longitude)
-        marker.title = "Title"
-        marker.snippet = "Description"
+        marker.title = UserDefaults.standard.string(forKey: "name") ?? ""
+//        marker.snippet = "Description"
         marker.map = mapView
         mapView.selectedMarker = marker
         
@@ -40,12 +39,12 @@ struct GoogleMapsView: UIViewRepresentable {
             
             let camera = GMSCameraPosition.camera(withLatitude: locationManager.latitude, longitude: locationManager.longitude, zoom: zoom)
             mapView.camera = camera
-//            mapView.animate(toLocation: CLLocationCoordinate2D(latitude: locationManager.latitude, longitude: locationManager.longitude))
+            mapView.animate(toLocation: CLLocationCoordinate2D(latitude: locationManager.latitude, longitude: locationManager.longitude))
             
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: locationManager.latitude, longitude: locationManager.longitude)
-            marker.title = "Title"
-            marker.snippet = "Description"
+            marker.title = "Name"
+//            marker.snippet = "Description"
             marker.map = mapView
             mapView.selectedMarker = marker
             

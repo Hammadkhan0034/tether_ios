@@ -10,18 +10,21 @@ import SwiftUI
 struct ChatView: View {
     
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel =  ChatViewModel()
     
-//    @StateObject var chatRoom : ChatRoom = ChatRoom(id: 0, personOne: nil, personTwo: nil, messages: [
-//        MessageModel(id: 0,text: "Hi there how are you"),
-//        MessageModel(id: 1,text: "Hi there how are you"),
-//        MessageModel(id: 2,text: "Hi there how are you"),
-//        MessageModel(id: 3,text: "Hi there how are you"),
-//        MessageModel(id: 4,text: "Hi there how are you"),
-//        MessageModel(id: 5,text: "Hi there how are you"),
-//        MessageModel(id: 6,text: "Hi there how are you"),])
+    @StateObject var chatViewModel =  ChatViewModel()
+    @StateObject var messageViewModel =  MessageViewModel()
     
-    @State var msg : String = ""
+    @State var icon : String
+    @State var name : String
+    @State var conversationID : String
+    @State var receiverID : String
+    @State var conversationType : String
+    
+    @State var receiverName = ""
+    @State var position = 0
+    @State var messagesArray = [ChatModelData]()
+    
+    @State var message : String = ""
     
     var body: some View {
         VStack{
@@ -32,14 +35,26 @@ struct ChatView: View {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(.white)
                 }
+                .padding(.trailing, 6)
                 
-                Image("userPlaceholder")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 45, height: 45)
-                    .padding(.leading,15)
+                AsyncImage(url: URL(string: self.icon)) { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 40,height: 40)
+                            .clipShape(.circle)
+                    }
+                    else {
+                        Image("userPlaceholder")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 40,height: 40)
+                            .clipShape(.circle)
+                    }
+                }
                 
-                Text("Users Name")
+                Text(self.name)
                     .foregroundColor(.white)
                     .font(.system(size: 18).weight(.bold))
                 
@@ -48,52 +63,105 @@ struct ChatView: View {
             .padding()
             .background(Color.appBlue)
             
-            VStack{
-                ScrollView{
-                    VStack(alignment: .leading,spacing: 10){
-//                        ForEach(chatRoom.messages.indices, id: \.self) {i in
-//                            if chatRoom.messages[i].text != nil{
-//                                chatBubble(text: chatRoom.messages[i].text!,isReceiver: i%2==0)
-//                            }
-//                        }
-                    }
-                    .padding(.top,getRelativeHeight(30))
-                    .frame(width: getRelativeWidth(375))
-                }
-                .frame(width: getRelativeWidth(375))
-                
-                HStack{
-                    TextField("Type Message",text: $msg)
-                        .padding(.leading)
-                    
-                    Button(action: {
+            ScrollView {
+                ScrollViewReader { proxy in
+                    ForEach(0..<messagesArray.count, id: \.self) { index in
                         
-                    }, label: {
-                        Image(systemName: "paperplane.fill")
-                    })
+                        MessageView(direction: messagesArray[index].receiverName == self.name ? .right : .left) {
+                            
+                            HStack{
+                                Text(messagesArray[index].message)
+                                    .font(.system(size: 16))
+                                
+                                Text(getTime(dateString: messagesArray[index].createdAt))
+                                    .font(.system(size: 10))
+                                    .offset(y: 8)
+                                
+                            }
+                            .padding(.all, 15)
+                            .foregroundColor(Color.white)
+                            .background(Color.blue)
+                        }
+                    }
+                    .onChange(of: position) { value in
+                        withAnimation {
+                            proxy.scrollTo(value, anchor: .center)
+                        }
+                    }
                 }
-                .padding()
-                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
-                .padding()
             }
+            .scrollIndicators(.hidden)
+//            .defaultScrollAnchor(.bottom)
+            
+            Spacer()
+            
+            HStack{
+                TextField("Type Message",text: $message)
+                    .padding(.leading, 6)
+                    .submitLabel(.send)
+                    .autocorrectionDisabled()
+                    .onSubmit{
+                        hideKeyboard()
+                        sendMessage()
+                    }
+                
+                Button(action: {
+                    if !message.isEmpty {
+                        hideKeyboard()
+                        sendMessage()
+                    }
+                }, label: {
+                    Image(systemName: "paperplane.fill")
+                })
+            }
+            .padding()
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
+            .padding()
         }
         .navigationBarBackButtonHidden()
-    }
-    
-    func chatBubble(text:String,isReceiver:Bool)->some View{
-        return Text(text)
-            .padding(.horizontal,getRelativeWidth(10))
-            .padding(.vertical,getRelativeHeight(10))
-            .background(
-                Capsule().foregroundColor(Color(red: 1, green: 0.78, blue: 0).opacity(0.25))
-            )
-            .frame(width: getRelativeWidth(345),
-                   alignment: isReceiver ? .leading:.trailing)
-            .padding(isReceiver ? .leading:.trailing,getRelativeHeight(30))
-            .padding(.bottom,getRelativeHeight(10))
+        .overlay(self.chatViewModel.isLoading || self.messageViewModel.isLoading ? LoadingView(): nil)
+        
+        .onAppear{
+            getChat()
+        }
+        .onChange(of: chatViewModel.apiSuccessFullyCalled) { newValue in
+            
+            if let arr = chatViewModel.chatModel?.data {
+                let sortedArr = arr.sorted(by: {$0.createdAt > $1.createdAt})
+                self.messagesArray.removeAll()
+                self.messagesArray = sortedArr.reversed()
+            }
+        }
+        .onChange(of: messageViewModel.apiSuccessFullyCalled) { newValue in
+            self.message = ""
+            getChat()
+        }
     }
 }
 
-#Preview {
-    ChatView()
+//#Preview {
+//    ChatView()
+//}
+
+extension ChatView {
+    
+    func getChat() {
+        chatViewModel.chat(TemporaryAccessCode: UserDefaults.standard.string(forKey: "temporaryAccessCode") ?? "",
+                           UserName: UserDefaults.standard.string(forKey: "username") ?? "",
+                           circle_id: UserDefaults.standard.string(forKey: "circleID") ?? "",
+                           conversation_id: self.conversationID,
+                           conversation_type: self.conversationType)
+    }
+    
+    func sendMessage() {
+        messageViewModel.sendMessage(TemporaryAccessCode: UserDefaults.standard.string(forKey: "temporaryAccessCode") ?? "",
+                                     UserName: UserDefaults.standard.string(forKey: "username") ?? "",
+                                     circle_id: UserDefaults.standard.string(forKey: "circleID") ?? "",
+                                     receiver_id: self.receiverID,
+                                     message: self.message)
+    }
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }

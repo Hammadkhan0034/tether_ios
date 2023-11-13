@@ -19,7 +19,7 @@ struct UserDetailsModel: Decodable {
 }
 
 // MARK: - UserDetails
-struct UserDetails: Codable {
+struct UserDetails: Decodable {
     let userID, roleID, name, username: String?
     let email, password, securityPin, phoneCode: String?
     let phoneNumber, photo, address, latitude: String?

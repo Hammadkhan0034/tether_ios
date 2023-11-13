@@ -13,6 +13,8 @@ struct ConversationView: View {
     
     @StateObject var viewModel =  ConversationViewModel()
     
+    @State var conversationArray = [ConversationModelData]()
+    
     var body: some View {
         VStack{
             HStack{
@@ -44,20 +46,58 @@ struct ConversationView: View {
                     .foregroundColor(Color.appBlue)
             }
             else {
-                if let conversationUserArray = viewModel.conversationModel?.data {
-                    List(0..<conversationUserArray.count, id: \.self) { index in
-                        
-                        NavigationLink(destination: {
-                            ChatView()
-                        }, label: {
-                            ConversationItemView(userImage: conversationUserArray[index].icon,
-                                                 userName: conversationUserArray[index].name,
-                                                 userMessage: conversationUserArray[index].message,
-                                                 time: conversationUserArray[index].createdAt)
-                        })
-                    }
-                    .listStyle(.plain)
+                List(0..<conversationArray.count, id: \.self) { index in
+                    
+                    NavigationLink(destination: {
+                        ChatView(icon: conversationArray[index].icon,
+                                 name: conversationArray[index].name,
+                                 conversationID: conversationArray[index].receiverID,
+                                 receiverID: conversationArray[index].receiverID,
+                                 conversationType: conversationArray[index].conType)
+                    }, label: {
+                        HStack{
+                            let imageUrl = "\(conversationArray[index].icon)"
+                            AsyncImage(url: URL(string: imageUrl)) { phase in
+                                if let image = phase.image {
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 60,height: 60)
+                                        .clipShape(.circle)
+                                }
+                                else {
+                                    Image("userPlaceholder")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 60,height: 60)
+                                        .clipShape(.circle)
+                                }
+                            }
+                            
+                            VStack(alignment: .leading){
+                                Text(conversationArray[index].name)
+                                    .font(.system(size: 18).weight(.bold))
+                                
+                                HStack{
+                                    Image(systemName: "checkmark")
+                                        .resizable()
+                                        .frame(width: 10, height: 10)
+                                    
+                                    Text(conversationArray[index].message)
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.gray)
+                                    
+                                    Spacer()
+                                    
+                                    Text(timeInterval(dateString: conversationArray[index].createdAt))
+                                        .font(.system(size: 12))
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                        }
+                    })
                 }
+                .listStyle(.plain)
             }
             
             Spacer()
@@ -67,6 +107,15 @@ struct ConversationView: View {
         
         .onAppear {
             getConversation()
+        }
+        .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
+            
+            DispatchQueue.main.async {
+                if let userArray = viewModel.conversationModel?.data {
+                    self.conversationArray.removeAll()
+                    self.conversationArray = userArray
+                }
+            }
         }
     }
 }
@@ -84,52 +133,51 @@ extension ConversationView {
     }
 }
 
-
-struct ConversationItemView : View {
-    @State var userImage : String
-    @State var userName : String
-    @State var userMessage : String
-    @State var time : String
-    
-    var body: some View {
-        HStack{
-            AsyncImage(url: URL(string: self.userImage)) { phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 60,height: 60)
-                        .clipShape(RoundedRectangle(cornerRadius: 50))
-                }
-                else {
-                    Image("userPlaceholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 60,height: 60)
-                        .clipShape(RoundedRectangle(cornerRadius: 50))
-                }
-            }
-            
-            VStack(alignment: .leading){
-                Text(self.userName)
-                    .font(.system(size: 18).weight(.bold))
-                
-                HStack{
-                    Image(systemName: "checkmark")
-                        .resizable()
-                        .frame(width: 10, height: 10)
-                    
-                    Text(self.userMessage)
-                        .font(.system(size: 14))
-                        .foregroundColor(.gray)
-                    
-                    Spacer()
-                    
-                    Text(self.time)
-                        .font(.system(size: 12))
-                        .foregroundColor(.gray)
-                }
-            }
-        }
-    }
-}
+//struct ConversationItemView : View {
+//    @State var userImage : String
+//    @State var userName : String
+//    @State var userMessage : String
+//    @State var time : String
+//    
+//    var body: some View {
+//        HStack{
+//            AsyncImage(url: URL(string: self.userImage)) { phase in
+//                if let image = phase.image {
+//                    image
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: 60,height: 60)
+//                        .clipShape(.circle)
+//                }
+//                else {
+//                    Image("userPlaceholder")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: 60,height: 60)
+//                        .clipShape(.circle)
+//                }
+//            }
+//            
+//            VStack(alignment: .leading){
+//                Text(self.userName)
+//                    .font(.system(size: 18).weight(.bold))
+//                
+//                HStack{
+//                    Image(systemName: "checkmark")
+//                        .resizable()
+//                        .frame(width: 10, height: 10)
+//                    
+//                    Text(self.userMessage)
+//                        .font(.system(size: 14))
+//                        .foregroundColor(.gray)
+//                    
+//                    Spacer()
+//                    
+//                    Text(self.time)
+//                        .font(.system(size: 12))
+//                        .foregroundColor(.gray)
+//                }
+//            }
+//        }
+//    }
+//}

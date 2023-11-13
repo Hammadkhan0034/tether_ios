@@ -28,18 +28,20 @@ class ConversationViewModel: ObservableObject {
             "circle_id" : circle_id
         ]
         
-        isLoading = true
+        self.isLoading = true
         
         APIManager.shared.requestPOST(url: Services.Endpoint(.getConversation), parameter: params) { result, error in
+
+            print(String(data: try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted), encoding: .utf8)!)
             
             if result != nil {
-                print(String(data: try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted), encoding: .utf8)!)
+
                 print("Data received from server successfully")
                 
                 do {
                     self.conversationModel = try JSONDecoder().decode(ConversationModel.self, from: result!)
                     
-                    self.apiSuccessFullyCalled = true
+                    self.apiSuccessFullyCalled.toggle()
                     self.isLoading = false
                 }
                 catch {

@@ -15,6 +15,8 @@ class ChatViewModel: ObservableObject {
     @Published var isLoading : Bool = false
     @Published var apiSuccessFullyCalled : Bool = false
     
+    var chatModel : ChatModel?
+    
     func chat(TemporaryAccessCode : String,
               UserName : String,
               circle_id : String,
@@ -29,24 +31,30 @@ class ChatViewModel: ObservableObject {
             "conversation_type" : conversation_type
         ]
         
-        isLoading = true
+        self.isLoading = true
         
-//        APIManager.shared.requestPOST(url: Services.Endpoint(.getChat), parameter: params) { jsonData, error in
-//            
-//            self.isLoading = false
-//            
-//            let json = JSON(jsonData ?? "")
-//            
-//            if error != nil {
-//                
-//                return
-//            }
-//            else {
-//                if json != nil {
-//                    UserDefaults.standard.setValue(json["access_token"].stringValue, forKey: "authToken")
-//                    self.apiSuccessFullyCalled = true
-//                }
-//            }
-//        }
+        APIManager.shared.requestPOST(url: Services.Endpoint(.getChat), parameter: params) { result, error in
+            
+            print(String(data: try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted), encoding: .utf8)!)
+            
+            if result != nil {
+
+                print("Data received from server successfully")
+                
+                do {
+                    self.chatModel = try JSONDecoder().decode(ChatModel.self, from: result!)
+                    
+                    self.apiSuccessFullyCalled.toggle()
+                    self.isLoading = false
+                }
+                catch {
+                    print("Error:- \(error.localizedDescription)")
+                    self.isLoading = false
+                }
+            }
+            else {
+                
+            }
+        }
     }
 }

@@ -18,12 +18,16 @@ struct DashboardMap: View {
     @State var isCurrentLocation : Bool = false
     @State var isSatellite : Bool = false
     
+    @State var name : String = ""
+    @State var userImage : String = ""
+    
     var body: some View {
         ZStack{
             //MARK: - Google Map
-                GoogleMapsView(isSatellite: self.$isSatellite, isCurrentLocation: self.$isCurrentLocation)
-                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
-                    .edgesIgnoringSafeArea(.all)
+            GoogleMapsView(isSatellite: self.$isSatellite,
+                           isCurrentLocation: self.$isCurrentLocation)
+                .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
+                .edgesIgnoringSafeArea(.all)
             
             //MARK: - Google Map Ovelay View
             VStack{
@@ -43,7 +47,7 @@ struct DashboardMap: View {
                         
                         //MARK: - Banner
                         HStack{
-                            Text("IOS Test")
+                            Text("Family")
                                 .foregroundStyle(Color.appBlue)
                                 .padding(.leading,20)
                             
@@ -166,7 +170,7 @@ struct DashboardMap: View {
                         }
                         .padding(10)
                         .background(Capsule().fill(Color.white))
-
+                        
                     })
                     
                     Spacer()
@@ -206,14 +210,24 @@ struct DashboardMap: View {
                 
                 HStack{
                     VStack{
-                        Text("MI")
-                            .foregroundColor(.white)
-                            .fontWeight(.heavy)
-                            .padding(10)
-                            .background(.red)
-                            .clipShape(.circle)
+                        AsyncImage(url: URL(string: self.userImage)) { phase in
+                            if let image = phase.image {
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 40,height: 40)
+                                    .clipShape(.circle)
+                            }
+                            else {
+                                Image("userPlaceholder")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 40,height: 40)
+                                    .clipShape(.circle)
+                            }
+                        }
                         
-                        Text("Muhammad")
+                        Text(self.name)
                             .font(.caption)
                             .foregroundColor(Color.appBlue)
                     }
@@ -238,6 +252,10 @@ struct DashboardMap: View {
                         .padding(.horizontal)
                 }
             }
+        }
+        .onAppear{
+            self.name = UserDefaults.standard.string(forKey: "name") ?? ""
+            self.userImage = UserDefaults.standard.string(forKey: "photo") ?? ""
         }
     }
 }

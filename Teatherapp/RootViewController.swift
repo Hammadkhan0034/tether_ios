@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct RootViewController: View {
+    
+    @EnvironmentObject var userAuth: UserAuth
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if !userAuth.isLoggedin {
+            LoginView()
+        }
+        else {
+            HomeView()
+        }
     }
 }
 

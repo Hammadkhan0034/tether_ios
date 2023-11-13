@@ -9,9 +9,10 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @ObservedObject var viewModel =  LoginViewModel()
     @EnvironmentObject var userAuth : UserAuth
     @EnvironmentObject var locationManager: LocationManager
+    
+    @StateObject var viewModel =  LoginViewModel()
     
     @State var username = ""
     @State var password = ""

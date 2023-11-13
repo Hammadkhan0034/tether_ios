@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class AppModels {
+    
+    static var conversationModel : ConversationModel?
+    
+    static var chatModel : ChatModel?
+    
+    static var messageModel : MessageModel?
+    
+}

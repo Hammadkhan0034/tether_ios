@@ -11,8 +11,10 @@ import Alamofire
 enum Endpoint : String {
     case login,
          signup,
+         getUserDetails,
          getConversation,
-         getChat
+         getChat,
+         saveChat
 }
 
 let ENV = "staging"
@@ -29,10 +31,14 @@ class Services : NSObject {
             return base_URL + "login"
         case .signup:
             return base_URL + "register"
+        case .getUserDetails:
+            return base_URL + "get-user-details"
         case .getConversation:
             return base_URL + "get-conversations"
         case .getChat:
             return base_URL + "get-chat"
+        case .saveChat:
+            return base_URL + "save-chat"
         }
     }
 }
