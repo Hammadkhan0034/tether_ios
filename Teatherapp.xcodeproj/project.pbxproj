@@ -29,7 +29,6 @@
 		A2DED4032AAF7CCE004CF21B /* ShapeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DED4022AAF7CCE004CF21B /* ShapeClasses.swift */; };
 		A2E8FD942AAA2CB20020C6E6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8FD932AAA2CB20020C6E6 /* HistoryView.swift */; };
 		A2E8FD962AAA33F10020C6E6 /* DashboardMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8FD952AAA33F10020C6E6 /* DashboardMap.swift */; };
-		BD07E22D2AF9152700264FF7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E22C2AF9152700264FF7 /* Constant.swift */; };
 		BD0ACE172AE4B29A005FD207 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0ACE162AE4B29A005FD207 /* LocationManager.swift */; };
 		BD0F55F62AE44F4700198F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F55F52AE44F4700198F67 /* AppDelegate.swift */; };
 		BD0F55F82AE44F8500198F67 /* GoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */; };
@@ -57,6 +56,7 @@
 		BD547E2E2AFE62FC008BDAA5 /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E2D2AFE62FC008BDAA5 /* UserDetailsViewModel.swift */; };
 		BD547E302AFE6DF1008BDAA5 /* GetDateOrTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E2F2AFE6DF1008BDAA5 /* GetDateOrTime.swift */; };
 		BD691B0D2AEFB038009869D8 /* SOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691B0C2AEFB038009869D8 /* SOSView.swift */; };
+		BD6C789B2B0269F5007A19FE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C789A2B0269F5007A19FE /* Constant.swift */; };
 		BDAE9FBB2AFC260300975341 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAE9FBA2AFC260300975341 /* MessageView.swift */; };
 		BDB60B8E2AE1B1BA002ABBBC /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B8D2AE1B1BA002ABBBC /* TextFields.swift */; };
 		BDB60B902AE1B4B4002ABBBC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */; };
@@ -96,7 +96,6 @@
 		A2E8FD952AAA33F10020C6E6 /* DashboardMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMap.swift; sourceTree = "<group>"; };
 		A47B9C91E5D8751B30D135CE /* Pods-Teatherapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teatherapp.debug.xcconfig"; path = "Target Support Files/Pods-Teatherapp/Pods-Teatherapp.debug.xcconfig"; sourceTree = "<group>"; };
 		AFBCE7539916E841B8948DDA /* Pods-Teatherapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teatherapp.release.xcconfig"; path = "Target Support Files/Pods-Teatherapp/Pods-Teatherapp.release.xcconfig"; sourceTree = "<group>"; };
-		BD07E22C2AF9152700264FF7 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = ../../../../../../Users/auxilium.digital/Desktop/Constant.swift; sourceTree = "<group>"; };
 		BD0ACE162AE4B29A005FD207 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BD0F55F52AE44F4700198F67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsView.swift; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 		BD547E2D2AFE62FC008BDAA5 /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
 		BD547E2F2AFE6DF1008BDAA5 /* GetDateOrTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateOrTime.swift; sourceTree = "<group>"; };
 		BD691B0C2AEFB038009869D8 /* SOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSView.swift; sourceTree = "<group>"; };
+		BD6C789A2B0269F5007A19FE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		BDAE9FBA2AFC260300975341 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		BDB60B8D2AE1B1BA002ABBBC /* TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -386,8 +386,8 @@
 			children = (
 				BDB60B912AE1B55D002ABBBC /* APIManager.swift */,
 				BDB60B942AE1B609002ABBBC /* ApiLinks.swift */,
-				BD07E22C2AF9152700264FF7 /* Constant.swift */,
 				BDEF99F32B01E7BF00EDA94F /* AppModel.swift */,
+				BD6C789A2B0269F5007A19FE /* Constant.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -550,7 +550,6 @@
 				A2163D9B2AB4BD3E00A981CC /* ChatView.swift in Sources */,
 				BD4945FA2AFAC024007B7867 /* TimeInterval.swift in Sources */,
 				BD38F4692AEA55B90032FAC7 /* DispatchHistoryView.swift in Sources */,
-				BD07E22D2AF9152700264FF7 /* Constant.swift in Sources */,
 				A254CC032AA788BD00FAE281 /* UnderLinePincodeView.swift in Sources */,
 				BD547E272AFE5669008BDAA5 /* PlacesManager.swift in Sources */,
 				A254CC012AA7826200FAE281 /* SignupView.swift in Sources */,
@@ -583,6 +582,7 @@
 				BD547E302AFE6DF1008BDAA5 /* GetDateOrTime.swift in Sources */,
 				BD38F46B2AEA55CB0032FAC7 /* CheckInHistoryView.swift in Sources */,
 				BDEF99F42B01E7BF00EDA94F /* AppModel.swift in Sources */,
+				BD6C789B2B0269F5007A19FE /* Constant.swift in Sources */,
 				A2E8FD962AAA33F10020C6E6 /* DashboardMap.swift in Sources */,
 				BD547E252AFE4FD9008BDAA5 /* RootViewController.swift in Sources */,
 				A2CEE19A2AA649C800BDFF30 /* HomeView.swift in Sources */,
