@@ -48,14 +48,17 @@ class LoginViewModel: ObservableObject {
                     self.isLoading = false
                     
                     let data = self.loginModel?.data
+                    
                     UserDefaults.standard.setValue(data?.name, forKey: "name")
                     UserDefaults.standard.setValue(data?.username, forKey: "username")
                     UserDefaults.standard.setValue(data?.photo, forKey: "photo")
                     UserDefaults.standard.setValue(data?.temporaryAccessCode, forKey: "temporaryAccessCode")
                     UserDefaults.standard.setValue(data?.circle.id, forKey: "circleID")
+                    UserDefaults.standard.setValue(data?.userID, forKey: "userID")
                 }
                 catch {
                     print("Error:- \(error.localizedDescription)")
+                    self.isLoading = false
                 }
             }
             else {

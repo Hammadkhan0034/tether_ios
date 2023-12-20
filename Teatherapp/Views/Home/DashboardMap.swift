@@ -6,28 +6,32 @@
 //
 
 import SwiftUI
+import GoogleMaps
 
 struct DashboardMap: View {
     
     @EnvironmentObject var tfModel: TFBottomBarModel
     @EnvironmentObject var userAuth : UserAuth
-    @EnvironmentObject var locationManager: LocationManager
     
     @State var showFilters : Bool = false
     
-    @State var isCurrentLocation : Bool = false
-    @State var isSatellite : Bool = false
+    @State var callCameraPosition : Bool = false
+    @State var mapType : GMSMapViewType = .normal
+    @Binding var userLocations: [UserLocation]
     
     @State var name : String = ""
     @State var userImage : String = ""
     
+    var gmsMapView = GMSMapView()
+    
     var body: some View {
         ZStack{
             //MARK: - Google Map
-            GoogleMapsView(isSatellite: self.$isSatellite,
-                           isCurrentLocation: self.$isCurrentLocation)
-                .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
-                .edgesIgnoringSafeArea(.all)
+            GoogleMapsView(mapType: self.$mapType,
+                           cameraPosition: self.$callCameraPosition,
+                           userLocations: self.$userLocations)
+            .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
+            .edgesIgnoringSafeArea(.all)
             
             //MARK: - Google Map Ovelay View
             VStack{
@@ -145,7 +149,12 @@ struct DashboardMap: View {
                     Spacer()
                     
                     Button(action: {
-                        isSatellite = !isSatellite
+                        if mapType == .normal {
+                            self.mapType = .satellite
+                        }
+                        else {
+                            self.mapType = .normal
+                        }
                     }, label: {
                         Image(systemName: "map.fill")
                             .frame(width: 25, height: 25)
@@ -195,7 +204,7 @@ struct DashboardMap: View {
                     
                     //MARK: - Current Location
                     Button(action: {
-                        isCurrentLocation = !isCurrentLocation
+                        self.callCameraPosition  = !callCameraPosition
                     }, label: {
                         Image("img_gps")
                             .frame(width: 25, height: 25)
@@ -256,6 +265,11 @@ struct DashboardMap: View {
         .onAppear{
             self.name = UserDefaults.standard.string(forKey: "name") ?? ""
             self.userImage = UserDefaults.standard.string(forKey: "photo") ?? ""
+            
+            // Add an array of markers to the map
+            GoogleMapsView(mapType: self.$mapType,
+                           cameraPosition: self.$callCameraPosition,
+                           userLocations: self.$userLocations).addMarkers(locations: userLocations, to: self.gmsMapView)
         }
     }
 }

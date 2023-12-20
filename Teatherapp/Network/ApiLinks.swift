@@ -14,7 +14,8 @@ enum Endpoint : String {
          getUserDetails,
          getConversation,
          getChat,
-         saveChat
+         saveChat,
+         getUsersLocation
 }
 
 let ENV = "staging"
@@ -39,6 +40,8 @@ class Services : NSObject {
             return base_URL + "get-chat"
         case .saveChat:
             return base_URL + "save-chat"
+        case .getUsersLocation:
+            return base_URL + "get-user-dashboard"
         }
     }
 }

@@ -13,19 +13,20 @@ import SwiftUI
 class UsersLocationViewModel: ObservableObject {
     
     @Published var isLoading : Bool = false
+    @Published var apiSuccessFullyCalled : Bool = false
     
     var usersLocationModel : UsersLocationModel?
     
-    func logIn(UserName : String,
-               TemporaryAccessCode : String,
-               user_id : Int,
-               circle_id: Int){
+    func getLocations(userName : String,
+                      temporaryAccessCode : String,
+                      userID : String,
+                      circleID: String){
         
         let params: Parameters = [
-            "UserName":UserName,
-            "TemporaryAccessCode":TemporaryAccessCode,
-            "user_id":user_id,
-            "circle_id":circle_id
+            "UserName":userName,
+            "TemporaryAccessCode":temporaryAccessCode,
+            "user_id":userID,
+            "circle_id":circleID
         ]
         
         isLoading = true
@@ -41,12 +42,12 @@ class UsersLocationViewModel: ObservableObject {
                 do {
                     self.usersLocationModel = try JSONDecoder().decode(UsersLocationModel.self, from: result!)
                     
-                    UserDefaults.standard.setValue(true, forKey: "loggedIn")
-                    
+                    self.apiSuccessFullyCalled = true
                     self.isLoading = false
                 }
                 catch {
                     print("Error:- \(error.localizedDescription)")
+                    self.isLoading = false
                 }
             }
             else {

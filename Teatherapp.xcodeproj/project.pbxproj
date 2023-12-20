@@ -34,6 +34,8 @@
 		BD0F55F82AE44F8500198F67 /* GoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */; };
 		BD0F55FB2AE4556B00198F67 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F55FA2AE4556B00198F67 /* CalendarView.swift */; };
 		BD12A8CE2AE3A79B00A61445 /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD12A8CD2AE3A79B00A61445 /* CountryPicker.swift */; };
+		BD1AF1522B29F1E800DC3388 /* UsersLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1AF1512B29F1E800DC3388 /* UsersLocationModel.swift */; };
+		BD1AF1542B29FBE100DC3388 /* UsersLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1AF1532B29FBE100DC3388 /* UsersLocationViewModel.swift */; };
 		BD27D60D2AF3E5AD00D54FA6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27D60C2AF3E5AD00D54FA6 /* LoadingView.swift */; };
 		BD27D6112AF3FAFE00D54FA6 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27D6102AF3FAFE00D54FA6 /* UserAuth.swift */; };
 		BD38F4672AEA4B560032FAC7 /* UnderLineTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38F4662AEA4B560032FAC7 /* UnderLineTabBarView.swift */; };
@@ -50,8 +52,6 @@
 		BD51B72D2AE66B5800EB6106 /* TFBottomBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */; };
 		BD547E232AFE4E79008BDAA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E222AFE4E79008BDAA5 /* SceneDelegate.swift */; };
 		BD547E252AFE4FD9008BDAA5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E242AFE4FD9008BDAA5 /* RootViewController.swift */; };
-		BD547E272AFE5669008BDAA5 /* PlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E262AFE5669008BDAA5 /* PlacesManager.swift */; };
-		BD547E292AFE5694008BDAA5 /* PlacesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E282AFE5694008BDAA5 /* PlacesList.swift */; };
 		BD547E2B2AFE627D008BDAA5 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E2A2AFE627D008BDAA5 /* UserDetailsModel.swift */; };
 		BD547E2E2AFE62FC008BDAA5 /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E2D2AFE62FC008BDAA5 /* UserDetailsViewModel.swift */; };
 		BD547E302AFE6DF1008BDAA5 /* GetDateOrTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD547E2F2AFE6DF1008BDAA5 /* GetDateOrTime.swift */; };
@@ -101,6 +101,8 @@
 		BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsView.swift; sourceTree = "<group>"; };
 		BD0F55FA2AE4556B00198F67 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		BD12A8CD2AE3A79B00A61445 /* CountryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
+		BD1AF1512B29F1E800DC3388 /* UsersLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLocationModel.swift; sourceTree = "<group>"; };
+		BD1AF1532B29FBE100DC3388 /* UsersLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLocationViewModel.swift; sourceTree = "<group>"; };
 		BD27D60C2AF3E5AD00D54FA6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BD27D6102AF3FAFE00D54FA6 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		BD38F4662AEA4B560032FAC7 /* UnderLineTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineTabBarView.swift; sourceTree = "<group>"; };
@@ -117,8 +119,6 @@
 		BD51B72C2AE66B5800EB6106 /* TFBottomBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFBottomBarModel.swift; sourceTree = "<group>"; };
 		BD547E222AFE4E79008BDAA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BD547E242AFE4FD9008BDAA5 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		BD547E262AFE5669008BDAA5 /* PlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesManager.swift; sourceTree = "<group>"; };
-		BD547E282AFE5694008BDAA5 /* PlacesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesList.swift; sourceTree = "<group>"; };
 		BD547E2A2AFE627D008BDAA5 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		BD547E2D2AFE62FC008BDAA5 /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
 		BD547E2F2AFE6DF1008BDAA5 /* GetDateOrTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateOrTime.swift; sourceTree = "<group>"; };
@@ -319,8 +319,8 @@
 			children = (
 				BD0F55F72AE44F8500198F67 /* GoogleMapsView.swift */,
 				BD0ACE162AE4B29A005FD207 /* LocationManager.swift */,
-				BD547E262AFE5669008BDAA5 /* PlacesManager.swift */,
-				BD547E282AFE5694008BDAA5 /* PlacesList.swift */,
+				BD1AF1512B29F1E800DC3388 /* UsersLocationModel.swift */,
+				BD1AF1532B29FBE100DC3388 /* UsersLocationViewModel.swift */,
 			);
 			path = GoogleMap;
 			sourceTree = "<group>";
@@ -551,7 +551,6 @@
 				BD4945FA2AFAC024007B7867 /* TimeInterval.swift in Sources */,
 				BD38F4692AEA55B90032FAC7 /* DispatchHistoryView.swift in Sources */,
 				A254CC032AA788BD00FAE281 /* UnderLinePincodeView.swift in Sources */,
-				BD547E272AFE5669008BDAA5 /* PlacesManager.swift in Sources */,
 				A254CC012AA7826200FAE281 /* SignupView.swift in Sources */,
 				BD4B18F42AF2E3020066E9DB /* ChatViewModel.swift in Sources */,
 				A2E8FD942AAA2CB20020C6E6 /* HistoryView.swift in Sources */,
@@ -585,13 +584,14 @@
 				BD6C789B2B0269F5007A19FE /* Constant.swift in Sources */,
 				A2E8FD962AAA33F10020C6E6 /* DashboardMap.swift in Sources */,
 				BD547E252AFE4FD9008BDAA5 /* RootViewController.swift in Sources */,
+				BD1AF1542B29FBE100DC3388 /* UsersLocationViewModel.swift in Sources */,
 				A2CEE19A2AA649C800BDFF30 /* HomeView.swift in Sources */,
 				A2097B272AB38216003C27C6 /* Helpers.swift in Sources */,
-				BD547E292AFE5694008BDAA5 /* PlacesList.swift in Sources */,
 				BD547E2E2AFE62FC008BDAA5 /* UserDetailsViewModel.swift in Sources */,
 				A2DED4012AAF77D6004CF21B /* CheckinView.swift in Sources */,
 				BDD6F73A2AE849700080AC4C /* HeaderBarView.swift in Sources */,
 				BD4B18F22AF2E27D0066E9DB /* ChatModel.swift in Sources */,
+				BD1AF1522B29F1E800DC3388 /* UsersLocationModel.swift in Sources */,
 				BDEF99F02AFFF62B00EDA94F /* MessageModel.swift in Sources */,
 				BD3AECAF2AE2C49E00DEB032 /* LoginModel.swift in Sources */,
 				A2BCBB752AA10AC400DE6255 /* TFButton.swift in Sources */,
