@@ -55,6 +55,8 @@ class LoginViewModel: ObservableObject {
                     UserDefaults.standard.setValue(data?.temporaryAccessCode, forKey: "temporaryAccessCode")
                     UserDefaults.standard.setValue(data?.circle.id, forKey: "circleID")
                     UserDefaults.standard.setValue(data?.userID, forKey: "userID")
+                    UserDefaults.standard.setValue(data?.latitude, forKey: "latitude")
+                    UserDefaults.standard.setValue(data?.longitude, forKey: "longitude")
                 }
                 catch {
                     print("Error:- \(error.localizedDescription)")
