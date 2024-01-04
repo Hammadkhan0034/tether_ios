@@ -50,14 +50,81 @@ struct NotificationView: View {
                         .padding(4)
                 }
             }
+            .padding(.horizontal)
+            .padding(.bottom)
+            .background(Color.white)
 
-            Spacer()
+            ScrollView(showsIndicators: false){
+                NotificationItem()
+                
+                NotificationItem()
+                
+                NotificationItem()
+
+            }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
+        .background(Color.checkinGray.opacity(0.05))
         .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
     NotificationView()
+}
+
+struct NotificationItem: View {
+    
+    var body: some View {
+        VStack{
+            
+            HStack{
+                HStack{
+                    Image(systemName: "calendar")
+                        .foregroundColor(Color.appBlue)
+                    
+                    Text("01/04/2024")
+                        .foregroundColor(Color.appBlue)
+                }
+                
+                Spacer()
+                
+                HStack{
+                    Image(systemName: "clock.fill")
+                        .foregroundColor(Color.appBlue)
+                    
+                    Text("09:40 PM")
+                        .foregroundColor(Color.appBlue)
+                }
+            }
+            
+            VStack{
+                HStack {
+                    Image(systemName: "person")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 35, height: 35)
+                        .clipShape(.circle)
+                        .padding(.horizontal)
+                    
+                    VStack(alignment: .leading){
+                        Text("Tether")
+                        
+                        Text("Tether has gone offline.")
+                            .foregroundColor(.red)
+                    }
+                    
+                    Spacer()
+                }
+                
+                Text("FROM : SPECIAL SOMEONES")
+                    .foregroundColor(Color.appBlue)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            }
+            .padding()
+            .background(.white)
+            .cornerRadius(10)
+            .shadow(radius: 0.5)
+        }
+    }
 }

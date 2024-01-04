@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct HistoryView: View {
+    
+    @State var currentBtn = 0
+    @State var firstBtnName  = "Dispatch History"
+    @State var secondBtnName = "Check In History"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            HeaderBarView(title: "History")
+                .padding(.horizontal)
+            
+            UnderLineTabBarView(currentBtn: $currentBtn,
+                                firstBtnName: $firstBtnName,
+                                secondBtnName: $secondBtnName)
+            
+            Spacer()
+            
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftui-mapview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sgade/swiftui-mapview",
+      "state" : {
+        "revision" : "be7a09f42176519e8504c1db4290506edcbcbda6",
+        "version" : "1.2.2"
+      }
+    }
+  ],
+  "version" : 2
+}

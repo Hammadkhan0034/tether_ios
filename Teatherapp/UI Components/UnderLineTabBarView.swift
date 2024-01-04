@@ -53,25 +53,22 @@ struct TabBarItem: View {
                             Text(btnName)
                                 .bold()
                                 .foregroundColor(Color.appBlue)
-                                .padding(.vertical, 7)
+                                .padding(.vertical, 5)
                         }
                         
                         Color.appBlue
-                            .frame(height: 2)
-                            .offset(y: 3)
-
+                            .frame(height: 3)
                     }
                     else {
                         HStack{
                             Text(btnName)
                                 .bold()
                                 .foregroundColor(Color.gray)
-                                .padding(.vertical, 7)
+                                .padding(.vertical, 5)
                             
                         }
                         Color.gray
-                            .frame(height: 2)
-                            .offset(y: 3)
+                            .frame(height: 3)
                     }
                 }
                 .animation(.spring(), value: self.currentBtn)

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
-import GoogleMaps
+import CoreLocation
 
-struct UserLocation {
-    var position: CLLocationCoordinate2D
-    var image: Image
+struct Locations: Identifiable {
+    var id = UUID()
+    var name: String
+    var image: String
+    var coordinate: CLLocationCoordinate2D
 }
 
 struct HomeView: View {
@@ -18,14 +20,14 @@ struct HomeView: View {
     @EnvironmentObject var tfModel: TFBottomBarModel
     
     @StateObject var viewModel =  UsersLocationViewModel()
-    @State var userLocations: [UserLocation] = []
+    @StateObject var manager = LocationManager()
     
     var body: some View {
         VStack{
-            DashboardMap(userLocations: self.$userLocations)
+            DashboardMap(manager: manager)
                 .environmentObject(tfModel)
             
-            TFBottomBar()
+            TFBottomBar(manager: manager)
                 .environmentObject(tfModel)
                 .ignoresSafeArea()
         }
@@ -39,49 +41,27 @@ struct HomeView: View {
             )
         }
         .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
+            
             DispatchQueue.main.async {
-                if let membersArray = viewModel.usersLocationModel?.data.circles.first?.members {
-                    userLocations.removeAll()
-                    for member in membersArray {
-                        self.userLocations.append(UserLocation(position: CLLocationCoordinate2D(latitude: Double("\(member.latitude)") ?? 0.0,
-                                                                                                longitude: Double("\(member.longitude)") ?? 0.0),
-                                                               image: getImageByName(member.userImage)))
-                        
+                
+                if let  circlesArray = viewModel.usersLocationModel?.data.circles {
+                    
+                    for circle in circlesArray {
+                    
+                        if circle.id ==  UserDefaults.standard.string(forKey: "circleID") ?? "" {
+                            
+                            let members = circle.members
+                            
+                            for member in members {
+                                manager.locations.append(Locations(name: member.userName,
+                                                                             image: String(member.photo.dropFirst()),
+                                                                             coordinate: CLLocationCoordinate2D(latitude: Double("\(member.latitude)") ?? 0.0,
+                                                                                                                longitude: Double("\(member.longitude)") ?? 0.0)))
+                            }
+                        }
                     }
                 }
             }
         }
     }
-
-    func getImageByName(_ imageName: String) -> Image {
-        let string = imageName.dropFirst()
-        let completeURL = "https://tether.mydispatchapp.com/V2/services\(string)"
-
-        // Try loading the image from the URL
-        if let url = URL(string: completeURL), let imageData = try? Data(contentsOf: url),
-           let uiImage = UIImage(data: imageData) {
-            return Image(uiImage: uiImage)
-        } else {
-            // If loading from URL fails, try loading a system image
-            if let systemImage = UIImage(systemName: imageName) {
-                return Image(uiImage: systemImage)
-            } else {
-                // If it's not a system image, assume it's a custom image in your asset catalog
-                if let customImage = UIImage(named: imageName) {
-                    return Image(uiImage: customImage)
-                } else {
-                    // If the image name is not valid, return a default placeholder image or handle it accordingly
-                    return Image(systemName: "questionmark.circle")
-                }
-            }
-        }
-    }
 }
-
-#Preview {
-    HomeView()
-}
-
-//#Preview {
-//    HomeView()
-//}

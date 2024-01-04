@@ -8,8 +8,45 @@
 import SwiftUI
 
 struct TimeSheetView: View {
+
+    @State var startDate = Date.now
+    @State var endDate = Date.now
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            HeaderBarView(title: "Timesheet")
+            
+            VStack{
+                Text("Select Date")
+                    .foregroundColor(Color.appBlue)
+                    .bold()
+                
+                HStack{
+                    Spacer()
+                    
+                    DatePicker(selection: $startDate,
+                               in: ...Date.now,
+                               displayedComponents: .date) {
+//                                    Text("Start")
+                                }
+                               .labelsHidden()
+                    
+                    Spacer()
+                    
+                    DatePicker(selection: $endDate,
+                               in: ...Date.now,
+                               displayedComponents: .date) {
+//                                    Text("End")
+                                }
+                               .labelsHidden()
+                    Spacer()
+                }
+            }
+            
+            Spacer()
+        }
+        .padding(.horizontal)
+        .navigationBarBackButtonHidden()
     }
 }
 

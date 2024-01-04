@@ -10,8 +10,6 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var userAuth : UserAuth
-    @EnvironmentObject var locationManager: LocationManager
-    
     @StateObject var viewModel =  LoginViewModel()
     
     @State var username = ""
