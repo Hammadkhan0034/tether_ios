@@ -6,17 +6,13 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
 import Alamofire
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GMSServices.provideAPIKey("AIzaSyCiFbgYrKbvdSgwz3Tb-xrN4F18MFt5TO8")
-        GMSPlacesClient.provideAPIKey("YOUR_API_KEY")
-        
+//        GMSServices.provideAPIKey("AIzaSyCiFbgYrKbvdSgwz3Tb-xrN4F18MFt5TO8")        
         return true
     }
     

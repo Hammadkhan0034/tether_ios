@@ -9,7 +9,5 @@ target 'Teatherapp' do
 
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'GoogleMaps', '7.1.0'
-  pod 'GooglePlaces', '7.1.0'
 
 end

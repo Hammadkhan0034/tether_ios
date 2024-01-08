@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import GoogleMaps
 
 @main
 struct TeatherappApp: App {
@@ -15,7 +14,6 @@ struct TeatherappApp: App {
     @Environment(\.scenePhase) var scenePhase
 
     @StateObject var userAuth = UserAuth()
-    @StateObject var locationManager = LocationManager()
     @StateObject var tfModel = TFBottomBarModel()
     
     var body: some Scene {
@@ -23,7 +21,6 @@ struct TeatherappApp: App {
             NavigationStack{
                 RootViewController()
                     .environmentObject(userAuth)
-                    .environmentObject(locationManager)
                     .environmentObject(tfModel)
             }
         }

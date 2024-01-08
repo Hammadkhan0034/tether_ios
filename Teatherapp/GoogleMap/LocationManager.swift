@@ -1,43 +1,74 @@
 //
-//  LocationManager.swift
+//  LocationViewModel.swift
 //  Teatherapp
 //
-//  Created by Auxilium.Digital on 22/10/2023.
+//  Created by Auxilium.Digital on 29/12/2023.
 //
 
-import Combine
-import CoreLocation
+import SwiftUI
+import MapKit
+import CoreLocationUI
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class LocationManager: NSObject, ObservableObject {
     
-    let locationManager = CLLocationManager()
-
-    // 1
-     @Published var location: CLLocation? {
-       willSet { objectWillChange.send() }
-     }
+    var manager = CLLocationManager()
+    var mapType : MKMapType  = .standard
     
-    // 2
-    var latitude: CLLocationDegrees {
-        return location?.coordinate.latitude ?? 0
-    }
+    @Published var locations : [Locations] = []
+    @Published var userTrackingMode : MapUserTrackingMode = .follow
+    @Published var region = MKCoordinateRegion(
+        center: .init(latitude: 37.334_900, longitude: -122.009_020),
+        span: .init(latitudeDelta: 1.0, longitudeDelta: 1.0)
+    )
     
-    var longitude: CLLocationDegrees {
-        return location?.coordinate.longitude ?? 0
-    }
-    
-    // 3
     override init() {
-      super.init()
-      locationManager.delegate = self
-      locationManager.desiredAccuracy = kCLLocationAccuracyBest
-      locationManager.requestWhenInUseAuthorization()
-      locationManager.startUpdatingLocation()
+        
+        super.init()
+        
+        self.manager.delegate = self
+        self.manager.desiredAccuracy = kCLLocationAccuracyBest
+        self.manager.requestWhenInUseAuthorization()
+        self.manager.startUpdatingLocation()
+        self.setup()
     }
     
-    // 4
-      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-          guard let location = locations.last else { return }
-          self.location = location
-      }
+    func setup() {
+        switch manager.authorizationStatus {
+        //If we are authorized then we request location just once, to center the map
+        case .authorizedWhenInUse:
+            manager.requestLocation()
+        //If we don´t, we request authorization
+        case .notDetermined:
+            manager.startUpdatingLocation()
+            manager.requestWhenInUseAuthorization()
+        default:
+            break
+        }
+    }
+    
+    func toggleMapType() {
+        mapType = (mapType == .standard) ? .satellite : .standard
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        guard .authorizedWhenInUse == manager.authorizationStatus else { return }
+        manager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Something went wrong: \(error)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
+        locations.last.map {
+            region = MKCoordinateRegion(
+                center: $0.coordinate,
+                span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            )
+        }
+    }
 }

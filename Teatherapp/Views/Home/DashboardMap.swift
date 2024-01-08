@@ -6,28 +6,55 @@
 //
 
 import SwiftUI
+import MapKit
+import CoreLocationUI
 
 struct DashboardMap: View {
     
     @EnvironmentObject var tfModel: TFBottomBarModel
     @EnvironmentObject var userAuth : UserAuth
-    @EnvironmentObject var locationManager: LocationManager
+    
+    @ObservedObject var manager = LocationManager()
     
     @State var showFilters : Bool = false
-    
-    @State var isCurrentLocation : Bool = false
-    @State var isSatellite : Bool = false
-    
     @State var name : String = ""
     @State var userImage : String = ""
     
     var body: some View {
-        ZStack{
-            //MARK: - Google Map
-            GoogleMapsView(isSatellite: self.$isSatellite,
-                           isCurrentLocation: self.$isCurrentLocation)
-                .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
-                .edgesIgnoringSafeArea(.all)
+        ZStack {
+            Map(coordinateRegion: $manager.region,
+                interactionModes: .all,
+                userTrackingMode: $manager.userTrackingMode,
+                annotationItems: manager.locations) { location in
+                MapAnnotation(coordinate: location.coordinate) {
+                    ZStack {
+                        Image("marker")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 35, height: 35)
+                        
+                        AsyncImage(url: URL(string: "https://tether.mydispatchapp.com\(location.image)")) { phase in
+                            if let image = phase.image {
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 32, height: 32)
+                                    .clipShape(.circle)
+                                    .offset(y: -6)
+                            }
+                            else {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 32, height: 32)
+                                    .clipShape(.circle)
+                                    .offset(y: -6)
+                            }
+                        }
+                    }
+                }
+            }
+            .edgesIgnoringSafeArea(.all)
             
             //MARK: - Google Map Ovelay View
             VStack{
@@ -39,7 +66,7 @@ struct DashboardMap: View {
                             userAuth.logout()
                         }, label: {
                             Image("menu_icon")
-                                .padding()
+                                .padding(10)
                                 .background(Capsule().fill(.white))
                         })
                         
@@ -53,7 +80,7 @@ struct DashboardMap: View {
                             
                             Spacer()
                         }
-                        .frame(maxWidth: .infinity, minHeight:50, maxHeight:50)
+                        .frame(maxWidth: .infinity, minHeight:40, maxHeight:40)
                         .background(Capsule().fill(.white))
                         
                         VStack{
@@ -92,7 +119,7 @@ struct DashboardMap: View {
                             Button{
                                 showFilters = !showFilters
                             }label:{
-                                Image("filter_icon")
+                                Image(showFilters ? "Cancel_Small" : "filter_icon")
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .padding(8)
@@ -145,7 +172,7 @@ struct DashboardMap: View {
                     Spacer()
                     
                     Button(action: {
-                        isSatellite = !isSatellite
+                        manager.toggleMapType()
                     }, label: {
                         Image(systemName: "map.fill")
                             .frame(width: 25, height: 25)
@@ -190,12 +217,13 @@ struct DashboardMap: View {
                         .padding(10)
                         .background(Capsule().fill(Color.appBlue))
                     })
+                    .opacity(manager.locations.count < 2 ? 0.0 : 100.0)
                     
                     Spacer()
                     
                     //MARK: - Current Location
                     Button(action: {
-                        isCurrentLocation = !isCurrentLocation
+                        
                     }, label: {
                         Image("img_gps")
                             .frame(width: 25, height: 25)
@@ -208,42 +236,52 @@ struct DashboardMap: View {
                 .padding(.horizontal,10)
                 .padding(.bottom,5)
                 
-                HStack{
-                    VStack{
-                        AsyncImage(url: URL(string: self.userImage)) { phase in
-                            if let image = phase.image {
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 40,height: 40)
-                                    .clipShape(.circle)
+                HStack(alignment: .center) {
+                    let memberData  = manager.locations
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack{
+                            ForEach(0..<memberData.count, id: \.self) { index in
+                                VStack{
+                                    AsyncImage(url: URL(string: "https://tether.mydispatchapp.com\(memberData[index].image)")) { phase in
+                                        if let image = phase.image {
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 40,height: 40)
+                                                .clipShape(.circle)
+                                        }
+                                        else {
+                                            Image("userPlaceholder")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 40,height: 40)
+                                                .clipShape(.circle)
+                                        }
+                                    }
+                                    
+                                    Text(memberData[index].name)
+                                        .font(.caption)
+                                        .foregroundColor(Color.appBlue)
+                                }
+                                .padding(.top, 10)
+                                .padding(.horizontal, 4)
                             }
-                            else {
-                                Image("userPlaceholder")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 40,height: 40)
-                                    .clipShape(.circle)
+                            
+                            if memberData.count < 1 {
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Image(systemName: "plus")
+                                        .foregroundStyle(Color.white)
+                                        .padding(15)
+                                        .background(Color.appBlue)
+                                        .clipShape(.circle)
+                                })
                             }
                         }
-                        
-                        Text(self.name)
-                            .font(.caption)
-                            .foregroundColor(Color.appBlue)
                     }
-                    .padding(10)
-                    
-                    Button(action: {
-                        
-                    }, label: {
-                        Image(systemName: "plus")
-                            .foregroundStyle(Color.white)
-                            .padding(15)
-                            .background(Color.appBlue)
-                            .clipShape(.circle)
-                    })
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                .frame(minHeight: 80)
                 .background(Rectangle().fill(.white))
             }
             .overlay{

@@ -56,8 +56,7 @@ struct ConversationView: View {
                                  conversationType: conversationArray[index].conType)
                     }, label: {
                         HStack{
-                            let imageUrl = "\(conversationArray[index].icon)"
-                            AsyncImage(url: URL(string: imageUrl)) { phase in
+                            AsyncImage(url: URL(string: conversationArray[index].icon)) { phase in
                                 if let image = phase.image {
                                     image
                                         .resizable()

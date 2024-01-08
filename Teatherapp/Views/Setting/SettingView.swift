@@ -21,7 +21,7 @@ struct SettingView: View {
             
             VStack(spacing: 25){
                 Toggle(isOn: $isAvailable, label: {
-                    Text("Available")
+                    Text("Unavailable")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                 })
@@ -29,18 +29,9 @@ struct SettingView: View {
                 .frame(height: 60)
                 .background(Rectangle().fill(.white).cornerRadius(10))
                 
-                
-                SettingItemView(title: "Permission Level")
-                
-                SettingItemView(title: "Edit Team Profile")
-                
                 SettingItemView(title: "Location Sharing")
                 
-                SettingItemView(title: "Add Team Member")
-                
-                SettingItemView(title: "Delete Team Member")
-                
-                SettingItemView(title: "Delete Team")
+                SettingItemView(title: "Leave Team")
                 
             }
             .padding()
