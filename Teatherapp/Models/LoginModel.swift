@@ -21,7 +21,7 @@ struct DataClass: Decodable {
     let photo, timeZone, locationUpdateTime, tag: String
     let city, state, zip, zelloUsername: String
     let temporaryAccessCode: String
-    let circle: Circle
+    let circle: MyCircle
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
@@ -47,7 +47,7 @@ struct DataClass: Decodable {
 }
 
 // MARK: - Circle
-struct Circle: Decodable {
+struct MyCircle: Decodable {
     let id, userID, circleName, type: String
     let invitationCode, codeGeneratedDate, status, createdAt: String
     let updatedAt, name, userName, circleImage: String

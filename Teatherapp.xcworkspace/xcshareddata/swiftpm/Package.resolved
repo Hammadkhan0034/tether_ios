@@ -1,5 +1,15 @@
 {
+  "originHash" : "344480c8c0c2ef6a2d487db5d8d3c9a6de62ac839e89294b6b81e90ee9aa5439",
   "pins" : [
+    {
+      "identity" : "nsidemenu",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/itisnajim/NSideMenu.git",
+      "state" : {
+        "revision" : "a90f35d92d87ab0cc3466625cf235525aa832c51",
+        "version" : "1.0.1"
+      }
+    },
     {
       "identity" : "swiftui-mapview",
       "kind" : "remoteSourceControl",
@@ -10,5 +20,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
