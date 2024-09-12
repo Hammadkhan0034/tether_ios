@@ -13,26 +13,6 @@ struct SignupView: View {
     
     @StateObject var viewModel =  SignupViewModel()
     
-    @State var fname = ""
-    @State var lname = ""
-    @State var username = ""
-    @State var email = ""
-    @State var password = ""
-    @State var phoneCode = ""
-    @State var phoneNumber = ""
-    @State var address = ""
-    @State var city = ""
-    @State var state = ""
-    @State var zipCode = ""
-    
-    @State var timeZone = "Asia"
-    @State var uuid = ""
-    
-    @State var isSecured: Bool = true
-    
-    @State var showingAlert = false
-    @State var errorMessage = ""
-    
     var body: some View {
         VStack{
             HStack{
@@ -64,33 +44,33 @@ struct SignupView: View {
                     .padding(.top)
                     
                     HStack(spacing: 20){
-                        SimpleTextField(placeHolder: "First Name", inputField: $fname)
+                        SimpleTextField(placeHolder: "First Name", inputField: $viewModel.fname)
                         
-                        SimpleTextField(placeHolder: "Last Name", inputField: $lname)
+                        SimpleTextField(placeHolder: "Last Name", inputField: $viewModel.lname)
                     }
                     
                     //MARK: - User Name
-                    SimpleTextField(placeHolder: "Username", inputField: $username)
+                    SimpleTextField(placeHolder: "Username", inputField: $viewModel.username)
                     
                     //MARK: - Email
-                    SimpleTextField(placeHolder: "Email", inputField: $email)
+                    SimpleTextField(placeHolder: "Email", inputField: $viewModel.email)
                     
                     //MARK: - Password TextField
                     HStack{
-                        if isSecured {
-                            SecurePasswordField(placeHolder: "Password", inputField: $password)
+                        if viewModel.isSecured {
+                            SecurePasswordField(placeHolder: "Password", inputField: $viewModel.password)
                         }
                         else {
-                            PasswordTextField(placeHolder: "Password", inputField: $password)
+                            PasswordTextField(placeHolder: "Password", inputField: $viewModel.password)
                         }
                         
                         Spacer()
                         
                         //MARK: - Eye Button
                         Button(action: {
-                            isSecured.toggle()
+                            viewModel.isSecured.toggle()
                         }, label: {
-                            Image(isSecured ? "closeEye" : "openEye")
+                            Image(viewModel.isSecured ? "closeEye" : "openEye")
                         })
                         .padding(.trailing, 10)
                     }
@@ -98,16 +78,16 @@ struct SignupView: View {
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
                     
                     HStack(spacing: 20){
-                        CountryPicker(phoneCode: $phoneCode, foregroundColor: Color.appBlue)
+                        CountryPicker(phoneCode: $viewModel.phoneCode, foregroundColor: Color.appBlue)
                             .padding()
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
                         
-                        SimpleTextField(placeHolder: "Phone Number", inputField: $phoneNumber)
+                        SimpleTextField(placeHolder: "Phone Number", inputField: $viewModel.phoneNumber)
                     }
                     
                     //MARK: - Address
                     HStack{
-                        TextField("Address", text: $address)
+                        TextField("Address", text: $viewModel.address)
                             .padding(.leading)
                             .frame(height: 50)
                             .textInputAutocapitalization(.never)
@@ -116,9 +96,9 @@ struct SignupView: View {
                             
                         Spacer()
                         
-                        if address.count > 0 {
+                        if viewModel.address.count > 0 {
                             Button(action: {
-                                address = ""
+                                viewModel.address = ""
                             }, label: {
                                 Image(systemName: "multiply.circle.fill")
                             })
@@ -134,36 +114,26 @@ struct SignupView: View {
 
                     
                     //MARK: - City
-                    SimpleTextField(placeHolder: "City", inputField: $city)
+                    SimpleTextField(placeHolder: "City", inputField: $viewModel.city)
                     
                     //MARK: - State
-                    SimpleTextField(placeHolder: "State", inputField: $state)
+                    SimpleTextField(placeHolder: "State", inputField: $viewModel.state)
                     
                     //MARK: - Zip Code
-                    SimpleTextField(placeHolder: "Zip Code", inputField: $zipCode)
+                    SimpleTextField(placeHolder: "Zip Code", inputField: $viewModel.zipCode)
                     
-                    TFButton(label: "Signup") {
-                        if !fname.isEmpty && !lname.isEmpty && !email.isEmpty && !username.isEmpty && !password.isEmpty && !phoneCode.isEmpty && !phoneNumber.isEmpty && !address.isEmpty && !timeZone.isEmpty {
-                            signUpAPICalled()
-                        }
-                        else {
-                            self.errorMessage = "All fields are mandatory."
-                            self.showingAlert = true
-                        }
-                    }
+                    TFButton(label: "Signup", onClick: viewModel.signUp)
                 }
             }
         }
-        .alert(self.errorMessage,
-               isPresented: $showingAlert) {
-                    Button("OK", role: .cancel) { }
-                }
+        .alert(isPresented: $viewModel.showingAlert, content: {
+            return AlertContext.makeAlert(title: "Signup Error", message: viewModel.errorString, onTap: {
+                self.viewModel.showingAlert = false
+            })
+        })
         .padding()
         .navigationBarBackButtonHidden()
         .overlay(self.viewModel.isLoading ? LoadingView(): nil)
-        .onAppear{
-            self.uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        }
         .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
                 dismiss()
         }
@@ -174,18 +144,3 @@ struct SignupView: View {
 //    SignupView()
 //}
 
-extension SignupView {
-    
-    func signUpAPICalled() {
-        viewModel.signUp(name: "\(self.fname + self.lname)",
-                         email: self.email,
-                         username: self.username,
-                         password: self.password,
-                         phoneCode: self.phoneCode,
-                         phoneNumber: self.phoneNumber,
-                         address: self.address,
-                         deviceType: "IOS",
-                         timeZone: self.timeZone,
-                         deviceID: self.uuid)
-    }
-}

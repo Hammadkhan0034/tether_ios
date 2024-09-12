@@ -12,11 +12,14 @@ struct RootViewController: View {
     @EnvironmentObject var userAuth: UserAuth
     
     var body: some View {
-        if !userAuth.isLoggedin {
-            LoginView()
-        }
-        else {
-            HomeView()
+        
+        NavigationView {
+            if !userAuth.isLoggedin {
+                LoginView()
+            }
+            else {
+                HomeView()
+            }
         }
     }
 }

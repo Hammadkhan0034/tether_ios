@@ -8,8 +8,10 @@
 import SwiftUI
 import NSideMenu
 
-struct MenuView: View {
+struct SideMenuView: View {
 //    @EnvironmentObject var options: NSideMenuOptions
+    @EnvironmentObject var userAuth : UserAuth
+
     @StateObject var options = NSideMenuOptions(style: .scale, side: .leading, width: 220, showSkeletonStack: false, skeletonStackColor: .white, cornerRaduisIfNeeded: 16, rotationDegreeIfNeeded: 8, onWillClose: {
         print("options:onWillClose!")
     }, onWillOpen: {
@@ -52,15 +54,25 @@ struct MenuView: View {
                             } label: {
                                 Side_Menu_Row_View(
                                     imageName: item["icon"]!,
-                                    title:item["label"]!)
+                                    title:item["label"]!,textColor: .appBlue)
                                     .frame(maxWidth: .infinity, alignment: options.side.getAlignment())
                             }
                         }
+                        
                         Spacer()
+                        
+                            Side_Menu_Row_View(
+                                imageName: "logout",
+                                title:"Logout",textColor: .red)
+                            .frame(maxWidth: .infinity, alignment: options.side.getAlignment()).onTapGesture {
+                                  UserDefaults.standard.setValue(false, forKey: "loggedIn")
+                                          userAuth.logout()
+                            }
+                    
 
                     }.padding(.horizontal,16)
                     .padding(.top, 32)
-            }
+                }
             .toolbar(content: {
                 ToolbarItem(placement: options.side.getToolbarItemPlacement(), content: {
                     if(options.show){
@@ -80,6 +92,6 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(selectedView: .constant("Home"))
+        SideMenuView(selectedView: .constant("Home"))
     }
 }

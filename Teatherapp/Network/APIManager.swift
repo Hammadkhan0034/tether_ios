@@ -8,12 +8,15 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class APIManager {
     
     static let shared = APIManager()
+    private let baseURL = "https://tether.mydispatchapp.com/V2/services/"
+
     
-    class func headers() -> HTTPHeaders {
+     func headers() -> HTTPHeaders {
         var headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -195,4 +198,74 @@ class APIManager {
         let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
         return reachabilityManager!.isReachable
     }
+    
+    
+    func post(endpoint: String,
+                     parameter: [String: Any]?,
+                     header: HTTPHeaders? = nil,
+                     completed: @escaping (Result<Data?,ApiErrorModel>) -> Void) {
+        
+        //MARK: check internet connection here
+        if !isNetworkReachable() {
+            completed(.failure(ApiErrorModel(status: "0", errorType: .noInternet, message: Constant.NO_INTERNET)))
+            return
+        }
+        
+        AF.request(baseURL + endpoint,
+                   method: .post,
+                   parameters: parameter,
+                   encoding: URLEncoding.default,
+                   headers: header)
+//        .validate(statusCode: 200..<505)
+        .responseData { response in
+            switch response.result {
+            case .success:
+                if let httpStatusCode = response.response?.statusCode {
+                    switch(httpStatusCode) {
+                    case 200, 201:
+                        do{
+                            let decoder = JSONDecoder()
+                            let decodedResponse = try decoder.decode(ApiResponseModel.self, from: response.data!)
+                            if(decodedResponse.status == "0"){
+                                completed(.failure(ApiErrorModel(status: "0", errorType: .invalidData, message: decodedResponse.message)))
+                                return
+                            }
+                            
+                            print("aaaaaaaaaaaaaa");
+                            completed(.success(response.data!))
+                            return
+
+                        }
+                        catch{
+                            print("Error decoding request response")
+                            completed(.failure(ApiErrorModel(status: "0", errorType: .invalidData, message: "Got invalid data from the server")))
+                            return
+                        }
+                        
+                    case 400...404:
+                        let bodyMessage = response.data.map { String(decoding: $0, as: UTF8.self) } ?? ""
+                        completed(.failure(ApiErrorModel(status: String(httpStatusCode), errorType: .errorFindingEndpoint, message: bodyMessage)))
+                        return
+                        
+                    case 500:
+                        completed(.failure(ApiErrorModel(status: String(httpStatusCode), errorType: .internalServerError, message: Constant.INTERNAL_SERVER_ERROR)))
+                        return
+                    case 502 ... 504:
+                        completed(.failure(ApiErrorModel(status: String(httpStatusCode), errorType: .serverBusyError, message: Constant.SERVER_BUSY_ERROR)))
+                        return
+
+                    default:
+                        completed(.failure(ApiErrorModel(status: String(httpStatusCode), errorType: .unknownError, message: Constant.UNKNOWN_ERROR)))
+                        return
+
+                    }
+                }
+            case .failure(let error):
+                completed(.failure(ApiErrorModel(status: "", errorType: .unknownError, message: error.localizedDescription)))
+                return
+
+            }
+        }
+    }
+
 }

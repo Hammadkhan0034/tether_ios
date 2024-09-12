@@ -29,9 +29,9 @@ class Services : NSObject {
         
         switch endpoint {
         case .login:
-            return base_URL + "login"
+            return "login"
         case .signup:
-            return base_URL + "register"
+            return "register"
         case .getUserDetails:
             return base_URL + "get-user-details"
         case .getConversation:

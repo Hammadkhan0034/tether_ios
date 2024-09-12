@@ -27,6 +27,7 @@ class Constant {
         }
     }
     static let REQUEST_TIMEOUT = "The request timed out."
+    static let UNKNOWN_ERROR = "Unknown error occured while contacting the server."
     static let SPECIFY_LOCATION = "Please specify your location"
     static let NO_INTERNET = "No Network Available. Retry later"
     static let CONNECTED_INTERNET = "Network Available"

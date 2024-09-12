@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		3713FF3D2C8E381500CDFF1E /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3713FF3C2C8E381500CDFF1E /* RadioView.swift */; };
 		3713FF3F2C8E458200CDFF1E /* AppBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3713FF3E2C8E458200CDFF1E /* AppBarView.swift */; };
+		376BDB5D2C939C3500F1500F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BDB5C2C939C3500F1500F /* AppConstants.swift */; };
+		376BDB5F2C93A34600F1500F /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BDB5E2C93A34600F1500F /* StorageHandler.swift */; };
+		3795F18B2C93147700B06D4F /* MyAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F18A2C93147700B06D4F /* MyAlerts.swift */; };
+		3795F18E2C9315F300B06D4F /* ApiEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F18D2C9315F300B06D4F /* ApiEnums.swift */; };
+		3795F1902C931F2600B06D4F /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F18F2C931F2600B06D4F /* ApiResponseModel.swift */; };
+		3795F1922C931FA300B06D4F /* ApiErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F1912C931FA300B06D4F /* ApiErrorModel.swift */; };
 		37A9A32C2C8A1C7800A47DA6 /* NSideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 37A9A32B2C8A1C7800A47DA6 /* NSideMenu */; };
 		37A9A3552C8A39A700A47DA6 /* sideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9A3542C8A39A600A47DA6 /* sideMenu.swift */; };
 		37A9A3572C8A3A2200A47DA6 /* ImageOnCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9A3562C8A3A2200A47DA6 /* ImageOnCircle.swift */; };
@@ -82,6 +88,12 @@
 		06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teatherapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3713FF3C2C8E381500CDFF1E /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
 		3713FF3E2C8E458200CDFF1E /* AppBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarView.swift; sourceTree = "<group>"; };
+		376BDB5C2C939C3500F1500F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		376BDB5E2C93A34600F1500F /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
+		3795F18A2C93147700B06D4F /* MyAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlerts.swift; sourceTree = "<group>"; };
+		3795F18D2C9315F300B06D4F /* ApiEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEnums.swift; sourceTree = "<group>"; };
+		3795F18F2C931F2600B06D4F /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
+		3795F1912C931FA300B06D4F /* ApiErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorModel.swift; sourceTree = "<group>"; };
 		37A9A3542C8A39A600A47DA6 /* sideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideMenu.swift; sourceTree = "<group>"; };
 		37A9A3562C8A3A2200A47DA6 /* ImageOnCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOnCircle.swift; sourceTree = "<group>"; };
 		37B272172C8DFF16001BB0E0 /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
@@ -174,6 +186,15 @@
 			path = UiComponents;
 			sourceTree = "<group>";
 		};
+		376BDB5B2C939C1A00F1500F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				376BDB5C2C939C3500F1500F /* AppConstants.swift */,
+				376BDB5E2C93A34600F1500F /* StorageHandler.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		37B2721B2C8E122F001BB0E0 /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				37B2721F2C8E1B9F001BB0E0 /* PermissionLevelEnums.swift */,
+				3795F18D2C9315F300B06D4F /* ApiEnums.swift */,
 			);
 			path = MyEnums;
 			sourceTree = "<group>";
@@ -202,6 +224,7 @@
 		A2163D932AB4B26300A981CC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */,
 				A2BCBB682AA0FE9800DE6255 /* LoginView.swift */,
 			);
 			path = Login;
@@ -210,6 +233,7 @@
 		A2163D942AB4B26B00A981CC /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				BD3AECB22AE2D1C100DEB032 /* SignupViewModel.swift */,
 				A254CC002AA7826200FAE281 /* SignupView.swift */,
 			);
 			path = Signup;
@@ -245,6 +269,7 @@
 		A2BCBB652AA0FE9800DE6255 /* Teatherapp */ = {
 			isa = PBXGroup;
 			children = (
+				376BDB5B2C939C1A00F1500F /* Utils */,
 				37B2721E2C8E1B70001BB0E0 /* MyEnums */,
 				BDE020A92AEA781C00DCB17E /* Info.plist */,
 				BD0F55F52AE44F4700198F67 /* AppDelegate.swift */,
@@ -323,6 +348,7 @@
 				BD4945F92AFAC024007B7867 /* TimeInterval.swift */,
 				BD547E2F2AFE6DF1008BDAA5 /* GetDateOrTime.swift */,
 				37B272172C8DFF16001BB0E0 /* MyExtensions.swift */,
+				3795F18A2C93147700B06D4F /* MyAlerts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -381,8 +407,6 @@
 			isa = PBXGroup;
 			children = (
 				BD1AF1532B29FBE100DC3388 /* UsersLocationViewModel.swift */,
-				BDB60B8F2AE1B4B4002ABBBC /* LoginViewModel.swift */,
-				BD3AECB22AE2D1C100DEB032 /* SignupViewModel.swift */,
 				BD4B18EF2AF2DCBC0066E9DB /* ConversationViewModel.swift */,
 				BD4B18F32AF2E3020066E9DB /* ChatViewModel.swift */,
 				BDEF99F12AFFF6AC00EDA94F /* MessageViewModel.swift */,
@@ -471,6 +495,8 @@
 				BDB60B942AE1B609002ABBBC /* ApiLinks.swift */,
 				BDEF99F32B01E7BF00EDA94F /* AppModel.swift */,
 				BD6C789A2B0269F5007A19FE /* Constant.swift */,
+				3795F18F2C931F2600B06D4F /* ApiResponseModel.swift */,
+				3795F1912C931FA300B06D4F /* ApiErrorModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -632,14 +658,18 @@
 				BD4B18ED2AF2D9C80066E9DB /* ConversationModel.swift in Sources */,
 				BD12A8CE2AE3A79B00A61445 /* CountryPicker.swift in Sources */,
 				A2097B252AB35251003C27C6 /* SettingView.swift in Sources */,
+				3795F18B2C93147700B06D4F /* MyAlerts.swift in Sources */,
 				37B272182C8DFF16001BB0E0 /* MyExtensions.swift in Sources */,
 				A2163DA42AB4C1C500A981CC /* ViewportHelper.swift in Sources */,
+				376BDB5F2C93A34600F1500F /* StorageHandler.swift in Sources */,
 				BD0F55F62AE44F4700198F67 /* AppDelegate.swift in Sources */,
 				A2CEE1982AA647D200BDFF30 /* ResetPassword.swift in Sources */,
 				BD51B72D2AE66B5800EB6106 /* TFBottomBarModel.swift in Sources */,
 				A254CC052AA78F4500FAE281 /* TFCapsuleButton.swift in Sources */,
 				BD83E05E2B46E4AF00DB27C8 /* HistoryView.swift in Sources */,
 				BD547E2B2AFE627D008BDAA5 /* UserDetailsModel.swift in Sources */,
+				376BDB5D2C939C3500F1500F /* AppConstants.swift in Sources */,
+				3795F1902C931F2600B06D4F /* ApiResponseModel.swift in Sources */,
 				BDB60B952AE1B609002ABBBC /* ApiLinks.swift in Sources */,
 				BD547E302AFE6DF1008BDAA5 /* GetDateOrTime.swift in Sources */,
 				BDEF99F42B01E7BF00EDA94F /* AppModel.swift in Sources */,
@@ -664,8 +694,10 @@
 				BD27D6112AF3FAFE00D54FA6 /* UserAuth.swift in Sources */,
 				A2DED4032AAF7CCE004CF21B /* ShapeClasses.swift in Sources */,
 				A2163D982AB4B32800A981CC /* ConversationView.swift in Sources */,
+				3795F1922C931FA300B06D4F /* ApiErrorModel.swift in Sources */,
 				BD547E232AFE4E79008BDAA5 /* SceneDelegate.swift in Sources */,
 				A2BCBB672AA0FE9800DE6255 /* TeatherappApp.swift in Sources */,
+				3795F18E2C9315F300B06D4F /* ApiEnums.swift in Sources */,
 				BDB60B8E2AE1B1BA002ABBBC /* TextFields.swift in Sources */,
 				BD38F4672AEA4B560032FAC7 /* UnderLineTabBarView.swift in Sources */,
 				3713FF3F2C8E458200CDFF1E /* AppBarView.swift in Sources */,
@@ -814,8 +846,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -851,8 +883,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

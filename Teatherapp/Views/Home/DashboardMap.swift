@@ -42,7 +42,7 @@ struct DashboardMap: View {
         
         NSideMenuView(options: options){
             Menu{
-                MenuView(selectedView: $selectedView)
+                SideMenuView(selectedView: $selectedView)
             }
             Main{
                 ZStack {
