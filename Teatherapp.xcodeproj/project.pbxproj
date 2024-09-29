@@ -7,6 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C160A912CA858E400609207 /* FavoriteLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160A902CA858E400609207 /* FavoriteLocationsView.swift */; };
+		2C160A942CA85A9C00609207 /* AddFavoriteLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160A932CA85A9C00609207 /* AddFavoriteLocationView.swift */; };
+		2C160A962CA85AB100609207 /* AddFavoriteLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160A952CA85AA400609207 /* AddFavoriteLocationViewModel.swift */; };
+		2C160A992CA85E8400609207 /* BackgroundViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160A982CA85E8400609207 /* BackgroundViewWrapper.swift */; };
+		2C160A9A2CA85E8400609207 /* Untitled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160A972CA85E5900609207 /* Untitled.swift */; };
+		2C160A9C2CA862D000609207 /* SimpleTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160A9B2CA862D000609207 /* SimpleTextEditor.swift */; };
+		2C160A9E2CA8676F00609207 /* SimpleToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160A9D2CA8676F00609207 /* SimpleToggleButton.swift */; };
+		2C160AA12CA86DCD00609207 /* ShareWithView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160AA02CA86DCD00609207 /* ShareWithView.swift */; };
+		2C160AA42CA872B100609207 /* CheckInScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160AA32CA8729B00609207 /* CheckInScheduleView.swift */; };
+		2C160AA72CA87ED000609207 /* ReportMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160AA62CA87ED000609207 /* ReportMainView.swift */; };
+		2C160AAA2CA882C400609207 /* ReportTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C160AA92CA882C400609207 /* ReportTypeView.swift */; };
+		2C618A632CA8C40300BFAB47 /* DownloadedReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C618A622CA8C40300BFAB47 /* DownloadedReportsView.swift */; };
+		2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */; };
+		2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B72CA62107009B9310 /* PackageCard.swift */; };
+		2C8346BB2CA626C5009B9310 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */; };
+		2CD57A402CA450920012E862 /* ManageBoostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD57A3F2CA450920012E862 /* ManageBoostView.swift */; };
+		2CE3B5DB2CA6CA04000A5F5E /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5DA2CA6CA04000A5F5E /* ContactUsView.swift */; };
+		2CE3B5DD2CA6CC9E000A5F5E /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5DC2CA6CC8F000A5F5E /* ContactUsViewModel.swift */; };
+		2CE3B5E72CA6D224000A5F5E /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3B5E02CA6D224000A5F5E /* CountryNumbers.json */; };
+		2CE3B5E92CA6D2CA000A5F5E /* CountryPhoneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5E82CA6D2BF000A5F5E /* CountryPhoneData.swift */; };
+		2CE3B5EB2CA6D361000A5F5E /* CountryPhoneDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5EA2CA6D34F000A5F5E /* CountryPhoneDataDecoder.swift */; };
+		2CE3B5ED2CA6D3D7000A5F5E /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5EC2CA6D3CF000A5F5E /* PhoneNumberView.swift */; };
+		2CE3B5F02CA6DA54000A5F5E /* AddEasterEggView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5EF2CA6DA54000A5F5E /* AddEasterEggView.swift */; };
+		2CE3B5F42CA6DB54000A5F5E /* EasterEggTypeDropdownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5F32CA6DB54000A5F5E /* EasterEggTypeDropdownMenuView.swift */; };
+		2CE3B5F62CA711C0000A5F5E /* AddEasterEggViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5F52CA71006000A5F5E /* AddEasterEggViewModel.swift */; };
+		2CE3B5F82CA719DD000A5F5E /* EasterEggFrequencyEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5F72CA719BA000A5F5E /* EasterEggFrequencyEnum.swift */; };
+		2CE3B5FA2CA72888000A5F5E /* AddMediaButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5F92CA72888000A5F5E /* AddMediaButtonView.swift */; };
+		2CE3B5FE2CA7311F000A5F5E /* SelectAllRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5FD2CA7311F000A5F5E /* SelectAllRadioButton.swift */; };
+		2CE3B6002CA734D3000A5F5E /* DayRadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5FF2CA734B7000A5F5E /* DayRadioButtonView.swift */; };
+		2CE3B6022CA73517000A5F5E /* WeekdayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B6012CA7350E000A5F5E /* WeekdayEnum.swift */; };
+		2CE3B6042CA743A7000A5F5E /* SimpleTextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B6032CA743A7000A5F5E /* SimpleTextButtonView.swift */; };
+		2CE3B6062CA7515D000A5F5E /* DateAndTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B6052CA75155000A5F5E /* DateAndTimeUtils.swift */; };
+		2CE3B6082CA772DD000A5F5E /* TimeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B6072CA772DD000A5F5E /* TimeSelectView.swift */; };
+		2CE3B60B2CA77B46000A5F5E /* EasterEggsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B60A2CA77B46000A5F5E /* EasterEggsView.swift */; };
+		2CE3B60D2CA77B57000A5F5E /* EasterEggsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B60C2CA77B4F000A5F5E /* EasterEggsViewModel.swift */; };
 		3713FF3D2C8E381500CDFF1E /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3713FF3C2C8E381500CDFF1E /* RadioView.swift */; };
 		3713FF3F2C8E458200CDFF1E /* AppBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3713FF3E2C8E458200CDFF1E /* AppBarView.swift */; };
 		376BDB5D2C939C3500F1500F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BDB5C2C939C3500F1500F /* AppConstants.swift */; };
@@ -86,6 +121,41 @@
 
 /* Begin PBXFileReference section */
 		06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teatherapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C160A902CA858E400609207 /* FavoriteLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationsView.swift; sourceTree = "<group>"; };
+		2C160A932CA85A9C00609207 /* AddFavoriteLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteLocationView.swift; sourceTree = "<group>"; };
+		2C160A952CA85AA400609207 /* AddFavoriteLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteLocationViewModel.swift; sourceTree = "<group>"; };
+		2C160A972CA85E5900609207 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
+		2C160A982CA85E8400609207 /* BackgroundViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewWrapper.swift; sourceTree = "<group>"; };
+		2C160A9B2CA862D000609207 /* SimpleTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextEditor.swift; sourceTree = "<group>"; };
+		2C160A9D2CA8676F00609207 /* SimpleToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToggleButton.swift; sourceTree = "<group>"; };
+		2C160AA02CA86DCD00609207 /* ShareWithView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareWithView.swift; sourceTree = "<group>"; };
+		2C160AA32CA8729B00609207 /* CheckInScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInScheduleView.swift; sourceTree = "<group>"; };
+		2C160AA62CA87ED000609207 /* ReportMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMainView.swift; sourceTree = "<group>"; };
+		2C160AA92CA882C400609207 /* ReportTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTypeView.swift; sourceTree = "<group>"; };
+		2C618A622CA8C40300BFAB47 /* DownloadedReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedReportsView.swift; sourceTree = "<group>"; };
+		2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomRoundedBackgroundRectangle.swift; sourceTree = "<group>"; };
+		2C8346B72CA62107009B9310 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
+		2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		2CD57A3F2CA450920012E862 /* ManageBoostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBoostView.swift; sourceTree = "<group>"; };
+		2CE3B5DA2CA6CA04000A5F5E /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
+		2CE3B5DC2CA6CC8F000A5F5E /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
+		2CE3B5E02CA6D224000A5F5E /* CountryNumbers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
+		2CE3B5E82CA6D2BF000A5F5E /* CountryPhoneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPhoneData.swift; sourceTree = "<group>"; };
+		2CE3B5EA2CA6D34F000A5F5E /* CountryPhoneDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPhoneDataDecoder.swift; sourceTree = "<group>"; };
+		2CE3B5EC2CA6D3CF000A5F5E /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
+		2CE3B5EF2CA6DA54000A5F5E /* AddEasterEggView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEasterEggView.swift; sourceTree = "<group>"; };
+		2CE3B5F32CA6DB54000A5F5E /* EasterEggTypeDropdownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggTypeDropdownMenuView.swift; sourceTree = "<group>"; };
+		2CE3B5F52CA71006000A5F5E /* AddEasterEggViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEasterEggViewModel.swift; sourceTree = "<group>"; };
+		2CE3B5F72CA719BA000A5F5E /* EasterEggFrequencyEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggFrequencyEnum.swift; sourceTree = "<group>"; };
+		2CE3B5F92CA72888000A5F5E /* AddMediaButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMediaButtonView.swift; sourceTree = "<group>"; };
+		2CE3B5FD2CA7311F000A5F5E /* SelectAllRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllRadioButton.swift; sourceTree = "<group>"; };
+		2CE3B5FF2CA734B7000A5F5E /* DayRadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRadioButtonView.swift; sourceTree = "<group>"; };
+		2CE3B6012CA7350E000A5F5E /* WeekdayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayEnum.swift; sourceTree = "<group>"; };
+		2CE3B6032CA743A7000A5F5E /* SimpleTextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextButtonView.swift; sourceTree = "<group>"; };
+		2CE3B6052CA75155000A5F5E /* DateAndTimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTimeUtils.swift; sourceTree = "<group>"; };
+		2CE3B6072CA772DD000A5F5E /* TimeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectView.swift; sourceTree = "<group>"; };
+		2CE3B60A2CA77B46000A5F5E /* EasterEggsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggsView.swift; sourceTree = "<group>"; };
+		2CE3B60C2CA77B4F000A5F5E /* EasterEggsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggsViewModel.swift; sourceTree = "<group>"; };
 		3713FF3C2C8E381500CDFF1E /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
 		3713FF3E2C8E458200CDFF1E /* AppBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarView.swift; sourceTree = "<group>"; };
 		376BDB5C2C939C3500F1500F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -178,6 +248,155 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C160A8E2CA854FD00609207 /* SharedComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SharedComponents;
+			sourceTree = "<group>";
+		};
+		2C160A8F2CA858B700609207 /* FavoriteLocation */ = {
+			isa = PBXGroup;
+			children = (
+				2C160A922CA85A6E00609207 /* AddFavoriteLocation */,
+				2C160A902CA858E400609207 /* FavoriteLocationsView.swift */,
+			);
+			path = FavoriteLocation;
+			sourceTree = "<group>";
+		};
+		2C160A922CA85A6E00609207 /* AddFavoriteLocation */ = {
+			isa = PBXGroup;
+			children = (
+				2C160A9F2CA86DA500609207 /* UiComponents */,
+				2C160A952CA85AA400609207 /* AddFavoriteLocationViewModel.swift */,
+				2C160A932CA85A9C00609207 /* AddFavoriteLocationView.swift */,
+			);
+			path = AddFavoriteLocation;
+			sourceTree = "<group>";
+		};
+		2C160A9F2CA86DA500609207 /* UiComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2C160AA02CA86DCD00609207 /* ShareWithView.swift */,
+			);
+			path = UiComponents;
+			sourceTree = "<group>";
+		};
+		2C160AA22CA8727F00609207 /* CheckIn Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				2C160AA32CA8729B00609207 /* CheckInScheduleView.swift */,
+			);
+			path = "CheckIn Schedule";
+			sourceTree = "<group>";
+		};
+		2C160AA52CA87EB700609207 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				2C618A5F2CA8C3DE00BFAB47 /* DownloadedReports */,
+				2C160AA82CA882A300609207 /* UI Components */,
+				2C160AA62CA87ED000609207 /* ReportMainView.swift */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
+		2C160AA82CA882A300609207 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				2C160AA92CA882C400609207 /* ReportTypeView.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		2C618A5F2CA8C3DE00BFAB47 /* DownloadedReports */ = {
+			isa = PBXGroup;
+			children = (
+				2C618A622CA8C40300BFAB47 /* DownloadedReportsView.swift */,
+			);
+			path = DownloadedReports;
+			sourceTree = "<group>";
+		};
+		2C8346B92CA62698009B9310 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		2CD57A3D2CA44F660012E862 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				2C160AA52CA87EB700609207 /* Reports */,
+				2C160AA22CA8727F00609207 /* CheckIn Schedule */,
+				2C160A8F2CA858B700609207 /* FavoriteLocation */,
+				2CE3B6092CA77B16000A5F5E /* EasterEgg */,
+				2CE3B5EE2CA6DA2D000A5F5E /* AddEasterEgg */,
+				2CE3B5D92CA6C8F3000A5F5E /* ContactUs */,
+				2CD57A3E2CA44F970012E862 /* ManageBoost */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		2CD57A3E2CA44F970012E862 /* ManageBoost */ = {
+			isa = PBXGroup;
+			children = (
+				2C8346B92CA62698009B9310 /* components */,
+				2CD57A3F2CA450920012E862 /* ManageBoostView.swift */,
+			);
+			path = ManageBoost;
+			sourceTree = "<group>";
+		};
+		2CE3B5D92CA6C8F3000A5F5E /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3B5DC2CA6CC8F000A5F5E /* ContactUsViewModel.swift */,
+				2CE3B5DA2CA6CA04000A5F5E /* ContactUsView.swift */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
+		2CE3B5DF2CA6D1FE000A5F5E /* PhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3B5EC2CA6D3CF000A5F5E /* PhoneNumberView.swift */,
+				2CE3B5EA2CA6D34F000A5F5E /* CountryPhoneDataDecoder.swift */,
+				2CE3B5E82CA6D2BF000A5F5E /* CountryPhoneData.swift */,
+				2CE3B5E02CA6D224000A5F5E /* CountryNumbers.json */,
+			);
+			path = PhoneNumber;
+			sourceTree = "<group>";
+		};
+		2CE3B5EE2CA6DA2D000A5F5E /* AddEasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3B5F52CA71006000A5F5E /* AddEasterEggViewModel.swift */,
+				2CE3B5F12CA6DB15000A5F5E /* Components */,
+				2CE3B5EF2CA6DA54000A5F5E /* AddEasterEggView.swift */,
+			);
+			path = AddEasterEgg;
+			sourceTree = "<group>";
+		};
+		2CE3B5F12CA6DB15000A5F5E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3B5FF2CA734B7000A5F5E /* DayRadioButtonView.swift */,
+				2CE3B5F32CA6DB54000A5F5E /* EasterEggTypeDropdownMenuView.swift */,
+				2CE3B5F92CA72888000A5F5E /* AddMediaButtonView.swift */,
+				2CE3B6072CA772DD000A5F5E /* TimeSelectView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2CE3B6092CA77B16000A5F5E /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3B60C2CA77B4F000A5F5E /* EasterEggsViewModel.swift */,
+				2CE3B60A2CA77B46000A5F5E /* EasterEggsView.swift */,
+			);
+			path = EasterEgg;
+			sourceTree = "<group>";
+		};
 		3713FF3B2C8E37F000CDFF1E /* UiComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +408,7 @@
 		376BDB5B2C939C1A00F1500F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3B6052CA75155000A5F5E /* DateAndTimeUtils.swift */,
 				376BDB5C2C939C3500F1500F /* AppConstants.swift */,
 				376BDB5E2C93A34600F1500F /* StorageHandler.swift */,
 			);
@@ -207,6 +427,8 @@
 		37B2721E2C8E1B70001BB0E0 /* MyEnums */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3B6012CA7350E000A5F5E /* WeekdayEnum.swift */,
+				2CE3B5F72CA719BA000A5F5E /* EasterEggFrequencyEnum.swift */,
 				37B2721F2C8E1B9F001BB0E0 /* PermissionLevelEnums.swift */,
 				3795F18D2C9315F300B06D4F /* ApiEnums.swift */,
 			);
@@ -269,6 +491,7 @@
 		A2BCBB652AA0FE9800DE6255 /* Teatherapp */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3B5DF2CA6D1FE000A5F5E /* PhoneNumber */,
 				376BDB5B2C939C1A00F1500F /* Utils */,
 				37B2721E2C8E1B70001BB0E0 /* MyEnums */,
 				BDE020A92AEA781C00DCB17E /* Info.plist */,
@@ -303,6 +526,8 @@
 		A2BCBB762AA10ACF00DE6255 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				2C160A972CA85E5900609207 /* Untitled.swift */,
+				2C160A8E2CA854FD00609207 /* SharedComponents */,
 				A2BCBB742AA10AC400DE6255 /* TFButton.swift */,
 				A254CC022AA788BD00FAE281 /* UnderLinePincodeView.swift */,
 				A254CC042AA78F4500FAE281 /* TFCapsuleButton.swift */,
@@ -315,6 +540,13 @@
 				37A9A3562C8A3A2200A47DA6 /* ImageOnCircle.swift */,
 				37B272192C8E0AA6001BB0E0 /* Side_Menu_Row_View.swift */,
 				3713FF3E2C8E458200CDFF1E /* AppBarView.swift */,
+				2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */,
+				2C8346B72CA62107009B9310 /* PackageCard.swift */,
+				2CE3B5FD2CA7311F000A5F5E /* SelectAllRadioButton.swift */,
+				2CE3B6032CA743A7000A5F5E /* SimpleTextButtonView.swift */,
+				2C160A982CA85E8400609207 /* BackgroundViewWrapper.swift */,
+				2C160A9B2CA862D000609207 /* SimpleTextEditor.swift */,
+				2C160A9D2CA8676F00609207 /* SimpleToggleButton.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -322,6 +554,7 @@
 		A2CEE1902AA63D4F00BDFF30 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2CD57A3D2CA44F660012E862 /* SideMenu */,
 				37B2721B2C8E122F001BB0E0 /* Member */,
 				A2163D932AB4B26300A981CC /* Login */,
 				A2163D942AB4B26B00A981CC /* Signup */,
@@ -543,7 +776,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					A2BCBB622AA0FE9800DE6255 = {
 						CreatedOnToolsVersion = 15.0;
@@ -577,6 +810,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE3B5E72CA6D224000A5F5E /* CountryNumbers.json in Resources */,
 				A2CEE1952AA6442900BDFF30 /* Colors.xcassets in Resources */,
 				A26446802ADFC0D1006A9885 /* Assets.xcassets in Resources */,
 				A2BCBB6E2AA0FE9A00DE6255 /* Preview Assets.xcassets in Resources */,
@@ -640,16 +874,28 @@
 				BD4B18F42AF2E3020066E9DB /* ChatViewModel.swift in Sources */,
 				BDB60B902AE1B4B4002ABBBC /* LoginViewModel.swift in Sources */,
 				BD949AB92B3AC70200FB290D /* TimeSheetView.swift in Sources */,
+				2C160A9C2CA862D000609207 /* SimpleTextEditor.swift in Sources */,
 				3713FF3D2C8E381500CDFF1E /* RadioView.swift in Sources */,
+				2C160A962CA85AB100609207 /* AddFavoriteLocationViewModel.swift in Sources */,
 				BDAE9FBB2AFC260300975341 /* MessageView.swift in Sources */,
+				2CE3B5F02CA6DA54000A5F5E /* AddEasterEggView.swift in Sources */,
 				A2002EE22AAB750C006D9AB8 /* TFBottomBar.swift in Sources */,
+				2CE3B5DB2CA6CA04000A5F5E /* ContactUsView.swift in Sources */,
+				2C160A912CA858E400609207 /* FavoriteLocationsView.swift in Sources */,
+				2CE3B5ED2CA6D3D7000A5F5E /* PhoneNumberView.swift in Sources */,
 				BD0F55FB2AE4556B00198F67 /* CalendarView.swift in Sources */,
 				A2BCBB692AA0FE9800DE6255 /* LoginView.swift in Sources */,
+				2C160A9A2CA85E8400609207 /* Untitled.swift in Sources */,
 				37A9A3552C8A39A700A47DA6 /* sideMenu.swift in Sources */,
 				BD691B0D2AEFB038009869D8 /* SOSView.swift in Sources */,
 				A2163D962AB4B28900A981CC /* NotificationView.swift in Sources */,
 				BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */,
+				2CE3B6042CA743A7000A5F5E /* SimpleTextButtonView.swift in Sources */,
+				2C160A942CA85A9C00609207 /* AddFavoriteLocationView.swift in Sources */,
+				2CE3B5F42CA6DB54000A5F5E /* EasterEggTypeDropdownMenuView.swift in Sources */,
+				2C160A9E2CA8676F00609207 /* SimpleToggleButton.swift in Sources */,
 				37B2721D2C8E1251001BB0E0 /* Invite_Member_view.swift in Sources */,
+				2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */,
 				BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */,
 				BD4B18F02AF2DCBC0066E9DB /* ConversationViewModel.swift in Sources */,
 				BD27D60D2AF3E5AD00D54FA6 /* LoadingView.swift in Sources */,
@@ -659,6 +905,11 @@
 				BD12A8CE2AE3A79B00A61445 /* CountryPicker.swift in Sources */,
 				A2097B252AB35251003C27C6 /* SettingView.swift in Sources */,
 				3795F18B2C93147700B06D4F /* MyAlerts.swift in Sources */,
+				2CE3B5FA2CA72888000A5F5E /* AddMediaButtonView.swift in Sources */,
+				2CE3B5FE2CA7311F000A5F5E /* SelectAllRadioButton.swift in Sources */,
+				2CE3B5EB2CA6D361000A5F5E /* CountryPhoneDataDecoder.swift in Sources */,
+				2CE3B60D2CA77B57000A5F5E /* EasterEggsViewModel.swift in Sources */,
+				2CE3B6082CA772DD000A5F5E /* TimeSelectView.swift in Sources */,
 				37B272182C8DFF16001BB0E0 /* MyExtensions.swift in Sources */,
 				A2163DA42AB4C1C500A981CC /* ViewportHelper.swift in Sources */,
 				376BDB5F2C93A34600F1500F /* StorageHandler.swift in Sources */,
@@ -666,12 +917,15 @@
 				A2CEE1982AA647D200BDFF30 /* ResetPassword.swift in Sources */,
 				BD51B72D2AE66B5800EB6106 /* TFBottomBarModel.swift in Sources */,
 				A254CC052AA78F4500FAE281 /* TFCapsuleButton.swift in Sources */,
+				2CE3B5DD2CA6CC9E000A5F5E /* ContactUsViewModel.swift in Sources */,
+				2C160AA12CA86DCD00609207 /* ShareWithView.swift in Sources */,
 				BD83E05E2B46E4AF00DB27C8 /* HistoryView.swift in Sources */,
 				BD547E2B2AFE627D008BDAA5 /* UserDetailsModel.swift in Sources */,
 				376BDB5D2C939C3500F1500F /* AppConstants.swift in Sources */,
 				3795F1902C931F2600B06D4F /* ApiResponseModel.swift in Sources */,
 				BDB60B952AE1B609002ABBBC /* ApiLinks.swift in Sources */,
 				BD547E302AFE6DF1008BDAA5 /* GetDateOrTime.swift in Sources */,
+				2CE3B6062CA7515D000A5F5E /* DateAndTimeUtils.swift in Sources */,
 				BDEF99F42B01E7BF00EDA94F /* AppModel.swift in Sources */,
 				BD6C789B2B0269F5007A19FE /* Constant.swift in Sources */,
 				A2E8FD962AAA33F10020C6E6 /* DashboardMap.swift in Sources */,
@@ -680,22 +934,36 @@
 				A2CEE19A2AA649C800BDFF30 /* HomeView.swift in Sources */,
 				BD949AB62B3AC6AF00FB290D /* JobRequestView.swift in Sources */,
 				37B2721A2C8E0AA6001BB0E0 /* Side_Menu_Row_View.swift in Sources */,
+				2CE3B6022CA73517000A5F5E /* WeekdayEnum.swift in Sources */,
+				2C8346BB2CA626C5009B9310 /* SubscriptionView.swift in Sources */,
 				A2097B272AB38216003C27C6 /* Helpers.swift in Sources */,
+				2C160AA72CA87ED000609207 /* ReportMainView.swift in Sources */,
+				2CE3B5F62CA711C0000A5F5E /* AddEasterEggViewModel.swift in Sources */,
 				BD29D9DC2B3E083D006B8755 /* LocationManager.swift in Sources */,
 				BD547E2E2AFE62FC008BDAA5 /* UserDetailsViewModel.swift in Sources */,
 				37A9A3572C8A3A2200A47DA6 /* ImageOnCircle.swift in Sources */,
 				A2DED4012AAF77D6004CF21B /* CheckinView.swift in Sources */,
+				2CE3B5E92CA6D2CA000A5F5E /* CountryPhoneData.swift in Sources */,
+				2CE3B5F82CA719DD000A5F5E /* EasterEggFrequencyEnum.swift in Sources */,
 				BDD6F73A2AE849700080AC4C /* HeaderBarView.swift in Sources */,
 				BD4B18F22AF2E27D0066E9DB /* ChatModel.swift in Sources */,
 				BD1AF1522B29F1E800DC3388 /* UsersLocationModel.swift in Sources */,
+				2C160AA42CA872B100609207 /* CheckInScheduleView.swift in Sources */,
 				BDEF99F02AFFF62B00EDA94F /* MessageModel.swift in Sources */,
+				2CD57A402CA450920012E862 /* ManageBoostView.swift in Sources */,
 				BD3AECAF2AE2C49E00DEB032 /* LoginModel.swift in Sources */,
 				A2BCBB752AA10AC400DE6255 /* TFButton.swift in Sources */,
 				BD27D6112AF3FAFE00D54FA6 /* UserAuth.swift in Sources */,
 				A2DED4032AAF7CCE004CF21B /* ShapeClasses.swift in Sources */,
 				A2163D982AB4B32800A981CC /* ConversationView.swift in Sources */,
+				2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */,
 				3795F1922C931FA300B06D4F /* ApiErrorModel.swift in Sources */,
+				2CE3B6002CA734D3000A5F5E /* DayRadioButtonView.swift in Sources */,
+				2C160A992CA85E8400609207 /* BackgroundViewWrapper.swift in Sources */,
+				2C160AAA2CA882C400609207 /* ReportTypeView.swift in Sources */,
 				BD547E232AFE4E79008BDAA5 /* SceneDelegate.swift in Sources */,
+				2C618A632CA8C40300BFAB47 /* DownloadedReportsView.swift in Sources */,
+				2CE3B60B2CA77B46000A5F5E /* EasterEggsView.swift in Sources */,
 				A2BCBB672AA0FE9800DE6255 /* TeatherappApp.swift in Sources */,
 				3795F18E2C9315F300B06D4F /* ApiEnums.swift in Sources */,
 				BDB60B8E2AE1B1BA002ABBBC /* TextFields.swift in Sources */,
@@ -848,7 +1116,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -885,7 +1153,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

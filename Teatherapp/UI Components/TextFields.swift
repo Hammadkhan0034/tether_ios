@@ -11,12 +11,19 @@ struct SimpleTextField: View {
     
     @State var placeHolder: String
     @Binding var inputField : String
-    
+    let lineLimit: Int
+    let height : Double
+    init(placeHolder: String, inputField: Binding<String>, lineLimit: Int = 1, height: Double = 50) {
+        self.placeHolder = placeHolder
+        self._inputField = inputField
+        self.lineLimit = lineLimit
+        self.height = height
+    }
     var body: some View {
         VStack{
-            TextField(placeHolder, text: $inputField)
+            TextField("", text: $inputField, prompt: Text(placeHolder).foregroundColor(.gray).fontWeight(.semibold)).lineLimit(1...3)
                 .padding(.leading)
-                .frame(height: 50)
+                .frame(height: height)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .autocorrectionDisabled()

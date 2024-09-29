@@ -10,18 +10,30 @@ import SwiftUI
 struct TFButton: View {
     
     let label : String
-    let onClick : ()->Void
+    let textColor: Color
+    let backgroundColor: Color
+    let width: Double
+    let height: Double
     
+    let onClick : ()->Void
+    init(label: String, onClick: @escaping () -> Void, textColor: Color = Color.white, backgroundColor: Color = .appBlue, width: Double = .infinity, height: Double = 50) {
+        self.label = label
+        self.onClick = onClick
+        self.textColor = textColor
+        self.backgroundColor = backgroundColor
+        self.width = width
+        self.height = height
+    }
     var body: some View {
         Button(action: {
             onClick()
         }, label: {
             Text(label)
-                .foregroundStyle(.white)
+                .foregroundStyle(textColor)
                 .font(.system(size: 20, weight: .bold))
-                .frame(height: 50)
-                .frame(maxWidth: .infinity)
-                .background(Capsule())
+                .frame(height: height)
+                .frame(maxWidth: width)
+                .background(Capsule().foregroundStyle(backgroundColor))
         })
     }
 }

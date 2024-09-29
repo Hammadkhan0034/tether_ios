@@ -34,6 +34,33 @@ struct RadioView: View {
     }
 }
 
+
+struct RadioViewFrequency: View {
+    @Binding var selected: EasterEggFrequency
+    let frequency: EasterEggFrequency
+    
+    
+    var body: some View {
+        Button(action: {
+            self.selected = self.frequency
+        }) {
+            HStack {
+                Circle()
+                    .stroke(.textBluishBlack, lineWidth: 3)
+                    .frame(width: 20, height: 20)
+                    .overlay(
+                        Circle()
+                            .fill(self.selected == self.frequency ? .textBluishBlack : Color.clear)
+                            .frame(width: 12, height: 12)
+                    )
+                Text(frequency.rawValue)
+                    .foregroundColor(.textBluishBlack).font(.subheadline)
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+}
+
 #Preview {
     struct Preview: View {
         

@@ -13,5 +13,6 @@ struct AppConstants{
     static let userNameWithSpacesError = "Please enter username without spaces."
     static let noDataError = "Didn't got any data for user from the server.Please login again."
     static let invalidDataFromserver = "Got invalid data from the server. Please try again"
-    
+//    static let weekdays = ["Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    static let weekdays = ["M", "T","W","T","F","S","S"]
 }
