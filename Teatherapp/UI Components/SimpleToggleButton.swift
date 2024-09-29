@@ -12,6 +12,16 @@ struct SimpleToggleButton: View {
     let title: String
     let isSelected: Bool
     let onclick: () ->Void
+    let width: Double
+    
+    init(image: String, title: String, isSelected: Bool, onclick: @escaping () -> Void, width: Double = 130) {
+        self.image = image
+        self.title = title
+        self.isSelected = isSelected
+        self.onclick = onclick
+        self.width = width
+    }
+    
     var body: some View {
         
         Button(action: onclick, label: {
@@ -24,7 +34,7 @@ struct SimpleToggleButton: View {
                 }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))
                 Text(title).font(.system(size: 16,weight: .bold)).foregroundStyle(.white).padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))
                 Spacer()
-            }.frame(width: 130, height: 35).background(isSelected ? .appBlue : .gray).cornerRadius(radius: 35, corners: .allCorners)
+            }.frame(width: width, height: 35).background(isSelected ? .appBlue : .gray).cornerRadius(radius: 35, corners: .allCorners)
         
         })
         

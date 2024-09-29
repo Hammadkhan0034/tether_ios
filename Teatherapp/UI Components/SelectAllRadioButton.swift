@@ -11,19 +11,29 @@ struct SelectAllRadioButton: View {
     let title: String
     let isSelected: Bool
     let onClick: ()->Void
+    let size: Double
+    let font: Font
+    init(title: String, isSelected: Bool, onClick: @escaping () -> Void, size: Double = 30, font: Font = .title3) {
+        self.title = title
+        self.isSelected = isSelected
+        self.onClick = onClick
+        self.size = size
+        self.font = font
+    }
+    
     var body: some View {
         Button(action: onClick) {
             HStack {
                 Circle()
                     .stroke(.textBluishBlack, lineWidth: 2)
-                    .frame(width: 30, height: 30)
+                    .frame(width: size, height: size)
                     .overlay(
                         Circle()
                             .fill(self.isSelected ? .textBluishBlack : Color.clear)
-                            .frame(width: 18, height: 18)
+                            .frame(width: size * 0.6, height: size * 0.6)
                     )
                 Text(title)
-                    .foregroundColor(.textBluishBlack).font(.title3)
+                    .foregroundColor(.textBluishBlack).font(font)
             }
             .padding(.horizontal)
         }

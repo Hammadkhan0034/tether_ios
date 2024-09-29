@@ -13,22 +13,25 @@ struct SimpleTextField: View {
     @Binding var inputField : String
     let lineLimit: Int
     let height : Double
-    init(placeHolder: String, inputField: Binding<String>, lineLimit: Int = 1, height: Double = 50) {
+    let width : Double
+    let radius : Double
+    init(placeHolder: String, inputField: Binding<String>, lineLimit: Int = 1, height: Double = 50, width: Double = .infinity, radius: Double = 8) {
         self.placeHolder = placeHolder
         self._inputField = inputField
         self.lineLimit = lineLimit
         self.height = height
+        self.width = width
+        self.radius = 8
     }
     var body: some View {
-        VStack{
             TextField("", text: $inputField, prompt: Text(placeHolder).foregroundColor(.gray).fontWeight(.semibold)).lineLimit(1...3)
                 .padding(.leading)
-                .frame(height: height)
+                .frame(width: width,height: height)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
-                .autocorrectionDisabled()
-                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
-        }
+                .autocorrectionDisabled().background(.white)
+                .overlay(RoundedRectangle(cornerRadius: radius).stroke(Color.gray, lineWidth: 1)).cornerRadius(radius: radius, corners: .allCorners)
+        
     }
 }
 
