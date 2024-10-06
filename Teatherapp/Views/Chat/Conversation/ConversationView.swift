@@ -16,104 +16,98 @@ struct ConversationView: View {
     @State var conversationArray = [ConversationModelData]()
     
     var body: some View {
-        VStack{
-            HStack{
-                Text("Chat")
-                    .font(.system(size: 22).weight(.bold))
-                    .foregroundColor(Color.appBlue)
-                
-                Spacer()
-                
-                Button {
-                    dismiss()
-                } label: {
-                    Image("back_arrow_icon")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .padding()
-                        .background(Color.appBlue.opacity(0.1))
-                        .clipShape(.circle)
-                }
-            }
-            .padding(.horizontal)
-            
-            if viewModel.noConversation {
-                
-                Spacer()
-                
-                Text("No Conversation Found.")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.appBlue)
-            }
-            else {
-                List(0..<conversationArray.count, id: \.self) { index in
+        NavigationView{
+            ZStack(alignment: .bottomTrailing){
+                VStack{
+                    AppBarView(title: "Chat",textColor: .appBlue).padding(.horizontal)
                     
-                    NavigationLink(destination: {
-                        ChatView(icon: conversationArray[index].icon,
-                                 name: conversationArray[index].name,
-                                 conversationID: conversationArray[index].receiverID,
-                                 receiverID: conversationArray[index].receiverID,
-                                 conversationType: conversationArray[index].conType)
-                    }, label: {
-                        HStack{
-                            AsyncImage(url: URL(string: conversationArray[index].icon)) { phase in
-                                if let image = phase.image {
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 60,height: 60)
-                                        .clipShape(.circle)
-                                }
-                                else {
-                                    Image("userPlaceholder")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 60,height: 60)
-                                        .clipShape(.circle)
-                                }
-                            }
+                    if viewModel.noConversation {
+                        
+                        Spacer()
+                        
+                        Text("No Conversation Found.")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.appBlue)
+                    }
+                    else {
+                        List(0..<conversationArray.count, id: \.self) { index in
                             
-                            VStack(alignment: .leading){
-                                Text(conversationArray[index].name)
-                                    .font(.system(size: 18).weight(.bold))
-                                
+                            NavigationLink(destination: {
+                                ChatView(icon: conversationArray[index].icon,
+                                         name: conversationArray[index].name,
+                                         conversationID: conversationArray[index].receiverID,
+                                         receiverID: conversationArray[index].receiverID,
+                                         conversationType: conversationArray[index].conType)
+                            }, label: {
                                 HStack{
-                                    Image(systemName: "checkmark")
-                                        .resizable()
-                                        .frame(width: 10, height: 10)
+                                    AsyncImage(url: URL(string: conversationArray[index].icon)) { phase in
+                                        if let image = phase.image {
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 60,height: 60)
+                                                .clipShape(.circle)
+                                        }
+                                        else {
+                                            Image("userPlaceholder")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 60,height: 60)
+                                                .clipShape(.circle)
+                                        }
+                                    }
                                     
-                                    Text(conversationArray[index].message)
-                                        .font(.system(size: 14))
-                                        .foregroundColor(.gray)
-                                    
-                                    Spacer()
-                                    
-                                    Text(timeInterval(dateString: conversationArray[index].createdAt))
-                                        .font(.system(size: 12))
-                                        .foregroundColor(.gray)
+                                    VStack(alignment: .leading){
+                                        Text(conversationArray[index].name)
+                                            .font(.system(size: 18).weight(.bold))
+                                        
+                                        HStack{
+                                            Image(systemName: "checkmark")
+                                                .resizable()
+                                                .frame(width: 10, height: 10)
+                                            
+                                            Text(conversationArray[index].message)
+                                                .font(.system(size: 14))
+                                                .foregroundColor(.gray)
+                                            
+                                            Spacer()
+                                            
+                                            Text(timeInterval(dateString: conversationArray[index].createdAt))
+                                                .font(.system(size: 12))
+                                                .foregroundColor(.gray)
+                                        }
+                                    }
                                 }
-                            }
+                            })
                         }
-                    })
+                        .listStyle(.plain)
+                    }
+                    
+                    Spacer()
                 }
-                .listStyle(.plain)
-            }
-            
-            Spacer()
-        }
-        .navigationBarBackButtonHidden()
-        .overlay(self.viewModel.isLoading ? LoadingView(): nil)
-        
-        .onAppear {
-            getConversation()
-        }
-        .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
-            
-            DispatchQueue.main.async {
-                if let userArray = viewModel.conversationModel?.data {
-                    self.conversationArray.removeAll()
-                    self.conversationArray = userArray
+                .navigationBarBackButtonHidden()
+                .overlay(self.viewModel.isLoading ? LoadingView(): nil)
+                
+                .onAppear {
+                    getConversation()
                 }
+                .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
+                    
+                    DispatchQueue.main.async {
+                        if let userArray = viewModel.conversationModel?.data {
+                            self.conversationArray.removeAll()
+                            self.conversationArray = userArray
+                        }
+                    }
+                }
+                
+                NavigationLink(destination: {
+                    SelectChatMemberView().navigationBarBackButtonHidden(true)
+                }, label: {
+                    
+                    Image(systemName: "message.circle.fill").resizable().frame(width: 60, height: 60).foregroundStyle(.appBlue).padding(.all)
+                })
+                
             }
         }
     }

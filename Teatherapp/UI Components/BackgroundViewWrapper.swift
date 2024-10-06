@@ -11,7 +11,7 @@ struct BackgroundViewWrapper: View {
     let text: String
     var body: some View {
         ZStack(alignment: .leading){
-            Rectangle().frame(width: .infinity, height: 50).foregroundColor(.gray.opacity(0.4))
+            Rectangle().frame(width: .infinity, height: 50).foregroundColor(.gray.opacity(0.3))
             Text(text).font(.title3).fontWeight(.semibold).foregroundColor(.checkinGray).padding(.leading)
         }    }
 }

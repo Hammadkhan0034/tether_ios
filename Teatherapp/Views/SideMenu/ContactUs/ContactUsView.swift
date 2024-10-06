@@ -15,8 +15,8 @@ struct ContactUsView: View {
             Spacer().frame(height: 70)
             SimpleTextField(placeHolder: "Name", inputField: $viewModel.name)
             SimpleTextField(placeHolder: "Email", inputField: $viewModel.email).padding(.top)
-            PhoneNumberView().frame(height: 50).padding(.top)
-            SimpleTextField(placeHolder: "Comments", inputField: $viewModel.comments).padding(.top)
+            PhoneNumberView().frame(height: 50).padding(.vertical)
+            SimpleTextField(placeHolder: "Comments", inputField: $viewModel.comments)
             
             TFButton(label: "Send", onClick: {},width: 200).padding(.top)
             Spacer()

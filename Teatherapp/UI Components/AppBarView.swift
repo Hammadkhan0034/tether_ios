@@ -10,9 +10,16 @@ import SwiftUI
 struct AppBarView: View {
     @Environment(\.dismiss) var dismiss
     let title:String
+    let textColor: Color
+    
+    init(title: String, textColor: Color = .textBluishBlack) {
+        self.title = title
+        self.textColor = textColor
+    }
+    
     var body: some View {
         HStack{
-            Text(title).foregroundStyle(.textBluishBlack).bold().font(.title2)
+            Text(title).foregroundStyle(textColor).bold().font(.title2)
             Spacer()
             Button(action: {dismiss()}, label: {            ImageOnCircle(icon: "arrow.left", radius: 24, circleColor: .backIconbackground, imageColor: .backIcon)
 })

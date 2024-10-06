@@ -76,7 +76,7 @@ struct NotificationView: View {
 struct NotificationItem: View {
     
     var body: some View {
-        VStack{
+        VStack(spacing:5){
             
             HStack{
                 HStack{
@@ -84,7 +84,7 @@ struct NotificationItem: View {
                         .foregroundColor(Color.appBlue)
                     
                     Text("01/04/2024")
-                        .foregroundColor(Color.appBlue)
+                        .foregroundColor(Color.appBlue).fontWeight(.medium)
                 }
                 
                 Spacer()
@@ -94,37 +94,32 @@ struct NotificationItem: View {
                         .foregroundColor(Color.appBlue)
                     
                     Text("09:40 PM")
-                        .foregroundColor(Color.appBlue)
+                        .foregroundColor(Color.appBlue).fontWeight(.medium)
                 }
             }
             
             VStack{
                 HStack {
-                    Image(systemName: "person")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 35, height: 35)
-                        .clipShape(.circle)
-                        .padding(.horizontal)
+                    ImageOnCircle(icon: "person.fill", radius: 30, circleColor: .red, imageColor: .white)
                     
                     VStack(alignment: .leading){
-                        Text("Tether")
+                        Text("Tether").font(.title3).fontWeight(.medium)
                         
                         Text("Tether has gone offline.")
-                            .foregroundColor(.red)
+                            .foregroundColor(.red).font(.headline)
                     }
                     
                     Spacer()
                 }
                 
-                Text("FROM : SPECIAL SOMEONES")
-                    .foregroundColor(Color.appBlue)
+                Text("FROM : Family")
+                    .foregroundColor(Color.appBlue).fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
-            .padding()
+            .padding(.all)
             .background(.white)
             .cornerRadius(10)
-            .shadow(radius: 0.5)
-        }
+            .shadow(radius: 2)
+        }.padding(.bottom)
     }
 }

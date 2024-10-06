@@ -25,6 +25,11 @@
 		2C1911B62CA9EC230079B27F /* AddCheckInSelectDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1911B52CA9EC230079B27F /* AddCheckInSelectDays.swift */; };
 		2C1911B82CA9ED2A0079B27F /* AddScheduleCheckInTeamMemberMustBe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1911B72CA9ED2A0079B27F /* AddScheduleCheckInTeamMemberMustBe.swift */; };
 		2C1911BB2CAA04230079B27F /* ManageLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1911BA2CAA04230079B27F /* ManageLocationView.swift */; };
+		2C1B6B912CB2F70A00BD818C /* SelectChatMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B6B902CB2F70A00BD818C /* SelectChatMemberView.swift */; };
+		2C1B6B942CB30C4500BD818C /* PermissionLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B6B932CB30C4500BD818C /* PermissionLevelView.swift */; };
+		2C1B6B972CB30CEA00BD818C /* EditTeamProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B6B962CB30CEA00BD818C /* EditTeamProfileView.swift */; };
+		2C1B6B9A2CB30EDC00BD818C /* LocationSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B6B992CB30EDC00BD818C /* LocationSharingView.swift */; };
+		2C1B6B9F2CB31CAE00BD818C /* DeleteTeamMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B6B9E2CB31CAE00BD818C /* DeleteTeamMemberView.swift */; };
 		2C618A632CA8C40300BFAB47 /* DownloadedReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C618A622CA8C40300BFAB47 /* DownloadedReportsView.swift */; };
 		2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */; };
 		2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B72CA62107009B9310 /* PackageCard.swift */; };
@@ -146,6 +151,11 @@
 		2C1911B52CA9EC230079B27F /* AddCheckInSelectDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCheckInSelectDays.swift; sourceTree = "<group>"; };
 		2C1911B72CA9ED2A0079B27F /* AddScheduleCheckInTeamMemberMustBe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleCheckInTeamMemberMustBe.swift; sourceTree = "<group>"; };
 		2C1911BA2CAA04230079B27F /* ManageLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageLocationView.swift; sourceTree = "<group>"; };
+		2C1B6B902CB2F70A00BD818C /* SelectChatMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChatMemberView.swift; sourceTree = "<group>"; };
+		2C1B6B932CB30C4500BD818C /* PermissionLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionLevelView.swift; sourceTree = "<group>"; };
+		2C1B6B962CB30CEA00BD818C /* EditTeamProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTeamProfileView.swift; sourceTree = "<group>"; };
+		2C1B6B992CB30EDC00BD818C /* LocationSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSharingView.swift; sourceTree = "<group>"; };
+		2C1B6B9E2CB31CAE00BD818C /* DeleteTeamMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTeamMemberView.swift; sourceTree = "<group>"; };
 		2C618A622CA8C40300BFAB47 /* DownloadedReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedReportsView.swift; sourceTree = "<group>"; };
 		2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomRoundedBackgroundRectangle.swift; sourceTree = "<group>"; };
 		2C8346B72CA62107009B9310 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
@@ -352,6 +362,46 @@
 			path = "Manage Location";
 			sourceTree = "<group>";
 		};
+		2C1B6B8D2CB2F4C100BD818C /* ChatMember */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B6B902CB2F70A00BD818C /* SelectChatMemberView.swift */,
+			);
+			path = ChatMember;
+			sourceTree = "<group>";
+		};
+		2C1B6B922CB30BE800BD818C /* Permission Level */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B6B932CB30C4500BD818C /* PermissionLevelView.swift */,
+			);
+			path = "Permission Level";
+			sourceTree = "<group>";
+		};
+		2C1B6B952CB30CC300BD818C /* EditTeamProfile */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B6B962CB30CEA00BD818C /* EditTeamProfileView.swift */,
+			);
+			path = EditTeamProfile;
+			sourceTree = "<group>";
+		};
+		2C1B6B982CB30EB800BD818C /* LocationSharing */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B6B992CB30EDC00BD818C /* LocationSharingView.swift */,
+			);
+			path = LocationSharing;
+			sourceTree = "<group>";
+		};
+		2C1B6B9B2CB31C7000BD818C /* Delete Team Members  */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B6B9E2CB31CAE00BD818C /* DeleteTeamMemberView.swift */,
+			);
+			path = "Delete Team Members ";
+			sourceTree = "<group>";
+		};
 		2C618A5F2CA8C3DE00BFAB47 /* DownloadedReports */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +533,10 @@
 		A2097B232AB35237003C27C6 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				2C1B6B9B2CB31C7000BD818C /* Delete Team Members  */,
+				2C1B6B982CB30EB800BD818C /* LocationSharing */,
+				2C1B6B952CB30CC300BD818C /* EditTeamProfile */,
+				2C1B6B922CB30BE800BD818C /* Permission Level */,
 				A2097B242AB35251003C27C6 /* SettingView.swift */,
 			);
 			path = Setting;
@@ -509,6 +563,7 @@
 		A2163D992AB4B33200A981CC /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				2C1B6B8D2CB2F4C100BD818C /* ChatMember */,
 				BD4B18EB2AF2D99F0066E9DB /* Conversation */,
 				BD4B18EE2AF2DC890066E9DB /* Chat */,
 			);
@@ -934,6 +989,7 @@
 				A2BCBB692AA0FE9800DE6255 /* LoginView.swift in Sources */,
 				37A9A3552C8A39A700A47DA6 /* sideMenu.swift in Sources */,
 				BD691B0D2AEFB038009869D8 /* SOSView.swift in Sources */,
+				2C1B6B912CB2F70A00BD818C /* SelectChatMemberView.swift in Sources */,
 				A2163D962AB4B28900A981CC /* NotificationView.swift in Sources */,
 				BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */,
 				2CE3B6042CA743A7000A5F5E /* SimpleTextButtonView.swift in Sources */,
@@ -943,6 +999,7 @@
 				37B2721D2C8E1251001BB0E0 /* Invite_Member_view.swift in Sources */,
 				2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */,
 				BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */,
+				2C1B6B9F2CB31CAE00BD818C /* DeleteTeamMemberView.swift in Sources */,
 				BD4B18F02AF2DCBC0066E9DB /* ConversationViewModel.swift in Sources */,
 				2C1911B42CA9D8880079B27F /* AddCheckInScheduleBy.swift in Sources */,
 				BD27D60D2AF3E5AD00D54FA6 /* LoadingView.swift in Sources */,
@@ -958,6 +1015,7 @@
 				2CE3B60D2CA77B57000A5F5E /* EasterEggsViewModel.swift in Sources */,
 				2CE3B6082CA772DD000A5F5E /* TimeSelectView.swift in Sources */,
 				37B272182C8DFF16001BB0E0 /* MyExtensions.swift in Sources */,
+				2C1B6B942CB30C4500BD818C /* PermissionLevelView.swift in Sources */,
 				2C1911AA2CA9CD470079B27F /* AddScheduleCheckInView.swift in Sources */,
 				A2163DA42AB4C1C500A981CC /* ViewportHelper.swift in Sources */,
 				376BDB5F2C93A34600F1500F /* StorageHandler.swift in Sources */,
@@ -1011,7 +1069,9 @@
 				3795F1922C931FA300B06D4F /* ApiErrorModel.swift in Sources */,
 				2CE3B6002CA734D3000A5F5E /* DayRadioButtonView.swift in Sources */,
 				2C160A992CA85E8400609207 /* BackgroundViewWrapper.swift in Sources */,
+				2C1B6B972CB30CEA00BD818C /* EditTeamProfileView.swift in Sources */,
 				2C160AAA2CA882C400609207 /* ReportTypeView.swift in Sources */,
+				2C1B6B9A2CB30EDC00BD818C /* LocationSharingView.swift in Sources */,
 				BD547E232AFE4E79008BDAA5 /* SceneDelegate.swift in Sources */,
 				2C618A632CA8C40300BFAB47 /* DownloadedReportsView.swift in Sources */,
 				2CE3B60B2CA77B46000A5F5E /* EasterEggsView.swift in Sources */,
@@ -1156,11 +1216,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Teatherapp/Preview Content\"";
-				DEVELOPMENT_TEAM = 5PDUY9Q6GZ;
+				DEVELOPMENT_TEAM = THZ6996XQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Teatherapp/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Save events";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App requires location access to for checkins";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "App requires location access to for checkins";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location for checkins";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1193,11 +1255,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Teatherapp/Preview Content\"";
-				DEVELOPMENT_TEAM = 5PDUY9Q6GZ;
+				DEVELOPMENT_TEAM = THZ6996XQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Teatherapp/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Save events";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App requires location access to for checkins";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "App requires location access to for checkins";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location for checkins";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

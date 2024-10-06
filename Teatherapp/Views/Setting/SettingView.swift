@@ -13,33 +13,55 @@ struct SettingView: View {
     @State var isAvailable : Bool
     
     var body: some View {
-        VStack{
-            HeaderBarView(title: "Family")
-                .padding(.horizontal)
-                .padding(.bottom)
-                .background(Color.white)
-            
-            VStack(spacing: 25){
-                Toggle(isOn: $isAvailable, label: {
-                    Text("Unavailable")
-                        .font(.system(size: 20))
-                        .fontWeight(.bold)
-                })
+        
+        NavigationView{
+            VStack{
+                HeaderBarView(title: "Family")
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .background(Color.white)
+                
+                VStack(spacing: 25){
+                    Toggle(isOn: $isAvailable, label: {
+                        Text("Unavailable")
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                    })
+                    .padding()
+                    .frame(height: 60)
+                    .background(Rectangle().fill(.white).cornerRadius(10))
+                    
+                    NavigationLink(destination: {PermissionLevelView().navigationBarBackButtonHidden(true)
+                    }, label: {                SettingItemView(title: "Permission Level")
+                    })
+                    NavigationLink(destination: {
+                        EditTeamProfileView().navigationBarBackButtonHidden(true)
+                    }, label: {                SettingItemView(title: "Edit Team Profile")
+                    })
+                    NavigationLink(destination: {
+                        LocationSharingView().navigationBarBackButtonHidden(true)
+                    }, label: {                SettingItemView(title: "Location Sharing")
+                    })
+                    NavigationLink(destination: {
+                        ManageBoostView().navigationBarBackButtonHidden(true)
+                    }, label: {                SettingItemView(title: "Add Team Member")
+                    })
+                    NavigationLink(destination: {
+                        DeleteTeamMemberView().navigationBarBackButtonHidden(true)
+                    }, label: {                SettingItemView(title: "Delete Team Members")
+                    })
+                    
+                    SettingItemView(title: "Delete Team")
+                    
+                    
+                }
                 .padding()
-                .frame(height: 60)
-                .background(Rectangle().fill(.white).cornerRadius(10))
                 
-                SettingItemView(title: "Location Sharing")
-                
-                SettingItemView(title: "Leave Team")
-                
+                Spacer()
             }
-            .padding()
-            
-            Spacer()
+            .background(Color.appBlue.opacity(0.2))
+            .navigationBarBackButtonHidden()
         }
-        .background(Color.appBlue.opacity(0.2))
-        .navigationBarBackButtonHidden()
     }
 }
 
@@ -52,9 +74,7 @@ struct SettingItemView: View {
     @State var title : String
     
     var body: some View {
-        Button(action: {
-            
-        }, label: {
+        
             HStack{
                 Text(self.title)
                     .foregroundColor(Color.black)
@@ -70,9 +90,9 @@ struct SettingItemView: View {
                     .clipShape(.circle)
             }
             .padding()
-        })
+        
         .frame(height: 65)
         .background(Rectangle().fill(.white).cornerRadius(10))
-
+        
     }
 }
