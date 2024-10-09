@@ -15,8 +15,8 @@ class LoginViewModel: ObservableObject {
     @Published var isLoading : Bool = false
     @Published var apiSuccessFullyCalled : Bool = false
     
-    @Published var username = "malikshahnawaz"
-    @Published var password = "Opzx1254/*-+."
+    @Published var username = "malikazam"
+    @Published var password = "123456789"
     
     @Published var isSecured: Bool = true
     
@@ -97,4 +97,6 @@ class LoginViewModel: ObservableObject {
             
         }
     }
+    
+    
 }

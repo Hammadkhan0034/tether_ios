@@ -34,6 +34,7 @@
 		2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */; };
 		2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B72CA62107009B9310 /* PackageCard.swift */; };
 		2C8346BB2CA626C5009B9310 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */; };
+		2CB9536B2CB6B9CF0044A08E /* toasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9536A2CB6B9C70044A08E /* toasts.swift */; };
 		2CD57A402CA450920012E862 /* ManageBoostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD57A3F2CA450920012E862 /* ManageBoostView.swift */; };
 		2CE3B5DB2CA6CA04000A5F5E /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5DA2CA6CA04000A5F5E /* ContactUsView.swift */; };
 		2CE3B5DD2CA6CC9E000A5F5E /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5DC2CA6CC8F000A5F5E /* ContactUsViewModel.swift */; };
@@ -160,6 +161,7 @@
 		2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomRoundedBackgroundRectangle.swift; sourceTree = "<group>"; };
 		2C8346B72CA62107009B9310 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
 		2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		2CB9536A2CB6B9C70044A08E /* toasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toasts.swift; sourceTree = "<group>"; };
 		2CD57A3F2CA450920012E862 /* ManageBoostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBoostView.swift; sourceTree = "<group>"; };
 		2CE3B5DA2CA6CA04000A5F5E /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		2CE3B5DC2CA6CC8F000A5F5E /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
@@ -272,13 +274,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C160A8E2CA854FD00609207 /* SharedComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SharedComponents;
-			sourceTree = "<group>";
-		};
 		2C160A8F2CA858B700609207 /* FavoriteLocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +411,14 @@
 				2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		2CB953672CB6B9850044A08E /* Toasts Dialogs Bottomsheets */ = {
+			isa = PBXGroup;
+			children = (
+				2CB9536A2CB6B9C70044A08E /* toasts.swift */,
+			);
+			path = "Toasts Dialogs Bottomsheets";
 			sourceTree = "<group>";
 		};
 		2CD57A3D2CA44F660012E862 /* SideMenu */ = {
@@ -626,7 +629,7 @@
 		A2BCBB762AA10ACF00DE6255 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
-				2C160A8E2CA854FD00609207 /* SharedComponents */,
+				2CB953672CB6B9850044A08E /* Toasts Dialogs Bottomsheets */,
 				A2BCBB742AA10AC400DE6255 /* TFButton.swift */,
 				A254CC022AA788BD00FAE281 /* UnderLinePincodeView.swift */,
 				A254CC042AA78F4500FAE281 /* TFCapsuleButton.swift */,
@@ -1059,6 +1062,7 @@
 				BDEF99F02AFFF62B00EDA94F /* MessageModel.swift in Sources */,
 				2CD57A402CA450920012E862 /* ManageBoostView.swift in Sources */,
 				2C1911B62CA9EC230079B27F /* AddCheckInSelectDays.swift in Sources */,
+				2CB9536B2CB6B9CF0044A08E /* toasts.swift in Sources */,
 				BD3AECAF2AE2C49E00DEB032 /* LoginModel.swift in Sources */,
 				A2BCBB752AA10AC400DE6255 /* TFButton.swift in Sources */,
 				BD27D6112AF3FAFE00D54FA6 /* UserAuth.swift in Sources */,

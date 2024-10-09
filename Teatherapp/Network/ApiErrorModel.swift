@@ -8,6 +8,8 @@
 import Foundation
 struct ApiErrorModel: Error{
     let status: String
-    let errorType: ApError
+    let errorType: ApiErrors
     let message: String
 }
+
+

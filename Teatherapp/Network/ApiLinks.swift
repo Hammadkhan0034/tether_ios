@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+struct Endpoints{
+    
+    static let resetPassword = "forgot-password"
+}
+
 enum Endpoint : String {
     case login,
          signup,

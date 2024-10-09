@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct ResetPasswordView: View {
     
-    @State var username = ""
-    @State var password = ""
-    
+    @State var email = ""
+    @State var isLoading = false
+    @State var message = ""
+    @State var showSnackBar = false
     var body: some View {
         VStack(alignment: .leading,spacing: 20) {
             
@@ -24,14 +26,29 @@ struct ResetPasswordView: View {
                 .foregroundColor(.accentColor)
                 .padding(.top,100)
 
-            TextField("Enter your email", text: $username).textFieldStyle(.roundedBorder)
+            TextField("Enter your email", text: $email).textFieldStyle(.roundedBorder).autocorrectionDisabled(true).textInputAutocapitalization(.never)
             TFButton(label: "Submit") {
                 
+                Task{
+                    do{
+                        let params: Parameters = ["email":email]
+                        isLoading = true
+                        let res: ApiResponseModel =  try await APIManager.shared.postAsync(endpoint: Endpoints.resetPassword, parameter: params)
+                        isLoading = false
+                        message = res.message
+                        showSnackBar = true
+                        print(res)
+                    } catch(let error){
+                        isLoading = false
+                        print(error);
+                        
+                    }
+                }
             }
             Spacer()
             
         }
-        .padding(30)
+        .padding(30) .overlay(isLoading ? LoadingView():nil).overlay(SimpleToastView(message: message, isShowing: $showSnackBar))
     }
 }
 

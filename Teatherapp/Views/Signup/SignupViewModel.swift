@@ -16,13 +16,13 @@ class SignupViewModel: ObservableObject {
     @Published var apiSuccessFullyCalled : Bool = false
     
     
-    @Published var fname = "First"
-    @Published var lname = "Name"
-    @Published var username = "qwerty"
-    @Published var email = "qwertgmail.com"
-    @Published var password = "123456"
+    @Published var fname = "Malik"
+    @Published var lname = "Shahnawaz"
+    @Published var username = "malikshahnawaz"
+    @Published var email = "shahnawazazam733@gmail.com"
+    @Published var password = "123456789"
     @Published var phoneCode = "92"
-    @Published var phoneNumber = "3001234561"
+    @Published var phoneNumber = "3229969028"
     @Published var address = "address"
     @Published var city = "city"
     @Published var state = "state"

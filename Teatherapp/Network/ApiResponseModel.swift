@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct ApiResponseModel:Decodable{
+struct ApiResponseModel{
     let status:String
     let message: String
-//    let data: Data?
+    let data: [String:Any]?
     
+    init(status: String, message: String, data: [String: Any]? = nil) {
+        self.status = status
+        self.message = message
+        self.data = data
+    }
 }

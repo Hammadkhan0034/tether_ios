@@ -13,7 +13,7 @@ struct ManageBoostView: View {
             BottomRoundedBackgroundRectangle()
             
             VStack{
-                AppBarView(title: "Tether Premium",textColor: .white)
+                AppBarView(title: "Tether Premium",textColor: .white )
                 
                 TFButton(label: "PREMIUM", onClick: {},textColor: .appBlue,backgroundColor: .darkSky).padding(.horizontal)
                 PackageCard().padding()

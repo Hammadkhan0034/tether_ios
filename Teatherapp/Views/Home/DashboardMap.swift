@@ -85,7 +85,8 @@ struct DashboardMap: View {
                             VStack{
                                 HStack(alignment: .top){
                                     //MARK: - Menu
-                                    Button(action: {
+                                    Button(action:
+                                            {
                                         print("tapped on the side bar")
                                         options.show.toggle()
     //                                    UserDefaults.standard.setValue(false, forKey: "loggedIn")
@@ -134,7 +135,7 @@ struct DashboardMap: View {
                                         }
                                         //MARK: - Setting
                                         NavigationLink{
-                                            SettingView(isAvailable: true)
+                                            SettingView(isAvailable: true).navigationBarBackButtonHidden(true)
                                         }label:{
                                             Image(systemName: "gearshape.fill")
                                                 .frame(width: 25, height: 25)
@@ -296,6 +297,7 @@ struct DashboardMap: View {
                                         
                                         if memberData.count < 1 {
                                             NavigationLink(destination: {
+                                                
                                                 Invite_Member_view().navigationBarBackButtonHidden(true)
                                             }, label: {
                                                 Image(systemName: "plus")
