@@ -16,6 +16,7 @@ struct DashboardMap: View {
     @EnvironmentObject var tfModel: TFBottomBarModel
     @EnvironmentObject var userAuth : UserAuth
     
+    @EnvironmentObject var options: NSideMenuOptions
     @ObservedObject var manager = LocationManager()
     
     @State var showFilters : Bool = false
@@ -23,29 +24,17 @@ struct DashboardMap: View {
     @State var userImage : String = ""
     
     @State var selectedView = "Home"
+    @State var showBottomSheet = false
+    @State var selectedPlace: Place = Place(name: "", latitude: 0, longitude: 0,description: "")
     
-    @StateObject var options = NSideMenuOptions(style: .scale, side: .leading, width: 220, showSkeletonStack: true, skeletonStackColor: .gray, cornerRaduisIfNeeded: 16,
-                                                
-                                                rotationDegreeIfNeeded: 8, onWillClose: {
-        print("options:onWillClose!")
-    }, onWillOpen: {
-        print("options:onWillOpen!")
-    }, onDidClose: {
-        print("options:onDidClose!")
-    }, onDidOpen: {
-        print("options:onDidOpen!")
-    })
+
     
     
     
     var body: some View {
         NavigationView{
-            NSideMenuView(options: options){
-                Menu{
-                    SideMenuView(selectedView: $selectedView)
-                }
-                Main{
-                    ZStack {
+           
+            ZStack(alignment: .top) {
                         Map(coordinateRegion: $manager.region,
                             interactionModes: .all,
                             userTrackingMode: $manager.userTrackingMode,
@@ -80,123 +69,27 @@ struct DashboardMap: View {
                         }
                         .edgesIgnoringSafeArea(.all)
                         
+                        
                         //MARK: - Google Map Ovelay View
-                        VStack{
-                            VStack{
-                                HStack(alignment: .top){
-                                    //MARK: - Menu
-                                    Button(action:
-                                            {
-                                        print("tapped on the side bar")
-                                        options.show.toggle()
-    //                                    UserDefaults.standard.setValue(false, forKey: "loggedIn")
-                                        
-            //                            userAuth.logout()
-                                    }, label: {
-                                        Image("menu_icon")
-                                            .padding(10)
-                                            .background(Capsule().fill(.white))
-                                    })
-                                    
-                                    Spacer()
-                                    
-                                    //MARK: - Banner
-                                    HStack{
-                                        Text("Family")
-                                            .foregroundStyle(Color.appBlue)
-                                            .padding(.leading,20)
-                                        
-                                        Spacer()
-                                    }
-                                    .frame(maxWidth: .infinity, minHeight:40, maxHeight:40)
-                                    .background(Capsule().fill(.white))
-                                    
-                                    VStack{
-                                        //MARK: - Chat
-                                        NavigationLink{
-                                            ConversationView()
-                                        }label:{
-                                            Image(systemName: "text.bubble.fill")
-                                                .frame(width: 25, height: 25)
-                                                .padding(8)
-                                                .background(.white)
-                                                .clipShape(.circle)
-                                        }
-                                        
-                                        //MARK: - Notification
-                                        NavigationLink{
-                                            NotificationView()
-                                        }label:{
-                                            Image(systemName: "bell.and.waves.left.and.right.fill")
-                                                .frame(width: 25, height: 25)
-                                                .padding(8)
-                                                .background(.white)
-                                                .clipShape(.circle)
-                                        }
-                                        //MARK: - Setting
-                                        NavigationLink{
-                                            SettingView(isAvailable: true).navigationBarBackButtonHidden(true)
-                                        }label:{
-                                            Image(systemName: "gearshape.fill")
-                                                .frame(width: 25, height: 25)
-                                                .padding(8)
-                                                .background(.white)
-                                                .clipShape(.circle)
-                                        }
-                                        
-                                        Button{
-                                            showFilters = !showFilters
-                                        }label:{
-                                            Image(showFilters ? "Cancel_Small" : "filter_icon")
-                                                .resizable()
-                                                .frame(width: 25, height: 25)
-                                                .padding(8)
-                                                .background(Color.white)
-                                                .clipShape(.circle)
-                                        }
-                                    }
-                                    .foregroundColor(Color.appBlue)
-                                }
-                                .padding(.horizontal)
-                            }
+                VStack(alignment: .trailing){
                             
-                            VStack(alignment:.trailing){
-                                if showFilters{
-                                    VStack{
-                                        HStack{
-                                            Spacer()
-                                            Toggle(isOn: .constant(true)) {
-                                                Text("Team Members")
-                                                    .foregroundStyle(.red)
-                                                    .font(.system(size: 16,weight: Font.Weight.bold))
-                                            }
-                                            .toggleStyle(iOSCheckboxToggleStyle()).frame(width: 200)
-                                        }
-                                        HStack{
-                                            Spacer()
-                                            Toggle(isOn: .constant(true)) {
-                                                Text("Team Members")
-                                                    .foregroundStyle(.red)
-                                                    .font(.system(size: 16,weight: Font.Weight.bold))
-                                            }
-                                            .toggleStyle(iOSCheckboxToggleStyle()).frame(width: 200)
-                                        }
-                                        HStack{
-                                            Spacer()
-                                            Toggle(isOn: .constant(true)) {
-                                                Text("Team Members")
-                                                    .foregroundStyle(.red)
-                                                    .font(.system(size: 16,weight: Font.Weight.bold))
-                                            }
-                                            .toggleStyle(iOSCheckboxToggleStyle()).frame(width: 200)
-                                        }
-                                    }
-                                }
-                            }
+                            HomeAppBarView()
+                    HomeAppBarSideColumnView()
+                            
                             
                             Spacer()
                             
                             HStack{
+                                
+                                TFButton(label: "test", onClick: {
+                                    print("Testing Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+                                    showBottomSheet.toggle()
+
+                                })
+                                
+                            
+                                
                                 Spacer()
                                 
                                 Button(action: {
@@ -264,6 +157,8 @@ struct DashboardMap: View {
                             .padding(.horizontal,10)
                             .padding(.bottom,5)
                             
+                    
+                    
                             HStack(alignment: .center) {
                                 let memberData  = manager.locations
                                 ScrollView(.horizontal, showsIndicators: false){
@@ -312,29 +207,31 @@ struct DashboardMap: View {
                             }
                             .frame(minHeight: 80)
                             .background(Rectangle().fill(.white))
-                        }.padding(.top,50)
+                }.padding(.top,70)
                         .overlay{
                             if tfModel.selectedIndex == 3 {
                                 CheckinView()
                                     .padding(.horizontal)
                             }
                         }
-                    }
+            }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight).ignoresSafeArea().frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
 
-                }
+                
             }
         
             
             .onAppear{
                 self.name = UserDefaults.standard.string(forKey: "name") ?? ""
                 self.userImage = UserDefaults.standard.string(forKey: "photo") ?? ""
-            }        .environmentObject(options)
+            }.sheet(isPresented: $showBottomSheet, content: {
+                SimplePlacesSearchTextFieldView(selectedPlace: $selectedPlace)
+            })
 
-        }
+    }
         
        
     }
-}
+
 
 //#Preview {
 //    DashboardMap()

@@ -21,4 +21,10 @@ extension String {
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: self)
     }
+    var initials: String {
+            let components = self.split(separator: " ")
+            guard !components.isEmpty else { return "" }
+            let initials = components.prefix(2).compactMap { $0.first }.map { String($0) }
+            return initials.joined().uppercased() // Optionally uppercased
+        }
 }

@@ -9,20 +9,10 @@ import SwiftUI
 import NSideMenu
 
 struct SideMenuView: View {
-        @EnvironmentObject var options: NSideMenuOptions
+    @ObservedObject var options: NSideMenuOptions
     @EnvironmentObject var userAuth : UserAuth
     
-//    @StateObject var options = NSideMenuOptions(style: .scale, side: .leading, width: 220, showSkeletonStack: false, skeletonStackColor: .white, cornerRaduisIfNeeded: 16, rotationDegreeIfNeeded: 8, onWillClose: {
-//        print("options:onWillClose!")
-//    }, onWillOpen: {
-//        print("options:onWillOpen!")
-//    }, onDidClose: {
-//        print("options:onDidClose!")
-//    }, onDidOpen: {
-//        print("options:onDidOpen!")
-//    })
     
-    @Binding var selectedView: String
     var menuItems = [
         ["label": "Manage Boosts", "icon": "manage_boost"],
         ["label": "Manage Location", "icon": "manage_location"],
@@ -153,6 +143,6 @@ struct SideMenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        SideMenuView(selectedView: .constant("Home"))
+        SideMenuView(options: NSideMenuOptions())
     }
 }

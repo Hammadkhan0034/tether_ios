@@ -231,7 +231,6 @@ class APIManager {
                                 return
                             }
                             
-                            print("aaaaaaaaaaaaaa");
                             completed(.success(response.data!))
                             return
                             

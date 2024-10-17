@@ -31,11 +31,20 @@
 		2C1B6B9A2CB30EDC00BD818C /* LocationSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B6B992CB30EDC00BD818C /* LocationSharingView.swift */; };
 		2C1B6B9F2CB31CAE00BD818C /* DeleteTeamMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B6B9E2CB31CAE00BD818C /* DeleteTeamMemberView.swift */; };
 		2C618A632CA8C40300BFAB47 /* DownloadedReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C618A622CA8C40300BFAB47 /* DownloadedReportsView.swift */; };
+		2C742E082CBE7CB8009422EC /* HomeAppBarSideColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C742E072CBE7CB8009422EC /* HomeAppBarSideColumnView.swift */; };
+		2C742E0A2CBE90E3009422EC /* DashboardMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C742E092CBE90E3009422EC /* DashboardMapOverlay.swift */; };
+		2C742E0C2CBEE6ED009422EC /* SimplePlacesSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C742E0B2CBEE6ED009422EC /* SimplePlacesSearchTextField.swift */; };
 		2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */; };
 		2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B72CA62107009B9310 /* PackageCard.swift */; };
 		2C8346BB2CA626C5009B9310 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */; };
 		2CB9536B2CB6B9CF0044A08E /* toasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9536A2CB6B9C70044A08E /* toasts.swift */; };
 		2CD57A402CA450920012E862 /* ManageBoostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD57A3F2CA450920012E862 /* ManageBoostView.swift */; };
+		2CD581102CBD557A004C24A5 /* HomeAppBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5810F2CBD557A004C24A5 /* HomeAppBarView.swift */; };
+		2CD581122CBD559F004C24A5 /* CircleBottomsheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD581112CBD559F004C24A5 /* CircleBottomsheetView.swift */; };
+		2CD581142CBD5682004C24A5 /* SimpleOutlinedDropdownButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD581132CBD5682004C24A5 /* SimpleOutlinedDropdownButtonView.swift */; };
+		2CD581162CBD6D67004C24A5 /* TeamRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD581152CBD6D67004C24A5 /* TeamRowView.swift */; };
+		2CD581182CBD7206004C24A5 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD581172CBD71FE004C24A5 /* MemberModel.swift */; };
+		2CD5811A2CBD7516004C24A5 /* InitialsOnCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD581192CBD7516004C24A5 /* InitialsOnCircleView.swift */; };
 		2CE3B5DB2CA6CA04000A5F5E /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5DA2CA6CA04000A5F5E /* ContactUsView.swift */; };
 		2CE3B5DD2CA6CC9E000A5F5E /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B5DC2CA6CC8F000A5F5E /* ContactUsViewModel.swift */; };
 		2CE3B5E72CA6D224000A5F5E /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3B5E02CA6D224000A5F5E /* CountryNumbers.json */; };
@@ -158,11 +167,20 @@
 		2C1B6B992CB30EDC00BD818C /* LocationSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSharingView.swift; sourceTree = "<group>"; };
 		2C1B6B9E2CB31CAE00BD818C /* DeleteTeamMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTeamMemberView.swift; sourceTree = "<group>"; };
 		2C618A622CA8C40300BFAB47 /* DownloadedReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedReportsView.swift; sourceTree = "<group>"; };
+		2C742E072CBE7CB8009422EC /* HomeAppBarSideColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppBarSideColumnView.swift; sourceTree = "<group>"; };
+		2C742E092CBE90E3009422EC /* DashboardMapOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMapOverlay.swift; sourceTree = "<group>"; };
+		2C742E0B2CBEE6ED009422EC /* SimplePlacesSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlacesSearchTextField.swift; sourceTree = "<group>"; };
 		2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomRoundedBackgroundRectangle.swift; sourceTree = "<group>"; };
 		2C8346B72CA62107009B9310 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
 		2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		2CB9536A2CB6B9C70044A08E /* toasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toasts.swift; sourceTree = "<group>"; };
 		2CD57A3F2CA450920012E862 /* ManageBoostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBoostView.swift; sourceTree = "<group>"; };
+		2CD5810F2CBD557A004C24A5 /* HomeAppBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppBarView.swift; sourceTree = "<group>"; };
+		2CD581112CBD559F004C24A5 /* CircleBottomsheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBottomsheetView.swift; sourceTree = "<group>"; };
+		2CD581132CBD5682004C24A5 /* SimpleOutlinedDropdownButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleOutlinedDropdownButtonView.swift; sourceTree = "<group>"; };
+		2CD581152CBD6D67004C24A5 /* TeamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRowView.swift; sourceTree = "<group>"; };
+		2CD581172CBD71FE004C24A5 /* MemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
+		2CD581192CBD7516004C24A5 /* InitialsOnCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialsOnCircleView.swift; sourceTree = "<group>"; };
 		2CE3B5DA2CA6CA04000A5F5E /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		2CE3B5DC2CA6CC8F000A5F5E /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
 		2CE3B5E02CA6D224000A5F5E /* CountryNumbers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
@@ -445,6 +463,18 @@
 			path = ManageBoost;
 			sourceTree = "<group>";
 		};
+		2CD5810E2CBD54D8004C24A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2CD5810F2CBD557A004C24A5 /* HomeAppBarView.swift */,
+				2CD581112CBD559F004C24A5 /* CircleBottomsheetView.swift */,
+				2CD581152CBD6D67004C24A5 /* TeamRowView.swift */,
+				2C742E072CBE7CB8009422EC /* HomeAppBarSideColumnView.swift */,
+				2C742E092CBE90E3009422EC /* DashboardMapOverlay.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		2CE3B5D92CA6C8F3000A5F5E /* ContactUs */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +670,7 @@
 				BD27D60C2AF3E5AD00D54FA6 /* LoadingView.swift */,
 				37A9A3542C8A39A600A47DA6 /* sideMenu.swift */,
 				37A9A3562C8A3A2200A47DA6 /* ImageOnCircle.swift */,
+				2CD581192CBD7516004C24A5 /* InitialsOnCircleView.swift */,
 				37B272192C8E0AA6001BB0E0 /* Side_Menu_Row_View.swift */,
 				3713FF3E2C8E458200CDFF1E /* AppBarView.swift */,
 				2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */,
@@ -650,6 +681,8 @@
 				2C160A9B2CA862D000609207 /* SimpleTextEditor.swift */,
 				2C160A9D2CA8676F00609207 /* SimpleToggleButton.swift */,
 				2C1911B12CA9D0930079B27F /* SimpleCheckBox.swift */,
+				2CD581132CBD5682004C24A5 /* SimpleOutlinedDropdownButtonView.swift */,
+				2C742E0B2CBEE6ED009422EC /* SimplePlacesSearchTextField.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -700,6 +733,7 @@
 		A2E8FD912AAA2C9A0020C6E6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2CD5810E2CBD54D8004C24A5 /* Components */,
 				A2CEE1992AA649C800BDFF30 /* HomeView.swift */,
 				A2E8FD952AAA33F10020C6E6 /* DashboardMap.swift */,
 				BD691B0C2AEFB038009869D8 /* SOSView.swift */,
@@ -729,6 +763,7 @@
 		BD29D9D62B3E04A8006B8755 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2CD581172CBD71FE004C24A5 /* MemberModel.swift */,
 				BD1AF1512B29F1E800DC3388 /* UsersLocationModel.swift */,
 				BD3AECAE2AE2C49E00DEB032 /* LoginModel.swift */,
 				BD4B18F12AF2E27D0066E9DB /* ChatModel.swift */,
@@ -972,9 +1007,11 @@
 				A2163D9B2AB4BD3E00A981CC /* ChatView.swift in Sources */,
 				BD4945FA2AFAC024007B7867 /* TimeInterval.swift in Sources */,
 				A254CC032AA788BD00FAE281 /* UnderLinePincodeView.swift in Sources */,
+				2C742E0C2CBEE6ED009422EC /* SimplePlacesSearchTextField.swift in Sources */,
 				A254CC012AA7826200FAE281 /* SignupView.swift in Sources */,
 				37B272202C8E1B9F001BB0E0 /* PermissionLevelEnums.swift in Sources */,
 				BD4B18F42AF2E3020066E9DB /* ChatViewModel.swift in Sources */,
+				2CD581102CBD557A004C24A5 /* HomeAppBarView.swift in Sources */,
 				BDB60B902AE1B4B4002ABBBC /* LoginViewModel.swift in Sources */,
 				BD949AB92B3AC70200FB290D /* TimeSheetView.swift in Sources */,
 				2C1911B22CA9D0930079B27F /* SimpleCheckBox.swift in Sources */,
@@ -992,6 +1029,7 @@
 				A2BCBB692AA0FE9800DE6255 /* LoginView.swift in Sources */,
 				37A9A3552C8A39A700A47DA6 /* sideMenu.swift in Sources */,
 				BD691B0D2AEFB038009869D8 /* SOSView.swift in Sources */,
+				2CD581122CBD559F004C24A5 /* CircleBottomsheetView.swift in Sources */,
 				2C1B6B912CB2F70A00BD818C /* SelectChatMemberView.swift in Sources */,
 				A2163D962AB4B28900A981CC /* NotificationView.swift in Sources */,
 				BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */,
@@ -999,6 +1037,7 @@
 				2C160A942CA85A9C00609207 /* AddFavoriteLocationView.swift in Sources */,
 				2CE3B5F42CA6DB54000A5F5E /* EasterEggTypeDropdownMenuView.swift in Sources */,
 				2C160A9E2CA8676F00609207 /* SimpleToggleButton.swift in Sources */,
+				2CD581182CBD7206004C24A5 /* MemberModel.swift in Sources */,
 				37B2721D2C8E1251001BB0E0 /* Invite_Member_view.swift in Sources */,
 				2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */,
 				BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */,
@@ -1018,6 +1057,7 @@
 				2CE3B60D2CA77B57000A5F5E /* EasterEggsViewModel.swift in Sources */,
 				2CE3B6082CA772DD000A5F5E /* TimeSelectView.swift in Sources */,
 				37B272182C8DFF16001BB0E0 /* MyExtensions.swift in Sources */,
+				2C742E0A2CBE90E3009422EC /* DashboardMapOverlay.swift in Sources */,
 				2C1B6B942CB30C4500BD818C /* PermissionLevelView.swift in Sources */,
 				2C1911AA2CA9CD470079B27F /* AddScheduleCheckInView.swift in Sources */,
 				A2163DA42AB4C1C500A981CC /* ViewportHelper.swift in Sources */,
@@ -1029,6 +1069,7 @@
 				2CE3B5DD2CA6CC9E000A5F5E /* ContactUsViewModel.swift in Sources */,
 				2C160AA12CA86DCD00609207 /* ShareWithView.swift in Sources */,
 				BD83E05E2B46E4AF00DB27C8 /* HistoryView.swift in Sources */,
+				2C742E082CBE7CB8009422EC /* HomeAppBarSideColumnView.swift in Sources */,
 				2C1911B82CA9ED2A0079B27F /* AddScheduleCheckInTeamMemberMustBe.swift in Sources */,
 				BD547E2B2AFE627D008BDAA5 /* UserDetailsModel.swift in Sources */,
 				376BDB5D2C939C3500F1500F /* AppConstants.swift in Sources */,
@@ -1060,6 +1101,7 @@
 				BD1AF1522B29F1E800DC3388 /* UsersLocationModel.swift in Sources */,
 				2C160AA42CA872B100609207 /* CheckInScheduleView.swift in Sources */,
 				BDEF99F02AFFF62B00EDA94F /* MessageModel.swift in Sources */,
+				2CD581142CBD5682004C24A5 /* SimpleOutlinedDropdownButtonView.swift in Sources */,
 				2CD57A402CA450920012E862 /* ManageBoostView.swift in Sources */,
 				2C1911B62CA9EC230079B27F /* AddCheckInSelectDays.swift in Sources */,
 				2CB9536B2CB6B9CF0044A08E /* toasts.swift in Sources */,
@@ -1067,7 +1109,9 @@
 				A2BCBB752AA10AC400DE6255 /* TFButton.swift in Sources */,
 				BD27D6112AF3FAFE00D54FA6 /* UserAuth.swift in Sources */,
 				2C1911AE2CA9CDDD0079B27F /* AddCheckInTitleView.swift in Sources */,
+				2CD5811A2CBD7516004C24A5 /* InitialsOnCircleView.swift in Sources */,
 				A2DED4032AAF7CCE004CF21B /* ShapeClasses.swift in Sources */,
+				2CD581162CBD6D67004C24A5 /* TeamRowView.swift in Sources */,
 				A2163D982AB4B32800A981CC /* ConversationView.swift in Sources */,
 				2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */,
 				3795F1922C931FA300B06D4F /* ApiErrorModel.swift in Sources */,
@@ -1234,7 +1278,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1273,7 +1317,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
