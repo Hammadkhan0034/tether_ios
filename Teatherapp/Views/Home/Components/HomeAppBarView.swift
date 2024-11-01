@@ -6,39 +6,45 @@
 //
 
 import SwiftUI
-
+import NSideMenu
 struct HomeAppBarView: View {
     @State var selectedOption = "Family"
+    @ObservedObject var options: NSideMenuOptions
     @State var isOpended = false
+    @State var isSideMenuOpened = false
     var body: some View {
-            HStack{
-                Button(action:
-                        {
-                    print("tapped on the side bar")
-                    
-                    
-                }, label: {
-                    Image("menu_icon")
-                        .padding(10)
-                        .background(Capsule().fill(.white))
-                }).shadow(radius: 1)
-                Spacer()
-                SimpleOutlinedDropdownButtonView(selectedOption: $selectedOption, isOpened: $isOpended)
-                Spacer()
-                
-                //MARK: - Chat
-                NavigationLink{
-                    ConversationView().navigationBarBackButtonHidden(true)
-                }label:{
-                    ImageOnCircle(icon: "text.bubble.fill", radius: 18, circleColor: .white, imageColor: .appBlue,shadowRadius:1)
+        HStack{
+            Button(action:
+                    {
+                if(isSideMenuOpened){
+                    isSideMenuOpened = false
+                    options.hideMenu()
+                }else{
+                    isSideMenuOpened = true
+                    options.showMenu()
                 }
-                
-                
-            }.padding(.horizontal)
+            }, label: {
+                Image("menu_icon")
+                    .padding(10)
+                    .background(Capsule().fill(.white))
+            }).shadow(radius: 1)
+            Spacer()
+            SimpleOutlinedDropdownButtonView(selectedOption: $selectedOption, isOpened: $isOpended)
+            Spacer()
+            
+            //MARK: - Chat
+            NavigationLink{
+                ConversationView().navigationBarBackButtonHidden(true)
+            }label:{
+                ImageOnCircle(icon: "text.bubble.fill", radius: 18, circleColor: .white, imageColor: .appBlue,shadowRadius:1)
+            }
+            
+            
+        }.padding(.horizontal)
         
     }
 }
-
-#Preview {
-    HomeAppBarView()
-}
+//
+//#Preview {
+//    HomeAppBarView(op)
+//}

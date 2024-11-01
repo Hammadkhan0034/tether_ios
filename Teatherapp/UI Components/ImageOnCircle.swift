@@ -16,7 +16,8 @@ struct ImageOnCircle: View {
     }
     var body: some View {
         ZStack {
-            Circle().fill(circleColor)
+            Circle()
+                .fill(circleColor)
                 .frame(width: radius * 2, height: radius * 2).shadow(radius: shadowRadius)
             // Use this implementation for an SF Symbol
             Image(systemName: icon)

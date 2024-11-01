@@ -13,17 +13,14 @@ struct RootViewController: View {
     
     var body: some View {
         
-        NavigationView {
             if !userAuth.isLoggedin {
                 LoginView()
             }
             else {
                 HomeView()
             }
-        }
+        
     }
 }
 
-#Preview {
-    RootViewController()
-}
+

@@ -301,6 +301,92 @@ class APIManager {
         
     }
     
+
+    func postAsyncGeneric<T: Codable>(endpoint: String,
+                                       parameter: [String: Any]?,
+                                       header: HTTPHeaders? = nil) async throws -> ApiGenericResponseModel<T> {
+        
+        if !isNetworkReachable() {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No internet connection. Please connect to the internet and try again."])
+        }
+        
+        do {
+            let request = AF.request(baseURL + endpoint,
+                                     method: .post,
+                                     parameters: parameter,
+                                     encoding: URLEncoding.default,
+                                     headers: header)
+            
+            let response = await request.serializingData().response
+            
+            guard let data = response.data else {
+                throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: response.error?.localizedDescription ?? "Unknown error occurred \(endpoint)"])
+            }
+            let responseModel = getResponseModel(data: data)
+            if(responseModel.status == "0"){
+                throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: responseModel.message])
+            }
+            let decoder = JSONDecoder()
+            let apiResponse = try decoder.decode(ApiGenericResponseModel<T>.self, from: data)
+
+
+            return apiResponse
+        } catch {
+            print("Endpoint: \(endpoint)")
+            print("Error: \(error.localizedDescription) at endpoint: \(endpoint)")
+            throw error
+        }
+    }
+
+    func postAsyncWithoutData(endpoint: String,
+                                       parameter: [String: Any]?,
+                              header: HTTPHeaders? = nil) async throws -> ApiResponseModelWithoutData {
+        
+        if !isNetworkReachable() {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No internet connection. Please connect to the internet and try again."])
+        }
+        
+        do {
+            let request = AF.request(baseURL + endpoint,
+                                     method: .post,
+                                     parameters: parameter,
+                                     encoding: URLEncoding.default,
+                                     headers: header)
+            
+            let response = await request.serializingData().response
+            
+            guard let data = response.data else {
+                throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: response.error?.localizedDescription ?? "Unknown error occurred \(endpoint)"])
+            }
+            let responseModel = getResponseModel(data: data)
+            if(responseModel.status == "0"){
+                throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: responseModel.message])
+            }
+            let decoder = JSONDecoder()
+            let apiResponse = try decoder.decode(ApiResponseModelWithoutData.self, from: data)
+
+
+            return apiResponse
+        } catch {
+            print("Endpoint: \(endpoint)")
+            print("Error: \(error.localizedDescription) at endpoint: \(endpoint)")
+            throw error
+        }
+    }
+
+//    func getGenericResponseModel<T: Codable>(data: Data) throws -> ApiGenericResponseModel<T> {
+//        let decoder = JSONDecoder()
+//        do {
+//            let apiResponse = try decoder.decode(ApiGenericResponseModel<T>.self, from: data)
+//            return apiResponse
+//        } catch {
+//            print("Parsing error while converting data to api response model: \(error)")
+//            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Exception while parsing response from the server"])
+//        }
+//    }
+
+    
+    
     func getResponseModel(data:Data) -> ApiResponseModel{
         do{
             let json = try JSONSerialization.jsonObject(with: data, options: [])

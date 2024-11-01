@@ -18,3 +18,13 @@ struct ApiResponseModel{
         self.data = data
     }
 }
+
+struct ApiGenericResponseModel<T: Codable>: Codable {
+    let status: String
+    let message: String
+    let data: T
+}
+struct ApiResponseModelWithoutData: Codable {
+    let status: String
+    let message: String
+}

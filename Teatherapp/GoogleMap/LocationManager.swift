@@ -69,6 +69,8 @@ extension LocationManager: CLLocationManagerDelegate {
                 center: $0.coordinate,
                 span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1)
             )
+            print("from Location manager")
+            print(region)
         }
     }
 }

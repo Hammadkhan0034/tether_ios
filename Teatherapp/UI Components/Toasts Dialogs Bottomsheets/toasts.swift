@@ -37,12 +37,11 @@ struct SimpleToastView: View {
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation {
                             isShowing = false
                             
                         }
-                        dismiss()
                     }
                 }
         }

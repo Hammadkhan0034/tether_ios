@@ -23,17 +23,15 @@ struct SideMenuView: View {
         ["label": "Contact Us", "icon": "Contact_Us"]
     ]
     var body: some View {
-        NavigationView{
-            ZStack{
                 VStack(alignment: options.side.getHorizontalAlignment(), spacing: 20){
                     
                     HStack{
                         
-                        ImageOnCircle(icon: "person.fill", radius: 30, circleColor: .red, imageColor: .white)
+                        InitialsOnCircleView( initials: (AppKeysConstant.name.getValue as! String).initials, radius: 30, circleColor: .red)
                         VStack(alignment: .leading,spacing: 0){
-                            Text("Malik Shahnawaz").font(.body).bold().lineLimit(1)
-                            Text("+92 348 4497585").font(.body).lineLimit(1)
-                            Text("shahnawazazam733@gmail.com").font(.body).foregroundColor(Color.black).lineLimit(1).frame(maxWidth: UIScreen.screenWidth*0.4)
+                            Text((AppKeysConstant.name.getValue as! String)).font(.body).fontWeight(.semibold).lineLimit(1)
+                            Text((AppKeysConstant.phone.getValue as! String)).font(.caption).lineLimit(1)
+                            Text((AppKeysConstant.email.getValue as! String)).font(.caption).foregroundColor(Color.black).lineLimit(1).frame(maxWidth: UIScreen.screenWidth*0.35)
                         }
                         
                     }
@@ -122,21 +120,9 @@ struct SideMenuView: View {
                     
                     
                 }.padding(.horizontal,16)
-                    .padding(.top, 32)
-            }
-            .toolbar(content: {
-                ToolbarItem(placement: options.side.getToolbarItemPlacement(), content: {
-                    if(options.show){
-                        Button {
-                            options.toggleMenu()
-                        } label: {
-                            Image(systemName: "xmark")
-                        }
-                        .foregroundColor(Color.primary)
-                    }
-                })
-            }).id(UUID())
-        }
+            .safeAreaPadding(.vertical, 100)
+            
+        
         
     }
 }

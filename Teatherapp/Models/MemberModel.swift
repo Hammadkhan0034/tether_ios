@@ -5,15 +5,20 @@
 //  Created by Hammad Khan on 14/10/2024.
 //
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let member = try? JSONDecoder().decode(Member.self, from: jsonData)
+
+
 
 import Foundation
+import SwiftData
 
-// MARK: - Member
-struct MemberModel: Codable {
+struct CircleMembersModel:Codable {
+    var members: [MemberModel]
+    init(members: [MemberModel]) {
+        self.members = members
+    }
+}
+
+struct MemberModel: Codable , Identifiable{
     let id, circleID, userID, role: String
     let accessType, locationSharingOn, isAvailable, lastAvailableTime: String
     let autoUnavailableStatus, isDefault, sequence, isNotification: String

@@ -16,3 +16,22 @@ struct AppConstants{
 //    static let weekdays = ["Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     static let weekdays = ["M", "T","W","T","F","S","S"]
 }
+
+struct AppKeysConstant{
+    static let temporaryAccessCode = "temporaryAccessCode"
+    static let name = "name"
+    static let userName = "username"
+    static let userID = "userID"
+    static let latitude = "latitude"
+    static let longitude = "longitude"
+    static let circleID = "circleID"
+    static let photo = "photo"
+    static let loggedIn = "loggedIn"
+    static let phone = "phone"
+    static let email = "email"
+//    static let = ""
+//    static let = ""
+//    static let = ""
+//    static let = ""
+//    static let = ""
+}

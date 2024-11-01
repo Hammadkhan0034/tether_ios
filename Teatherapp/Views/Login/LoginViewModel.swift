@@ -74,12 +74,13 @@ class LoginViewModel: ObservableObject {
                     UserDefaults.standard.setValue(data?.name, forKey: "name")
                     UserDefaults.standard.setValue(data?.username, forKey: "username")
                     UserDefaults.standard.setValue(data?.photo, forKey: "photo")
+                    UserDefaults.standard.setValue(data?.email, forKey: "email")
+                    UserDefaults.standard.setValue("+\(data?.phoneCode ?? "") \(data?.phoneNumber ?? "")", forKey: "phone")
                     UserDefaults.standard.setValue(data?.temporaryAccessCode, forKey: "temporaryAccessCode")
                     UserDefaults.standard.setValue(data?.circle.id, forKey: "circleID")
                     UserDefaults.standard.setValue(data?.userID, forKey: "userID")
                     UserDefaults.standard.setValue(data?.latitude, forKey: "latitude")
                     UserDefaults.standard.setValue(data?.longitude, forKey: "longitude")
-                    print("Logged in")
                     return
                     
                 }catch{

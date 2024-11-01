@@ -22,10 +22,10 @@ struct HomeView: View {
     
     @StateObject var viewModel =  UsersLocationViewModel()
     @StateObject var manager = LocationManager()
+    @Environment(\.dashboardVM) var dashboardVM
+
     
-    @StateObject var options = NSideMenuOptions(style: .scale, side: .leading, width: 220, showSkeletonStack: true, skeletonStackColor: .gray, cornerRaduisIfNeeded: 16,
-                                                
-                                                rotationDegreeIfNeeded: 8, onWillClose: {
+    @StateObject var sideMenuOptions = NSideMenuOptions(style: .scale, side: .leading, width: 220, showSkeletonStack: true, skeletonStackColor: .gray, cornerRaduisIfNeeded: 16, rotationDegreeIfNeeded: 8, onWillClose: {
         print("options:onWillClose!")
     }, onWillOpen: {
         print("options:onWillOpen!")
@@ -36,14 +36,14 @@ struct HomeView: View {
     })
     
     var body: some View {
-        NSideMenuView(options: options){
+        NSideMenuView(options: sideMenuOptions){
             Menu{
-                SideMenuView(options:options)
+                SideMenuView(options:sideMenuOptions)
             }
             Main{
                 VStack{
-                    DashboardMap(manager: manager)
-                        .environmentObject(tfModel).environmentObject(options)
+                    DashboardMap(options: sideMenuOptions, manager: manager)
+                        .environmentObject(tfModel)
                     
                     TFBottomBar(manager: manager)
                         .environmentObject(tfModel)
@@ -57,6 +57,9 @@ struct HomeView: View {
                         userID: UserDefaults.standard.string(forKey: "userID") ?? "",
                         circleID: UserDefaults.standard.string(forKey: "circleID") ?? ""
                     )
+                    Task{
+                        await dashboardVM.getDashboardModel()
+                    }
                 }
                 .onChange(of: viewModel.apiSuccessFullyCalled) { newValue in
                     
