@@ -11,9 +11,15 @@ import Alamofire
 struct SelectMemberView: View {
 //    @Environment(\.dashboardVM) var dashboardVM
     let locationId: String
-    @State var selectedCircle : CircleModel = testCircles.first!
+    @State var members : [MemberDashboardModel]
     @State var selectedMembers: [String] = []
     @State var isAllSelected: Bool = false
+    let onShare : (_ selectedMembers: [String]) async ->Void
+    init(locationId: String, members: [MemberDashboardModel],onShare: @escaping (_: [String]) async -> Void) {
+        self.locationId = locationId
+        self.members = members.filter{$0.userID != AppKeysConstant.userID.getValue as! String}
+        self.onShare = onShare
+    }
     
     func addOrRemoveMember(id: String){
         if(selectedMembers.contains(id)){
@@ -29,36 +35,14 @@ struct SelectMemberView: View {
     func selectOrUnSelectAll(){
         isAllSelected.toggle()
         if(isAllSelected){
-            selectedMembers = selectedCircle.members.map{$0.id}
+            selectedMembers = members.map{$0.id}
         }
         else{
             selectedMembers.removeAll()
         }
     }
     
-    func shareLocation()async{
-        
-            do{
-                let params: Parameters = [
-                    "TemporaryAccessCode":AppKeysConstant.temporaryAccessCode.getValue,
-                    "UserName":AppKeysConstant.userName.getValue,
-                    "location_id": locationId,
-                    "user_ids": selectedMembers,
-                    
-                ]
-                
-                
-                let res: ApiGenericResponseModel<LocationData> =  try await APIManager.shared.postAsyncGeneric(endpoint: Endpoints.shareLocationWithTeamMembers, parameter: params)
-                
-                guard res.status == "1" else{
-                    return
-                }
-                
-            } catch(let error){
-                print(error);
-                
-            }
-    }
+    
     
     
     var body: some View {
@@ -67,19 +51,23 @@ struct SelectMemberView: View {
                 
                 
             Spacer()
-                if(!selectedCircle.members.isEmpty){
-                    TFButton(label: "Share", onClick: {},width:120,height: 40)
+                if(!members.isEmpty){
+                    TFButton(label: "Share", onClick: {
+                        Task{
+                            await onShare(selectedMembers)
+                        }
+                    },width:120,height: 40)
                 }
             }.padding(.all)
             
-            if(!selectedCircle.members.isEmpty){
+            if(!members.isEmpty){
                 HStack{
                     Spacer()
                     SelectAllRadioButton(title: "Select All", isSelected: isAllSelected, onClick: selectOrUnSelectAll)
                 }
             }
             
-            if(selectedCircle.members.isEmpty){
+            if(members.isEmpty){
                 VStack{
                     Spacer()
                     
@@ -88,8 +76,8 @@ struct SelectMemberView: View {
                 }
             }
             
-            if(!selectedCircle.members.isEmpty){
-                List(selectedCircle.members){ member in
+            if(!members.isEmpty){
+                List(members){ member in
                     
                     ZStack{
                         Rectangle().foregroundStyle(.white).cornerRadius(radius: 10, corners: .allCorners).shadow(radius: 2)
@@ -108,7 +96,7 @@ struct SelectMemberView: View {
                 
             }
             
-            if(selectedCircle.members.isEmpty){
+            if(members.isEmpty){
                 HStack{ Image(systemName: "plus.circle.fill").resizable().frame(width: 50,height: 50).foregroundStyle(.appBlue).padding(.trailing)
                     
                     Text("Add a new Member").font(.title3).fontWeight(.medium).foregroundStyle(.textBluishBlack)
@@ -119,5 +107,7 @@ struct SelectMemberView: View {
 }
 
 #Preview {
-    SelectMemberView(locationId: "21")
+    SelectMemberView(locationId: "21",members:  testCircles.first!.members) { selectedMembers in
+        
+    }
 }

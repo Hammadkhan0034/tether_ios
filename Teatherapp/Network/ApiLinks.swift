@@ -15,6 +15,7 @@ struct Endpoints{
     static let saveLocation = "save-location"
     static let getCircleLocation = "get-circle-locations"
     static let removeLocation = "remove-location"
+    static let locationNotificationSettings = "location-notification-settings"
     static let getUserDashboard = "get-user-dashboard"
     static let shareLocationWithTeamMembers = "share-location-with-team-members"
     

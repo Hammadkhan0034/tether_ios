@@ -8,82 +8,87 @@
 import SwiftUI
 import MapKit
 struct AddNewLocationView: View {
+    
+    let existingLocation : LocationModel?
+    
     @Environment(\.dashboardVM) var dashboardVM
     @Environment(\.dismiss) var dismiss
-
+    
     @State var viewModel = AddNewLocationViewModel()
-
+    
+    init(existingLocation: LocationModel? = nil) {
+        self.existingLocation = existingLocation
+    }
+    
     var body: some View {
-            
-            ScrollView{
-                VStack{
-                    AppBarView(title: "Add New Location").padding(.horizontal)
-                    
-                    AddNewLocationMapComponent(myPlaceModel: $viewModel.myPlaceModel,circleRadius: viewModel.isFeetSelected ? viewModel.distance * 0.3048 : viewModel.distance * 1609.34)
-                    AddNewLocationDistanceRowView(isFeetSelected: $viewModel.isFeetSelected, distance: $viewModel.distance).padding()
-                    
-                    BackgroundViewWrapper(text: "Location Details")
-                    
-                    
-                    SimpleTextField(placeHolder: "Enter Title", inputField: $viewModel.title).padding(.horizontal)
-                    
-                    SimpleTextField(placeHolder: "Enter Address", inputField: $viewModel.myPlaceModel.name,  isDisabled: true).padding(.horizontal).onTapGesture {
-                        viewModel.isShowingSelectAddress = true
+        
+        ScrollView{
+            VStack{
+                AppBarView(title: viewModel.isEdit ? "Update Location" : "Add New Location").padding(.horizontal)
+                
+                AddNewLocationMapComponent(myPlaceModel: $viewModel.myPlaceModel,circleRadius: viewModel.isFeetSelected ? viewModel.distance * 0.3048 : viewModel.distance * 1609.34)
+                AddNewLocationDistanceRowView(isFeetSelected: $viewModel.isFeetSelected, distance: $viewModel.distance).padding()
+                
+                BackgroundViewWrapper(text: "Location Details")
+                
+                
+                SimpleTextField(placeHolder: "Enter Title", inputField: $viewModel.title).padding(.horizontal)
+                
+                SimpleTextField(placeHolder: "Enter Address", inputField: $viewModel.myPlaceModel.name,  isDisabled: true).padding(.horizontal).onTapGesture {
+                    viewModel.isShowingSelectAddress = true
+                }
+                BackgroundViewWrapper(text:"Get notified when...")
+                
+                
+                HStack{
+                    Text("MARK ALL:")
+                    Spacer()
+                    Toggle("Arrives", isOn: $viewModel.selectAllArrives).frame(width: 115).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
+                        viewModel.selectAllArivesList()
+                        
+                    }.tint(.appBlue)
+                    Spacer()
+                    Toggle("Leaves", isOn: $viewModel.selectAllLeaves).frame(width: 110).tint(.appBlue).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
+                        viewModel.selectAllLeavesList()
+                        
                     }
-                    BackgroundViewWrapper(text:"Get notified when...")
                     
-                    
+                }.padding(.horizontal)
+                
+                List(viewModel.memberNotificationConfigList){member in
                     HStack{
-                        Text("MARK ALL:")
+                        InitialsOnCircleView(initials: member.name.initials, radius: 30, circleColor: .red)
+                        Text(member.name).bold()
                         Spacer()
-                        Toggle("Arrives", isOn: $viewModel.selectAllArrives).frame(width: 115).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
-                            
-                        }.tint(.appBlue)
-                        Spacer()
-                        Toggle("Leaves", isOn: $viewModel.selectAllLeaves).frame(width: 110).tint(.appBlue).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
-                            
+                        VStack{
+                            Toggle("Arrives", isOn: $viewModel.selectAllArrives).frame(width: 115).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
+                            }.tint(.appBlue)
+                            Spacer()
+                            Toggle("Leaves", isOn: $viewModel.selectAllLeaves).frame(width: 110).tint(.appBlue).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
+                            }
                         }
                         
-                    }.padding(.horizontal)
+                    }.listRowSeparator(.hidden).listRowInsets(.init()).padding(.horizontal)
                     
-                    List(viewModel.circleMembers){circleMember in
-                        HStack{
-                            InitialsOnCircleView(initials: circleMember.name.initials, radius: 30, circleColor: .red)
-                            Text(circleMember.name).bold()
-                            Spacer()
-                            VStack{
-                                Toggle("Arrives", isOn: $viewModel.selectAllArrives).frame(width: 115).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
-                                    viewModel.selectAllArivesList()
-                                }.tint(.appBlue)
-                                Spacer()
-                                Toggle("Leaves", isOn: $viewModel.selectAllLeaves).frame(width: 110).tint(.appBlue).onChange(of: viewModel.selectAllArrives) { oldValue, newValue in
-                                    viewModel.selectAllLeavesList()
-                                }
-                            }
-                            
-                        }.listRowSeparator(.hidden).listRowInsets(.init()).padding(.horizontal)
-
-                    }.listStyle(.inset).listRowSpacing(0).frame(height: 200)
-                    
-                    TFButton(label: "Save Location",onClick: {Task{await viewModel.saveLocation {
-                        dismiss()
-                    }}}).padding(.all)
-                    Spacer()
-                    
+                }.listStyle(.inset).listRowSpacing(0).frame(height: 200)
+                
+                TFButton(label: "Save Location",onClick: {Task{await viewModel.saveLocation()}}).padding(.all)
+                Spacer()
+                
+            }
+        }.onAppear(perform: {
+            if let members = dashboardVM.selectedCircle?.members{
+                for i in 0..<members.count {
+                    viewModel.memberNotificationConfigList.append(MemberNotificationSelectModel(id: members[i].id, name: members[i].name))
                 }
-            }.onAppear(perform: {
-                viewModel.circleMembers.append(contentsOf: dashboardVM.selectedCircle?.members ?? [])
-                for i in 0..<viewModel.circleMembers.count {
-                    viewModel.memberNotificationConfigList.append(MemberNotificationSelectModel(userId: viewModel.circleMembers[i].id))
-                }
-                print(viewModel.circleMembers.count)
-            })
-            
-            
-            
-            
+            }
+            viewModel.initEdit(locationModel: existingLocation)
+        })
+        
+        
+        
+        
         .overlay{
-            SimpleToastView(message: viewModel.successMessage, isShowing: $viewModel.isSnackbarPresented)
             if(viewModel.isLoading){
                 LoadingView()
             }
@@ -94,7 +99,11 @@ struct AddNewLocationView: View {
             }
         }.alert(viewModel.errorMessage, isPresented: $viewModel.isAlertPresented) {
             
-        }.navigationBarBackButtonHidden(true)
+        }.onChange(of: viewModel.shouldDismiss, { oldValue, newValue in
+            if(viewModel.shouldDismiss){
+                dismiss()
+            }
+        }).navigationBarTitle("",displayMode: .inline).navigationBarHidden(true)
     }
 }
 

@@ -10,7 +10,6 @@ import SwiftUI
 struct TFBottomBar: View {
     
     @EnvironmentObject var tfModel: TFBottomBarModel
-    @ObservedObject var manager = LocationManager()
     
     var body: some View {
         
@@ -19,7 +18,7 @@ struct TFBottomBar: View {
                 .frame(height: 0.5)
                 .background(.gray.opacity(0.05))
             
-            HStack(alignment: .bottom){
+            HStack{
                 
                 Spacer()
                 
@@ -37,7 +36,6 @@ struct TFBottomBar: View {
                 
                 Spacer()
                 
-                if manager.locations.count < 2 {
                     NavigationLink {
                         HistoryView()
                     } label: {
@@ -52,23 +50,23 @@ struct TFBottomBar: View {
                         }
                         .foregroundColor(getColor(index: 2))
                     }
-                }
-                else {
-                    NavigationLink {
-                        JobRequestView()
-                    } label: {
-                        VStack{
-                            Image(systemName: "bubble.left.fill")
-                                .resizable()
-                                .frame(width: 26, height: 23)
-                                .offset(y: 3)
-                            
-                            Text("Job Request")
-                                .font(.caption)
-                        }
-                        .foregroundColor(getColor(index: 2))
-                    }
-                }
+                
+//                else {
+//                    NavigationLink {
+//                        JobRequestView()
+//                    } label: {
+//                        VStack{
+//                            Image(systemName: "bubble.left.fill")
+//                                .resizable()
+//                                .frame(width: 26, height: 23)
+//                                .offset(y: 3)
+//                            
+//                            Text("Job Request")
+//                                .font(.caption)
+//                        }
+//                        .foregroundColor(getColor(index: 2))
+//                    }
+//                }
                 
                 Spacer()
                 
@@ -105,7 +103,7 @@ struct TFBottomBar: View {
                 
                 Spacer()
                 
-                if manager.locations.count < 2 {
+//                if manager.locations.count < 2 {
                     Button(action: {
                         if tfModel.selectedIndex == 5 {
                             tfModel.selectedIndex = 0
@@ -120,28 +118,27 @@ struct TFBottomBar: View {
                             .background(Color.appBlue)
                             .clipShape(.circle)
                     })
-                }
-                else {
-                    NavigationLink {
-                        TimeSheetView()
-                    } label: {
-                        VStack{
-                            Image(systemName: "clock.fill")
-                                .resizable()
-                                .frame(width: 25, height: 23)
-                                .offset(y: 3)
-                            
-                            Text("Timesheet")
-                                .font(.caption)
-                        }
-                        .foregroundColor(getColor(index: 5))
-                    }
-                }
+//                }
+//                else {
+//                    NavigationLink {
+//                        TimeSheetView()
+//                    } label: {
+//                        VStack{
+//                            Image(systemName: "clock.fill")
+//                                .resizable()
+//                                .frame(width: 25, height: 23)
+//                                .offset(y: 3)
+//                            
+//                            Text("Timesheet")
+//                                .font(.caption)
+//                        }
+//                        .foregroundColor(getColor(index: 5))
+//                    }
+//                }
                 
                 Spacer()
             }
             .padding(.top, 10)
-            .ignoresSafeArea()
             .background(.white)
         }
         .onAppear {

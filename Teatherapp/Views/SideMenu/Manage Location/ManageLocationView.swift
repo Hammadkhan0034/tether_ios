@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ManageLocationView: View {
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.dashboardVM) var dashboardVM
     @State var viewModel = ManageLocationViewModel()
     var body: some View {
         
@@ -34,15 +34,15 @@ struct ManageLocationView: View {
                         Spacer()
                     }
                     if(!viewModel.locations.isEmpty){
-                        List(viewModel.locations){location in 
+                        List(viewModel.locations){ location in
                             LocationRowView(locationModel: location, deleteLocation: {
                                 viewModel.showDeleteLocationConfirmation(location: location)
                             }, shareLocation: {
-                                viewModel.shareLocation(location: location)
+                                viewModel.showMemberBottomSheet(location: location)
                             }, notificationLocation: {
-                                viewModel.notificationLocation(location: location)
-                            }, editLocation: {
-                                viewModel.editLocation(location: location)
+                                Task{
+                                   await  viewModel.notificationLocation(location: location,circle_id:  dashboardVM.selectedCircle!.id)
+                                }
                             }).listRowSeparator(.hidden).listRowInsets(EdgeInsets())
                         }.listStyle(.inset)
                     }
@@ -73,7 +73,7 @@ struct ManageLocationView: View {
                 }.alert(viewModel.errorMessage, isPresented: $viewModel.isAlertPresented) {
                     
                 }.sheet(isPresented: $viewModel.isShowingBottomsheet, content: {
-                    SelectMemberView(locationId: viewModel.selectedLocationId)
+                    SelectMemberView(locationId: viewModel.selectedLocationId, members: dashboardVM.selectedCircle!.members, onShare: viewModel.shareLocation)
                 }).onAppear{
                     Task{
                         await viewModel.getLocations()

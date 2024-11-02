@@ -12,7 +12,6 @@ struct LocationRowView: View {
     let deleteLocation: ()->Void
     let shareLocation: ()->Void
     let notificationLocation: ()->Void
-    let editLocation: ()->Void
     var body: some View {
         VStack{
             HStack{
@@ -24,7 +23,7 @@ struct LocationRowView: View {
                         Text(locationModel.location).lineSpacing(0).font(.caption).fontWeight(.light ).foregroundStyle(.textBluishBlack).lineLimit(1...2)
                         Spacer()
                         Image(systemName: "xmark").resizable().frame(width:16,height:16).padding(.horizontal).onTapGesture(perform: deleteLocation)
-                        Image(systemName: "bell.circle.fill").resizable().frame(width:25,height:25).foregroundStyle(.appBlue)
+                        Image(systemName: locationModel.isNotification.isTrue ? "bell.circle.fill" : "bell.slash.circle.fill").resizable().frame(width:25,height:25).foregroundStyle(locationModel.isNotification.isTrue ? .appBlue : .red).onTapGesture(perform: notificationLocation)
                     }
                     Text("Created By \(locationModel.createdBy)").font(.caption).foregroundStyle(.green).padding(.horizontal,10).overlay {
                         RoundedRectangle(cornerSize: .init(width: 15, height: 15), style: .circular).foregroundStyle(.green.opacity(0.15))
@@ -35,8 +34,11 @@ struct LocationRowView: View {
             
             HStack{
                 Spacer()
-                SimpleTextButtonView(title: "Share", width: 70, height:25, textColor: .textBluishBlack, cornerRadius: 4, fontWeight: .regular).padding(.trailing).onTapGesture(perform: shareLocation)
-                SimpleTextButtonView(title: "EDIT", width: 50,height: 25, textColor: .textBluishBlack, cornerRadius: 4, fontWeight: .regular, font: .caption).onTapGesture(perform: editLocation)
+                SimpleTextButtonView(title: "Share", width: 70, height:25, textColor: .textBluishBlack, cornerRadius: 4, fontWeight: .regular, font: .caption).padding(.trailing).onTapGesture(perform: shareLocation)
+                
+                SimpleTextButtonView(title: "EDIT", width: 70,height: 25, textColor: .textBluishBlack, cornerRadius: 4, fontWeight: .regular, font: .caption).background(NavigationLink("", destination: AddNewLocationView(existingLocation: locationModel)).opacity(0))
+
+                
             }.padding(.trailing)
             Rectangle().frame(height:1).foregroundStyle(.gray.opacity(0.5)).padding(.top,5)
 
@@ -45,6 +47,6 @@ struct LocationRowView: View {
 }
 
 #Preview {
-    LocationRowView(locationModel: testLocations.first!, deleteLocation: {},shareLocation: {}, notificationLocation: {},editLocation: {})
+    LocationRowView(locationModel: testLocations.first!, deleteLocation: {},shareLocation: {}, notificationLocation: {})
 }
 

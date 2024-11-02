@@ -27,4 +27,16 @@ extension String {
             let initials = components.prefix(2).compactMap { $0.first }.map { String($0) }
             return initials.joined().uppercased() // Optionally uppercased
         }
+    
+    var isTrue: Bool{
+        return self == "1"
+    }
+    var toggle: String{
+        return self == "1" ? "0" : "1"
+    }
+    
+    var toDouble: Double{
+        return  Double(self) ?? 1.0
+
+    }
 }
