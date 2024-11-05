@@ -1,17 +1,17 @@
 //
-//  SignupView.swift
+//  AddNewMemberView.swift
 //  Teatherapp
 //
-//  Created by AbdulWahabTanveer on 05/09/2023.
+//  Created by Hammad Khan on 05/11/2024.
 //
 
 import SwiftUI
 
-struct SignupView: View {
+struct AddNewMemberView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel =  SignupViewModel()
+    @StateObject var viewModel =  AddNewMemberViewModel()
     
     var body: some View {
         VStack{
@@ -37,7 +37,7 @@ struct SignupView: View {
                     Text(
                         """
                          Hey,
-                         Signup Now.
+                         Add Member Now.
                         """)
                     .font(.system(size: 32,weight: .heavy))
                     .foregroundColor(.accentColor)
@@ -77,13 +77,32 @@ struct SignupView: View {
                     .frame(height: 50)
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
                     
-                    HStack(spacing: 20){
-                        CountryPicker(phoneCode: $viewModel.phoneCode, foregroundColor: Color.appBlue)
-                            .padding()
-                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
+                    //MARK: - Confirm Password TextField
+                    HStack{
+                        if viewModel.isConfirmSecured {
+                            SecurePasswordField(placeHolder: "Password", inputField: $viewModel.confirmPassword)
+                        }
+                        else {
+                            PasswordTextField(placeHolder: "Password", inputField: $viewModel.confirmPassword)
+                        }
                         
-                        SimpleTextField(placeHolder: "Phone Number", inputField: $viewModel.phoneNumber)
+                        Spacer()
+                        
+                        //MARK: - Eye Button
+                        Button(action: {
+                            viewModel.isSecured.toggle()
+                        }, label: {
+                            Image(viewModel.isSecured ? "closeEye" : "openEye")
+                        })
+                        .padding(.trailing, 10)
                     }
+                    .frame(height: 50)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
+                    
+                    
+                    SimpleTextField(placeHolder: "Hourly Rate", inputField: $viewModel.hourlyRate)
+                    SimpleTextField(placeHolder: "Security Pin", inputField: $viewModel.securityPin)
+                    
                     
                     //MARK: - Address
                     HStack{
@@ -93,7 +112,7 @@ struct SignupView: View {
                             .textInputAutocapitalization(.never)
                             .disableAutocorrection(true)
                             .autocorrectionDisabled()
-                            
+                        
                         Spacer()
                         
                         if viewModel.address.count > 0 {
@@ -111,7 +130,7 @@ struct SignupView: View {
                     }
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
                     
-
+                    
                     
                     //MARK: - City
                     SimpleTextField(placeHolder: "City", inputField: $viewModel.city)
@@ -121,13 +140,38 @@ struct SignupView: View {
                     
                     //MARK: - Zip Code
                     SimpleTextField(placeHolder: "Zip Code", inputField: $viewModel.zipCode)
+                    HStack(spacing: 20){
+                        CountryPicker(phoneCode: $viewModel.phoneCode, foregroundColor: Color.appBlue)
+                            .padding()
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
+                        
+                        SimpleTextField(placeHolder: "Phone Number", inputField: $viewModel.phoneNumber)
+                    }
                     
-                    TFButton(label: "Signup", onClick: viewModel.signUp)
+                    Text("Select Permission Level").font(.title3).bold().padding(.top, 5)
+                    
+                    RadioView(value: PermissionLevels.fullAccess.getValue, isSelected: PermissionLevels.fullAccess == viewModel.selectedPermissionLevel, onTap: {
+                        viewModel.selectedPermissionLevel = PermissionLevels.fullAccess
+                    })
+                    
+                    
+                    RadioView(value: PermissionLevels.limitedAccess.getValue, isSelected: PermissionLevels.limitedAccess == viewModel.selectedPermissionLevel, onTap: {
+                        viewModel.selectedPermissionLevel = PermissionLevels.limitedAccess
+                    })
+                    
+                    
+                    RadioView(value: PermissionLevels.childAccess.getValue, isSelected: PermissionLevels.childAccess == viewModel.selectedPermissionLevel, onTap: {
+                        viewModel.selectedPermissionLevel = PermissionLevels.childAccess
+                    })
+                    
+                    
+                    TFButton(label: "Add", onClick: {
+                        Task{       await viewModel.addMember()}})
                 }
             }
         }
         .alert(isPresented: $viewModel.showingAlert, content: {
-            return AlertContext.makeAlert(title: "Signup Error", message: viewModel.errorString, onTap: {
+            return AlertContext.makeAlert(title: "Error", message: viewModel.errorString, onTap: {
                 self.viewModel.showingAlert = false
             })
         })
@@ -135,12 +179,13 @@ struct SignupView: View {
         .navigationBarBackButtonHidden()
         .overlay(self.viewModel.isLoading ? LoadingView(): nil)
         .onChange(of: viewModel.apiSuccessFullyCalled) {oldValue, newValue in
-                dismiss()
+            dismiss()
+            dismiss()
         }
     }
+    
 }
 
 #Preview {
-    SignupView()
+    AddNewMemberView()
 }
-

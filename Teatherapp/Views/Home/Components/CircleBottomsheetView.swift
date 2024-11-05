@@ -21,7 +21,7 @@ struct CircleBottomsheetView: View {
             VStack{
                 
                 HStack{
-                    Image(systemName: "xmark").resizable().frame(width: 17, height: 17)
+//                    Image(systemName: "xmark").resizable().frame(width: 17, height: 17)
                     Spacer()
                     Text("Available Teams").font(.title2).fontWeight(.semibold)
                     Spacer()

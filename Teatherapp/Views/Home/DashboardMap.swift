@@ -11,25 +11,23 @@ import NSideMenu
 
 
 struct DashboardMap: View {
-    @Environment(\.dashboardVM) var dashboardVM
+    @Environment(\.dashboardVM)  var dashboardVM
     @EnvironmentObject var tfModel: TFBottomBarModel
     @EnvironmentObject var userAuth : UserAuth
-    
     @ObservedObject var options: NSideMenuOptions
     
     @State var showFilters : Bool = false
     @State var name : String = ""
-    @State var userImage : String = ""
-    
+    @State var userImage : String = ""    
     @State var selectedView = "Home"
-    @State var showBottomSheet = false
-//    @State var selectedPlace: MyPlaceModel = MyPlaceModel(name: "", latitude: 0, longitude: 0,description: "")
     
     
     
     
     
     var body: some View {
+        
+        @Bindable var dashboardViewModel = dashboardVM
         
         ZStack(alignment: .top) {
             Map {
@@ -45,7 +43,7 @@ struct DashboardMap: View {
                 Spacer()
                 
                 HStack{
-    
+                    
                     Button(action: {
                     }, label: {
                         Image(systemName: "map.fill")
@@ -63,12 +61,12 @@ struct DashboardMap: View {
                     }, label: {
                         HStack(spacing:2){
                             Image(systemName: "light.beacon.max.fill").frame(width: 25, height: 25)
-
+                            
                                 .foregroundColor(Color.appBlue)
                             
                             Text("SOS").font(.caption).fontWeight(.semibold)
                                 .foregroundColor(Color.appBlue)
-                                
+                            
                         }
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                         .background(Capsule().fill(Color.white))
@@ -78,21 +76,21 @@ struct DashboardMap: View {
                     Spacer()
                     
                     //MARK: - Check in
-//                    Button(action: {
-//                        self.tfModel.selectedIndex = 3
-//                    }, label: {
-//                        HStack{
-//                            Image(systemName: "clock.fill")
-//                                .foregroundColor(.white)
-//                            
-//                            Text("CLOCKIN")
-//                                .foregroundColor(.white)
-//                                .fontWeight(.bold)
-//                        }
-//                        .padding(10)
-//                        .background(Capsule().fill(Color.appBlue))
-//                    })
-                
+                    //                    Button(action: {
+                    //                        self.tfModel.selectedIndex = 3
+                    //                    }, label: {
+                    //                        HStack{
+                    //                            Image(systemName: "clock.fill")
+                    //                                .foregroundColor(.white)
+                    //
+                    //                            Text("CLOCKIN")
+                    //                                .foregroundColor(.white)
+                    //                                .fontWeight(.bold)
+                    //                        }
+                    //                        .padding(10)
+                    //                        .background(Capsule().fill(Color.appBlue))
+                    //                    })
+                    
                     
                     
                     //MARK: - Current Location
@@ -108,14 +106,39 @@ struct DashboardMap: View {
                 }
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
                 
-                
-            }.padding(.vertical,70)
-                .overlay{
-                    if tfModel.selectedIndex == 3 {
-                        CheckinView()
-                            .padding(.horizontal)
+                VStack(alignment:.center){
+                    Rectangle().frame(width: 35,height: 8).foregroundStyle(.gray.opacity(0.3)).cornerRadius(radius: 10, corners: .allCorners).padding(.top, 10)
+                    if(dashboardVM.selectedCircle != nil){
+                        Spacer()
+                        ScrollView(.horizontal, showsIndicators: false){
+                            ZStack{
+                                Spacer().containerRelativeFrame([.horizontal, .vertical])
+                                HStack{
+                                    ForEach(dashboardVM.selectedCircle?.members ?? [], id:\.self.id){ member in
+                                        DashboardMemberComponentView(dashboardMember: member)
+                                    }
+                                    NavigationLink(destination: Invite_Member_view()) {
+                                        VStack(spacing: 0){
+                                        
+                                            Image(systemName: "plus.circle.fill").resizable().frame(width: 35,height: 35).foregroundStyle(.blue).padding(.top,4)
+                                            Spacer()
+                                        }.frame(width: 55, height: 60)
+                                    }
+                                }.frame(maxWidth: UIScreen.screenWidth, maxHeight: 60)
+                            }
+                            
+                        }
                     }
+                    Spacer()
+                }.frame(width: UIScreen.screenWidth, height: 90).background(.white).cornerRadius(radius: 15, corners: [.topLeft, .topRight])
+                
+            }
+            .overlay{
+                if tfModel.selectedIndex == 3 {
+                    CheckinView()
+                        .padding(.horizontal)
                 }
+            }
         }.navigationBarTitle("",displayMode: .inline).navigationBarHidden(true)
             .onAppear{
                 self.name = UserDefaults.standard.string(forKey: "name") ?? ""
@@ -124,9 +147,9 @@ struct DashboardMap: View {
                     await dashboardVM.getDashboardModel()
                 }
             }
-            .sheet(isPresented: $showBottomSheet, content: {
-                CircleBottomsheetView()
-            })
+            .sheet(isPresented: $dashboardViewModel.showCircleSheet){
+                CircleBottomsheetView().presentationDetents(.init([.medium,.large]))
+            }
         
     }
     

@@ -41,6 +41,7 @@
 		2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */; };
 		2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B72CA62107009B9310 /* PackageCard.swift */; };
 		2C8346BB2CA626C5009B9310 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */; };
+		2CA38A792CDABEB800210550 /* GlobalMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38A782CDABEAA00210550 /* GlobalMessageView.swift */; };
 		2CA99F592CD38BBB0083B47A /* SelectMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA99F582CD38BBB0083B47A /* SelectMemberView.swift */; };
 		2CB9536B2CB6B9CF0044A08E /* toasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9536A2CB6B9C70044A08E /* toasts.swift */; };
 		2CC2E9802CC4064100846A75 /* FavoriteAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2E97F2CC4062F00846A75 /* FavoriteAddressModel.swift */; };
@@ -79,7 +80,13 @@
 		2CE3B6082CA772DD000A5F5E /* TimeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B6072CA772DD000A5F5E /* TimeSelectView.swift */; };
 		2CE3B60B2CA77B46000A5F5E /* EasterEggsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B60A2CA77B46000A5F5E /* EasterEggsView.swift */; };
 		2CE3B60D2CA77B57000A5F5E /* EasterEggsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B60C2CA77B4F000A5F5E /* EasterEggsViewModel.swift */; };
-		3713FF3D2C8E381500CDFF1E /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3713FF3C2C8E381500CDFF1E /* RadioView.swift */; };
+		2CE4D0F72CDA4C20004C0B92 /* InviteMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4D0F62CDA4C13004C0B92 /* InviteMemberView.swift */; };
+		2CE4D0F92CDA4C57004C0B92 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4D0F82CDA4C52004C0B92 /* RadioView.swift */; };
+		2CE4D0FD2CDA4D84004C0B92 /* AddNewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4D0FC2CDA4D7A004C0B92 /* AddNewMemberView.swift */; };
+		2CE4D1012CDA506F004C0B92 /* AddNewMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4D1002CDA505D004C0B92 /* AddNewMemberViewModel.swift */; };
+		2CE4D1032CDA53F0004C0B92 /* SecurityPinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4D1022CDA53E6004C0B92 /* SecurityPinField.swift */; };
+		2CE636602CD92B8500E3461D /* DashboardMemberComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6365F2CD92B8500E3461D /* DashboardMemberComponentView.swift */; };
+		2CE636622CD934F000E3461D /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE636612CD934F000E3461D /* RemoteImageView.swift */; };
 		3713FF3F2C8E458200CDFF1E /* AppBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3713FF3E2C8E458200CDFF1E /* AppBarView.swift */; };
 		376BDB5D2C939C3500F1500F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BDB5C2C939C3500F1500F /* AppConstants.swift */; };
 		376BDB5F2C93A34600F1500F /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BDB5E2C93A34600F1500F /* StorageHandler.swift */; };
@@ -92,7 +99,6 @@
 		37A9A3572C8A3A2200A47DA6 /* ImageOnCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9A3562C8A3A2200A47DA6 /* ImageOnCircle.swift */; };
 		37B272182C8DFF16001BB0E0 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B272172C8DFF16001BB0E0 /* MyExtensions.swift */; };
 		37B2721A2C8E0AA6001BB0E0 /* Side_Menu_Row_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B272192C8E0AA6001BB0E0 /* Side_Menu_Row_View.swift */; };
-		37B2721D2C8E1251001BB0E0 /* Invite_Member_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B2721C2C8E1251001BB0E0 /* Invite_Member_view.swift */; };
 		37B272202C8E1B9F001BB0E0 /* PermissionLevelEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B2721F2C8E1B9F001BB0E0 /* PermissionLevelEnums.swift */; };
 		A2002EE22AAB750C006D9AB8 /* TFBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2002EE12AAB750C006D9AB8 /* TFBottomBar.swift */; };
 		A2097B252AB35251003C27C6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2097B242AB35251003C27C6 /* SettingView.swift */; };
@@ -192,6 +198,7 @@
 		2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomRoundedBackgroundRectangle.swift; sourceTree = "<group>"; };
 		2C8346B72CA62107009B9310 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
 		2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		2CA38A782CDABEAA00210550 /* GlobalMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMessageView.swift; sourceTree = "<group>"; };
 		2CA99F582CD38BBB0083B47A /* SelectMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMemberView.swift; sourceTree = "<group>"; };
 		2CB9536A2CB6B9C70044A08E /* toasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toasts.swift; sourceTree = "<group>"; };
 		2CC2E97F2CC4062F00846A75 /* FavoriteAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAddressModel.swift; sourceTree = "<group>"; };
@@ -230,7 +237,13 @@
 		2CE3B6072CA772DD000A5F5E /* TimeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectView.swift; sourceTree = "<group>"; };
 		2CE3B60A2CA77B46000A5F5E /* EasterEggsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggsView.swift; sourceTree = "<group>"; };
 		2CE3B60C2CA77B4F000A5F5E /* EasterEggsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggsViewModel.swift; sourceTree = "<group>"; };
-		3713FF3C2C8E381500CDFF1E /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		2CE4D0F62CDA4C13004C0B92 /* InviteMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteMemberView.swift; sourceTree = "<group>"; };
+		2CE4D0F82CDA4C52004C0B92 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		2CE4D0FC2CDA4D7A004C0B92 /* AddNewMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMemberView.swift; sourceTree = "<group>"; };
+		2CE4D1002CDA505D004C0B92 /* AddNewMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMemberViewModel.swift; sourceTree = "<group>"; };
+		2CE4D1022CDA53E6004C0B92 /* SecurityPinField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityPinField.swift; sourceTree = "<group>"; };
+		2CE6365F2CD92B8500E3461D /* DashboardMemberComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMemberComponentView.swift; sourceTree = "<group>"; };
+		2CE636612CD934F000E3461D /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		3713FF3E2C8E458200CDFF1E /* AppBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarView.swift; sourceTree = "<group>"; };
 		376BDB5C2C939C3500F1500F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		376BDB5E2C93A34600F1500F /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
@@ -242,7 +255,6 @@
 		37A9A3562C8A3A2200A47DA6 /* ImageOnCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOnCircle.swift; sourceTree = "<group>"; };
 		37B272172C8DFF16001BB0E0 /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		37B272192C8E0AA6001BB0E0 /* Side_Menu_Row_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side_Menu_Row_View.swift; sourceTree = "<group>"; };
-		37B2721C2C8E1251001BB0E0 /* Invite_Member_view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invite_Member_view.swift; sourceTree = "<group>"; };
 		37B2721F2C8E1B9F001BB0E0 /* PermissionLevelEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionLevelEnums.swift; sourceTree = "<group>"; };
 		A2002EE12AAB750C006D9AB8 /* TFBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFBottomBar.swift; sourceTree = "<group>"; };
 		A2097B242AB35251003C27C6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -529,6 +541,7 @@
 				2CD581152CBD6D67004C24A5 /* TeamRowView.swift */,
 				2C742E072CBE7CB8009422EC /* HomeAppBarSideColumnView.swift */,
 				2C742E092CBE90E3009422EC /* DashboardMapOverlay.swift */,
+				2CE6365F2CD92B8500E3461D /* DashboardMemberComponentView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -583,12 +596,14 @@
 			path = EasterEgg;
 			sourceTree = "<group>";
 		};
-		3713FF3B2C8E37F000CDFF1E /* UiComponents */ = {
+		2CE4D0F52CDA4C05004C0B92 /* Member */ = {
 			isa = PBXGroup;
 			children = (
-				3713FF3C2C8E381500CDFF1E /* RadioView.swift */,
+				2CE4D1002CDA505D004C0B92 /* AddNewMemberViewModel.swift */,
+				2CE4D0FC2CDA4D7A004C0B92 /* AddNewMemberView.swift */,
+				2CE4D0F62CDA4C13004C0B92 /* InviteMemberView.swift */,
 			);
-			path = UiComponents;
+			path = Member;
 			sourceTree = "<group>";
 		};
 		376BDB5B2C939C1A00F1500F /* Utils */ = {
@@ -601,15 +616,6 @@
 				376BDB5E2C93A34600F1500F /* StorageHandler.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		37B2721B2C8E122F001BB0E0 /* Member */ = {
-			isa = PBXGroup;
-			children = (
-				3713FF3B2C8E37F000CDFF1E /* UiComponents */,
-				37B2721C2C8E1251001BB0E0 /* Invite_Member_view.swift */,
-			);
-			path = Member;
 			sourceTree = "<group>";
 		};
 		37B2721E2C8E1B70001BB0E0 /* MyEnums */ = {
@@ -720,6 +726,8 @@
 		A2BCBB762AA10ACF00DE6255 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				2CE4D1022CDA53E6004C0B92 /* SecurityPinField.swift */,
+				2CE4D0F82CDA4C52004C0B92 /* RadioView.swift */,
 				2CC2E98D2CC52A0C00846A75 /* SimpleToggleTextButton.swift */,
 				2CB953672CB6B9850044A08E /* Toasts Dialogs Bottomsheets */,
 				A2BCBB742AA10AC400DE6255 /* TFButton.swift */,
@@ -747,6 +755,7 @@
 				2C742E0B2CBEE6ED009422EC /* SimplePlacesSearchTextField.swift */,
 				2C69DB052CC18061005B2E2F /* GetAddressFromMapView.swift */,
 				2CC74FC22CCAE123003E9038 /* ConfirmationDialogView.swift */,
+				2CE636612CD934F000E3461D /* RemoteImageView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -754,9 +763,9 @@
 		A2CEE1902AA63D4F00BDFF30 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2CE4D0F52CDA4C05004C0B92 /* Member */,
 				2CA99F572CD38B950083B47A /* SharedViews */,
 				2CD57A3D2CA44F660012E862 /* SideMenu */,
-				37B2721B2C8E122F001BB0E0 /* Member */,
 				A2163D932AB4B26300A981CC /* Login */,
 				A2163D942AB4B26B00A981CC /* Signup */,
 				A2DED4052AAF87DD004CF21B /* Reset */,
@@ -776,6 +785,7 @@
 		A2DED4042AAF8764004CF21B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2CA38A782CDABEAA00210550 /* GlobalMessageView.swift */,
 				A2163DA32AB4C1C400A981CC /* ViewportHelper.swift */,
 				A2DED4022AAF7CCE004CF21B /* ShapeClasses.swift */,
 				A2097B262AB38216003C27C6 /* Helpers.swift */,
@@ -1083,6 +1093,7 @@
 				BD4945FA2AFAC024007B7867 /* TimeInterval.swift in Sources */,
 				A254CC032AA788BD00FAE281 /* UnderLinePincodeView.swift in Sources */,
 				2C742E0C2CBEE6ED009422EC /* SimplePlacesSearchTextField.swift in Sources */,
+				2CE4D0F92CDA4C57004C0B92 /* RadioView.swift in Sources */,
 				A254CC012AA7826200FAE281 /* SignupView.swift in Sources */,
 				37B272202C8E1B9F001BB0E0 /* PermissionLevelEnums.swift in Sources */,
 				BD4B18F42AF2E3020066E9DB /* ChatViewModel.swift in Sources */,
@@ -1091,7 +1102,6 @@
 				BD949AB92B3AC70200FB290D /* TimeSheetView.swift in Sources */,
 				2C1911B22CA9D0930079B27F /* SimpleCheckBox.swift in Sources */,
 				2C160A9C2CA862D000609207 /* SimpleTextEditor.swift in Sources */,
-				3713FF3D2C8E381500CDFF1E /* RadioView.swift in Sources */,
 				2C160A962CA85AB100609207 /* AddFavoriteLocationViewModel.swift in Sources */,
 				BDAE9FBB2AFC260300975341 /* MessageView.swift in Sources */,
 				2CE3B5F02CA6DA54000A5F5E /* AddEasterEggView.swift in Sources */,
@@ -1116,11 +1126,11 @@
 				2CE3B5F42CA6DB54000A5F5E /* EasterEggTypeDropdownMenuView.swift in Sources */,
 				2C160A9E2CA8676F00609207 /* SimpleToggleButton.swift in Sources */,
 				2CD581182CBD7206004C24A5 /* MemberModel.swift in Sources */,
-				37B2721D2C8E1251001BB0E0 /* Invite_Member_view.swift in Sources */,
 				2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */,
 				BD3AECB32AE2D1C100DEB032 /* SignupViewModel.swift in Sources */,
 				2C1B6B9F2CB31CAE00BD818C /* DeleteTeamMemberView.swift in Sources */,
 				BD4B18F02AF2DCBC0066E9DB /* ConversationViewModel.swift in Sources */,
+				2CE636622CD934F000E3461D /* RemoteImageView.swift in Sources */,
 				2C1911B42CA9D8880079B27F /* AddCheckInScheduleBy.swift in Sources */,
 				2CC74FC32CCAE123003E9038 /* ConfirmationDialogView.swift in Sources */,
 				BD27D60D2AF3E5AD00D54FA6 /* LoadingView.swift in Sources */,
@@ -1131,6 +1141,7 @@
 				A2097B252AB35251003C27C6 /* SettingView.swift in Sources */,
 				3795F18B2C93147700B06D4F /* MyAlerts.swift in Sources */,
 				2CE3B5FA2CA72888000A5F5E /* AddMediaButtonView.swift in Sources */,
+				2CE4D0FD2CDA4D84004C0B92 /* AddNewMemberView.swift in Sources */,
 				2CE3B5FE2CA7311F000A5F5E /* SelectAllRadioButton.swift in Sources */,
 				2CE3B5EB2CA6D361000A5F5E /* CountryPhoneDataDecoder.swift in Sources */,
 				2CE3B60D2CA77B57000A5F5E /* EasterEggsViewModel.swift in Sources */,
@@ -1140,6 +1151,7 @@
 				2C1B6B942CB30C4500BD818C /* PermissionLevelView.swift in Sources */,
 				2C1911AA2CA9CD470079B27F /* AddScheduleCheckInView.swift in Sources */,
 				A2163DA42AB4C1C500A981CC /* ViewportHelper.swift in Sources */,
+				2CE636602CD92B8500E3461D /* DashboardMemberComponentView.swift in Sources */,
 				2CC2E9862CC45E4900846A75 /* AddNewLocationViewModel.swift in Sources */,
 				376BDB5F2C93A34600F1500F /* StorageHandler.swift in Sources */,
 				BD0F55F62AE44F4700198F67 /* AppDelegate.swift in Sources */,
@@ -1155,6 +1167,7 @@
 				2C1911B82CA9ED2A0079B27F /* AddScheduleCheckInTeamMemberMustBe.swift in Sources */,
 				BD547E2B2AFE627D008BDAA5 /* UserDetailsModel.swift in Sources */,
 				376BDB5D2C939C3500F1500F /* AppConstants.swift in Sources */,
+				2CE4D1032CDA53F0004C0B92 /* SecurityPinField.swift in Sources */,
 				3795F1902C931F2600B06D4F /* ApiResponseModel.swift in Sources */,
 				BDB60B952AE1B609002ABBBC /* ApiLinks.swift in Sources */,
 				2C69DB042CC17F72005B2E2F /* MyPlaceModel.swift in Sources */,
@@ -1183,7 +1196,9 @@
 				2CE3B5F82CA719DD000A5F5E /* EasterEggFrequencyEnum.swift in Sources */,
 				BDD6F73A2AE849700080AC4C /* HeaderBarView.swift in Sources */,
 				BD4B18F22AF2E27D0066E9DB /* ChatModel.swift in Sources */,
+				2CA38A792CDABEB800210550 /* GlobalMessageView.swift in Sources */,
 				BD1AF1522B29F1E800DC3388 /* UsersLocationModel.swift in Sources */,
+				2CE4D0F72CDA4C20004C0B92 /* InviteMemberView.swift in Sources */,
 				2C160AA42CA872B100609207 /* CheckInScheduleView.swift in Sources */,
 				BDEF99F02AFFF62B00EDA94F /* MessageModel.swift in Sources */,
 				2CD581142CBD5682004C24A5 /* SimpleOutlinedDropdownButtonView.swift in Sources */,
@@ -1213,6 +1228,7 @@
 				2C618A632CA8C40300BFAB47 /* DownloadedReportsView.swift in Sources */,
 				2CC2E98E2CC52A1900846A75 /* SimpleToggleTextButton.swift in Sources */,
 				2CE3B60B2CA77B46000A5F5E /* EasterEggsView.swift in Sources */,
+				2CE4D1012CDA506F004C0B92 /* AddNewMemberViewModel.swift in Sources */,
 				A2BCBB672AA0FE9800DE6255 /* TeatherappApp.swift in Sources */,
 				3795F18E2C9315F300B06D4F /* ApiEnums.swift in Sources */,
 				2C1911BB2CAA04230079B27F /* ManageLocationView.swift in Sources */,

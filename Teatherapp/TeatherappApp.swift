@@ -32,3 +32,14 @@ struct TeatherappApp: App {
 //        }
     }
 }
+
+private struct DashboardViewModelKey: EnvironmentKey {
+    static let defaultValue: Binding<DashboardModelViewModel>? = nil
+}
+
+extension EnvironmentValues {
+    var isLoading: Binding<DashboardModelViewModel>? {
+        get { self[DashboardViewModelKey.self] }
+        set { self[DashboardViewModelKey.self] = newValue }
+    }
+}

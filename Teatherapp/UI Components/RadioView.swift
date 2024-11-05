@@ -8,29 +8,33 @@
 import SwiftUI
 
 struct RadioView: View {
-    @Binding var selected: PermissionLevels
-    let permissionLevel: PermissionLevels
+    let value: String
+    let isSelected: Bool
+    let onTap: () -> Void
     
+    init(value: String, isSelected: Bool, onTap: @escaping () -> Void) {
+        self.value = value
+        self.isSelected = isSelected
+        self.onTap = onTap
+    }
     
     var body: some View {
-        Button(action: {
-            self.selected = self.permissionLevel
-        }) {
+        
             HStack {
                 Circle()
                     .stroke(.textBluishBlack, lineWidth: 3)
                     .frame(width: 20, height: 20)
                     .overlay(
                         Circle()
-                            .fill(self.selected == self.permissionLevel ? .textBluishBlack : Color.clear)
+                            .fill( isSelected ? .textBluishBlack : Color.clear)
                             .frame(width: 12, height: 12)
                     )
-                Text(permissionLevel.rawValue)
-                    .foregroundColor(.textBluishBlack).fontWeight(.semibold).font(.title2)
+                Text(value)
+                    .foregroundColor(.textBluishBlack).fontWeight(.semibold).font(.body)
+                Spacer()
             }
             .padding(.horizontal)
-        }
-        .buttonStyle(PlainButtonStyle())
+        
     }
 }
 
@@ -61,14 +65,20 @@ struct RadioViewFrequency: View {
     }
 }
 
-#Preview {
-    struct Preview: View {
-        
-        @State var permissionLevel = PermissionLevels.fullAccess
-           var body: some View {
-               RadioView(selected: $permissionLevel, permissionLevel: PermissionLevels.fullAccess)
-           }
-       }
+//#Preview {
+//    struct Preview: View {
+//
+//        @State var permissionLevel = PermissionLevels.fullAccess
+//           var body: some View {
+//               RadioView(value: "Limited Access", isSelected: true) {
+//
+//               }
+//           }
+//       }
+//
+//       return Preview()
+//}
 
-       return Preview()
-}
+
+
+

@@ -400,6 +400,24 @@ class APIManager {
         }
     }
     
+    func downloadImage(urlString: String) async -> UIImage?{
+        let cache = NSCache <NSString, UIImage>()
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = cache.object(forKey: cacheKey){
+            return image
+        }
+        guard let url = URL(string: "https://tether.mydispatchapp.com/\(urlString)") else{
+            return nil
+        }
+        let task = try? await URLSession.shared.data(for: URLRequest(url: url))
+        guard let data = task, let image = UIImage(data: data.0) else{
+            return nil
+
+        }
+        cache.setObject(image, forKey: cacheKey)
+        return image
+    }
 }
 
 

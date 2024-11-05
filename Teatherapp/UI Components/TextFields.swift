@@ -46,7 +46,7 @@ struct PasswordTextField: View {
         VStack{
             TextField(placeHolder, text: $inputField)
                 .padding(.leading)
-                .frame(height: 50)
+                .frame(height: 45)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .autocorrectionDisabled()

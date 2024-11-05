@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct SimpleOutlinedDropdownButtonView: View {
-    @Binding var selectedOption: String
-    @Binding var isOpened: Bool
+    let selectedOption: String
+    let isOpened: Bool
+    let onClick: ()->Void
     
     var body: some View {
-        Button(action: {
-            isOpened.toggle()
-        }, label: {
+        Button(action: onClick, label: {
             ZStack{
                 
                 RoundedRectangle(cornerRadius: 40).frame(height: 40).foregroundStyle(.white).shadow(radius: 1)
@@ -34,5 +33,6 @@ struct SimpleOutlinedDropdownButtonView: View {
 }
 
 #Preview {
-    SimpleOutlinedDropdownButtonView(selectedOption: .constant("Family"), isOpened: .constant(true))
+    SimpleOutlinedDropdownButtonView(selectedOption: "Family", isOpened:
+                                        true, onClick: {})
 }

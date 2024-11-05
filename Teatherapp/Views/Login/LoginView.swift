@@ -86,7 +86,7 @@ struct LoginView: View {
                 return AlertContext.makeAlert(title: "Login Error", message: loginViewModel.errorString, onTap: {
                     self.loginViewModel.showingAlert = false
                 })
-            }).onChange(of: loginViewModel.apiSuccessFullyCalled){newValue in
+            }).onChange(of: loginViewModel.apiSuccessFullyCalled){oldValue,newValue in
                 userAuth.login()
             }
 

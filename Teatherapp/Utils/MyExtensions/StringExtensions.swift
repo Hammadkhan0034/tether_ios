@@ -6,7 +6,5 @@
 //
 import SwiftUI
 extension String {
-    var getValue: Any{
-        return UserDefaults.standard.value(forKey: self) ?? ""
-    }
+    
 }

@@ -58,7 +58,7 @@ struct SimplePlacesSearchTextFieldView: View {
             VStack(alignment:.center) {
                 Text("Select Address").font(.title2).padding(.top)
                 TextField("Search Places...", text: $searchText).frame(height: 50)
-                    .onChange(of: searchText) { val in
+                    .onChange(of: searchText) {oldValue, newValue in
                         print(searchText)
                         Task{
                             await searchPlaces(query: searchText)

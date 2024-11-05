@@ -19,7 +19,7 @@ struct AppBarView: View {
     
     var body: some View {
         HStack{
-            Text(title).foregroundStyle(textColor).bold().font(.title2)
+            Text(title).foregroundStyle(textColor).font(.title3).bold()
             Spacer()
             Button(action: {dismiss()}, label: {            ImageOnCircle(icon: "arrow.left", radius: 24, circleColor: .backIconbackground, imageColor: .backIcon)
 })

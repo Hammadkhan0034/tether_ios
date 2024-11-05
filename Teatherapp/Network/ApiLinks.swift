@@ -18,6 +18,8 @@ struct Endpoints{
     static let locationNotificationSettings = "location-notification-settings"
     static let getUserDashboard = "get-user-dashboard"
     static let shareLocationWithTeamMembers = "share-location-with-team-members"
+    static let circleJoiningCodeGenerate = "circle-joining-code-generate"
+    static let addMemberInCircle = "add-member-in-circle"
     
 }
 

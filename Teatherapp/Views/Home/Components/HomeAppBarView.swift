@@ -8,6 +8,7 @@
 import SwiftUI
 import NSideMenu
 struct HomeAppBarView: View {
+    @Environment(\.dashboardVM)  var dashboardVM
     @State var selectedOption = "Family"
     @ObservedObject var options: NSideMenuOptions
     @State var isOpended = false
@@ -29,7 +30,10 @@ struct HomeAppBarView: View {
                     .background(Capsule().fill(.white))
             }).shadow(radius: 1)
             Spacer()
-            SimpleOutlinedDropdownButtonView(selectedOption: $selectedOption, isOpened: $isOpended)
+            SimpleOutlinedDropdownButtonView(selectedOption: selectedOption, isOpened: isOpended) {
+                isOpended.toggle()
+                dashboardVM.showCircleSheet.toggle()
+            }
             Spacer()
             
             //MARK: - Chat

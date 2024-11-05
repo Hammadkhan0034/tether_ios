@@ -5,14 +5,18 @@
 //
 //  Created by Hammad Khan on 30/10/2024.
 //
+import Foundation
 import SwiftData
 import Alamofire
+import SwiftUI
 
 @Observable
 class DashboardModelViewModel{
     
     var dashboardModel : DashboardModel?
     var selectedCircle: CircleModel?
+    var showCircleSheet = false
+
     
     var errorMessage = ""
     var successMessage = ""

@@ -16,6 +16,10 @@ extension UIScreen{
 }
 
 extension String {
+    var getValue: Any{
+        return UserDefaults.standard.value(forKey: self) ?? ""
+    }
+    
     var isValidEmail: Bool{
         let emailFormat = "^[a-zA-Z0-9._%±]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailFormat)

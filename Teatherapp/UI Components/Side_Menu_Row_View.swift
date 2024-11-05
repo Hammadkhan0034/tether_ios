@@ -14,7 +14,7 @@ struct Side_Menu_Row_View: View {
     var body: some View {
         HStack{
             Image(imageName).resizable().frame(width: 25,height: 25)
-            Text(title).font(.title3).fontWeight(.semibold).foregroundStyle(textColor)
+            Text(title).font(.body).fontWeight(.semibold).foregroundStyle(textColor)
         }
     }
 }

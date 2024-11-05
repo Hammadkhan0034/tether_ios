@@ -23,19 +23,14 @@ public struct CountryPicker: View {
                 showList = true
             }, label: {
                 HStack{
-//                    Text(country.flag)
-//                        .frame(width: 24, height: 24)
-//                    Text(country.name)
                     Text(country.countryCode)
-//                    Text(country.currencyCode)
-//                    Text(country.currencySimbol)
                     Text("+\(country.phoneCode.isEmpty ? "Select" : country.phoneCode)")
                     Image(systemName: "arrowtriangle.down.fill")
                         .resizable()
                         .frame(width: 10, height: 8)
                         .padding(.trailing)
                 }
-                .font(.system(size: 16))
+                .font(.system(size: 14))
                 .foregroundColor(self.foregroundColor)
             })
             .sheet(isPresented: $showList, onDismiss: {
@@ -55,12 +50,17 @@ public struct CountryPicker: View {
                                    phoneCode: slectedCountry?.phoneCode ?? "",
                                    flag: slectedCountry?.flag ?? "")
         }
-        .onChange(of: country) { newValue in
+        .onChange(of: country) { oldValue, newValue in
             self.phoneCode = newValue.phoneCode
             print("test: phone code changed \(self.phoneCode)")
         }
     }
 }
+    
+#Preview {
+    CountryPicker(phoneCode: .constant("92"), foregroundColor: .white)
+}
+
 
 
 //MARK: - Second View
