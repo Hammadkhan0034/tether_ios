@@ -14,6 +14,7 @@
 		197457852FC83E905248660B0F930452 /* AuthenticationInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DFBA534907823891A87B63D3CF1314 /* AuthenticationInterceptor.swift */; };
 		1AFD57838680DF58184FF94D14C7F3FF /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1895CFA307AEA25985B669A053E29D /* RequestInterceptor.swift */; };
 		282FCD4EA8B05830E9108690B8CD336B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1121250A1C77343D21882F241A51679 /* Session.swift */; };
+		2C9D523A2CE2815E0052B8CB /* asnycImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9D52392CE2815E0052B8CB /* asnycImage */; };
 		320C0D7A88AA812EFB20016BA1F5D7AE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11577B72AA4553089ABB084F728B215 /* AFError.swift */; };
 		325CCDB295FFA016638075B5D2CEDD5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0CE05D5D076B1B5190EE5DF97FD54E /* Foundation.framework */; };
 		385BC4B250B6A6DB8AAAEA77D5B7A46F /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078E923BB50C0CBFFAFCBF33A1D5A7B /* Combine.swift */; };
@@ -84,7 +85,7 @@
 		1C199D0E86CE0A8AAD5CF013719B559E /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		281EA3F9E741204319E9155587E0315C /* Pods-Teatherapp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Teatherapp-dummy.m"; sourceTree = "<group>"; };
 		2A6AB9F7BED5CEAD6061F8E84B98A9AA /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		2AEA65C91AD30C893B7782A598BBECDD /* Pods-Teatherapp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Teatherapp"; path = Pods_Teatherapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AEA65C91AD30C893B7782A598BBECDD /* Pods_Teatherapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teatherapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE95150D59D402944D22D64270CC596 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		2E0ECA398B6DC3827602F405677B2C28 /* SwiftyJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.release.xcconfig; sourceTree = "<group>"; };
 		3078E923BB50C0CBFFAFCBF33A1D5A7B /* Combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Combine.swift; path = Source/Combine.swift; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				113F578192734C0199B65612820938ED /* Foundation.framework in Frameworks */,
+				2C9D523A2CE2815E0052B8CB /* asnycImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
-				2AEA65C91AD30C893B7782A598BBECDD /* Pods-Teatherapp */,
+				2AEA65C91AD30C893B7782A598BBECDD /* Pods_Teatherapp.framework */,
 				E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */,
 			);
 			name = Products;
@@ -376,7 +378,7 @@
 			);
 			name = "Pods-Teatherapp";
 			productName = Pods_Teatherapp;
-			productReference = 2AEA65C91AD30C893B7782A598BBECDD /* Pods-Teatherapp */;
+			productReference = 2AEA65C91AD30C893B7782A598BBECDD /* Pods_Teatherapp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */ = {
@@ -433,6 +435,9 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			packageReferences = (
+				2C9D52382CE2815E0052B8CB /* XCRemoteSwiftPackageReference "asyncImage" */,
+			);
 			productRefGroup = 0148B20750484B3424CB26D4B7EDE6F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -932,6 +937,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C9D52382CE2815E0052B8CB /* XCRemoteSwiftPackageReference "asyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/baskurthalit/asyncImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C9D52392CE2815E0052B8CB /* asnycImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C9D52382CE2815E0052B8CB /* XCRemoteSwiftPackageReference "asyncImage" */;
+			productName = asnycImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }

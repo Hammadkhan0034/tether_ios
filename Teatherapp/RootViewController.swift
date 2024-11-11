@@ -17,7 +17,7 @@ struct RootViewController: View {
                 LoginView()
             }
             else {
-                HomeView()
+                HomeView().withMessageView()
             }
         
     }

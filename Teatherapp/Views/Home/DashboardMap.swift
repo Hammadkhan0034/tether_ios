@@ -11,14 +11,14 @@ import NSideMenu
 
 
 struct DashboardMap: View {
+    @Environment(\.showMessage) private var showMessage
+
     @Environment(\.dashboardVM)  var dashboardVM
     @EnvironmentObject var tfModel: TFBottomBarModel
     @EnvironmentObject var userAuth : UserAuth
     @ObservedObject var options: NSideMenuOptions
     
     @State var showFilters : Bool = false
-    @State var name : String = ""
-    @State var userImage : String = ""    
     @State var selectedView = "Home"
     
     
@@ -30,9 +30,7 @@ struct DashboardMap: View {
         @Bindable var dashboardViewModel = dashboardVM
         
         ZStack(alignment: .top) {
-            Map {
-            }
-            .edgesIgnoringSafeArea(.top)
+            DashboardMapComponentView()
             
             
             //MARK: - Google Map Ovelay View
@@ -95,7 +93,8 @@ struct DashboardMap: View {
                     
                     //MARK: - Current Location
                     Button(action: {
-                        
+                        print("hellllllllo")
+                        showMessage("Hello",.success)
                     }, label: {
                         Image("img_gps")
                             .frame(width: 25, height: 25)
@@ -139,10 +138,9 @@ struct DashboardMap: View {
                         .padding(.horizontal)
                 }
             }
-        }.navigationBarTitle("",displayMode: .inline).navigationBarHidden(true)
+        }
+        .navigationBarTitle("",displayMode: .inline).navigationBarHidden(true)
             .onAppear{
-                self.name = UserDefaults.standard.string(forKey: "name") ?? ""
-                self.userImage = UserDefaults.standard.string(forKey: "photo") ?? ""
                 Task{
                     await dashboardVM.getDashboardModel()
                 }

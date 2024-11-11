@@ -9,12 +9,6 @@ import SwiftUI
 import CoreLocation
 import NSideMenu
 
-struct Locations: Identifiable {
-    var id = UUID()
-    var name: String
-    var image: String
-    var coordinate: CLLocationCoordinate2D
-}
 
 struct HomeView: View {
     
@@ -44,7 +38,6 @@ struct HomeView: View {
                     
                     TFBottomBar()
                         .environmentObject(tfModel)
-                        .ignoresSafeArea()
                 }
                 .overlay(self.dashboardVM.isLoading ? LoadingView(): nil)
                 .onAppear{

@@ -41,7 +41,15 @@
 		2C8346B62CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */; };
 		2C8346B82CA62107009B9310 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346B72CA62107009B9310 /* PackageCard.swift */; };
 		2C8346BB2CA626C5009B9310 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */; };
+		2C9D522B2CE2495F0052B8CB /* FavoritePinComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D522A2CE2495E0052B8CB /* FavoritePinComponentView.swift */; };
+		2C9D522D2CE258EA0052B8CB /* ViewFavoriteLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D522C2CE258EA0052B8CB /* ViewFavoriteLocationView.swift */; };
+		2C9D522F2CE25B9B0052B8CB /* PrefixTitleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D522E2CE25B9B0052B8CB /* PrefixTitleRowView.swift */; };
+		2C9D52312CE26B300052B8CB /* LocatonMemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D52302CE26B300052B8CB /* LocatonMemberRowView.swift */; };
+		2C9D52352CE2801C0052B8CB /* Pods_Teatherapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */; };
+		2C9D52362CE2801C0052B8CB /* Pods_Teatherapp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2C9D523D2CE282B70052B8CB /* asnycImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9D523C2CE282B70052B8CB /* asnycImage */; };
 		2CA38A792CDABEB800210550 /* GlobalMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38A782CDABEAA00210550 /* GlobalMessageView.swift */; };
+		2CA38A7B2CE11C5B00210550 /* DashboardMapComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38A7A2CE11C5B00210550 /* DashboardMapComponentView.swift */; };
 		2CA99F592CD38BBB0083B47A /* SelectMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA99F582CD38BBB0083B47A /* SelectMemberView.swift */; };
 		2CB9536B2CB6B9CF0044A08E /* toasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9536A2CB6B9C70044A08E /* toasts.swift */; };
 		2CC2E9802CC4064100846A75 /* FavoriteAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2E97F2CC4062F00846A75 /* FavoriteAddressModel.swift */; };
@@ -129,7 +137,6 @@
 		BD27D60D2AF3E5AD00D54FA6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27D60C2AF3E5AD00D54FA6 /* LoadingView.swift */; };
 		BD27D6112AF3FAFE00D54FA6 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27D6102AF3FAFE00D54FA6 /* UserAuth.swift */; };
 		BD29D9DA2B3E07F1006B8755 /* SwiftUIMapView in Frameworks */ = {isa = PBXBuildFile; productRef = BD29D9D92B3E07F1006B8755 /* SwiftUIMapView */; };
-		BD29D9DC2B3E083D006B8755 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD29D9DB2B3E083D006B8755 /* LocationManager.swift */; };
 		BD38F4672AEA4B560032FAC7 /* UnderLineTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38F4662AEA4B560032FAC7 /* UnderLineTabBarView.swift */; };
 		BD3AECAF2AE2C49E00DEB032 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECAE2AE2C49E00DEB032 /* LoginModel.swift */; };
 		BD3AECB12AE2D0C400DEB032 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AECB02AE2D0C400DEB032 /* SignupModel.swift */; };
@@ -159,8 +166,21 @@
 		BDEF99F02AFFF62B00EDA94F /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF99EF2AFFF62B00EDA94F /* MessageModel.swift */; };
 		BDEF99F22AFFF6AC00EDA94F /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF99F12AFFF6AC00EDA94F /* MessageViewModel.swift */; };
 		BDEF99F42B01E7BF00EDA94F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF99F32B01E7BF00EDA94F /* AppModel.swift */; };
-		DDA9B35A878D118E911B96CC /* Pods_Teatherapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2C9D52372CE2801C0052B8CB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2C9D52362CE2801C0052B8CB /* Pods_Teatherapp.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06B9111F618872B56ED3F28F /* Pods_Teatherapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teatherapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,7 +218,12 @@
 		2C8346B52CA61A71009B9310 /* BottomRoundedBackgroundRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomRoundedBackgroundRectangle.swift; sourceTree = "<group>"; };
 		2C8346B72CA62107009B9310 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
 		2C8346BA2CA626C5009B9310 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		2C9D522A2CE2495E0052B8CB /* FavoritePinComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePinComponentView.swift; sourceTree = "<group>"; };
+		2C9D522C2CE258EA0052B8CB /* ViewFavoriteLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFavoriteLocationView.swift; sourceTree = "<group>"; };
+		2C9D522E2CE25B9B0052B8CB /* PrefixTitleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixTitleRowView.swift; sourceTree = "<group>"; };
+		2C9D52302CE26B300052B8CB /* LocatonMemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocatonMemberRowView.swift; sourceTree = "<group>"; };
 		2CA38A782CDABEAA00210550 /* GlobalMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMessageView.swift; sourceTree = "<group>"; };
+		2CA38A7A2CE11C5B00210550 /* DashboardMapComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMapComponentView.swift; sourceTree = "<group>"; };
 		2CA99F582CD38BBB0083B47A /* SelectMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMemberView.swift; sourceTree = "<group>"; };
 		2CB9536A2CB6B9C70044A08E /* toasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toasts.swift; sourceTree = "<group>"; };
 		2CC2E97F2CC4062F00846A75 /* FavoriteAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAddressModel.swift; sourceTree = "<group>"; };
@@ -287,7 +312,6 @@
 		BD1AF1532B29FBE100DC3388 /* UsersLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLocationViewModel.swift; sourceTree = "<group>"; };
 		BD27D60C2AF3E5AD00D54FA6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BD27D6102AF3FAFE00D54FA6 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
-		BD29D9DB2B3E083D006B8755 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BD38F4662AEA4B560032FAC7 /* UnderLineTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineTabBarView.swift; sourceTree = "<group>"; };
 		BD3AECAE2AE2C49E00DEB032 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		BD3AECB02AE2D0C400DEB032 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
@@ -331,9 +355,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9D52352CE2801C0052B8CB /* Pods_Teatherapp.framework in Frameworks */,
 				BD29D9DA2B3E07F1006B8755 /* SwiftUIMapView in Frameworks */,
-				DDA9B35A878D118E911B96CC /* Pods_Teatherapp.framework in Frameworks */,
 				37A9A32C2C8A1C7800A47DA6 /* NSideMenu in Frameworks */,
+				2C9D523D2CE282B70052B8CB /* asnycImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +370,7 @@
 			children = (
 				2C160A922CA85A6E00609207 /* AddFavoriteLocation */,
 				2C160A902CA858E400609207 /* FavoriteLocationsView.swift */,
+				2C9D522C2CE258EA0052B8CB /* ViewFavoriteLocationView.swift */,
 			);
 			path = FavoriteLocation;
 			sourceTree = "<group>";
@@ -542,6 +568,7 @@
 				2C742E072CBE7CB8009422EC /* HomeAppBarSideColumnView.swift */,
 				2C742E092CBE90E3009422EC /* DashboardMapOverlay.swift */,
 				2CE6365F2CD92B8500E3461D /* DashboardMemberComponentView.swift */,
+				2CA38A7A2CE11C5B00210550 /* DashboardMapComponentView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -756,6 +783,9 @@
 				2C69DB052CC18061005B2E2F /* GetAddressFromMapView.swift */,
 				2CC74FC22CCAE123003E9038 /* ConfirmationDialogView.swift */,
 				2CE636612CD934F000E3461D /* RemoteImageView.swift */,
+				2C9D522A2CE2495E0052B8CB /* FavoritePinComponentView.swift */,
+				2C9D522E2CE25B9B0052B8CB /* PrefixTitleRowView.swift */,
+				2C9D52302CE26B300052B8CB /* LocatonMemberRowView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -868,7 +898,6 @@
 		BD45FC472AE30EB100B5989A /* GoogleMap */ = {
 			isa = PBXGroup;
 			children = (
-				BD29D9DB2B3E083D006B8755 /* LocationManager.swift */,
 			);
 			path = GoogleMap;
 			sourceTree = "<group>";
@@ -972,6 +1001,7 @@
 				A2BCBB602AA0FE9800DE6255 /* Frameworks */,
 				A2BCBB612AA0FE9800DE6255 /* Resources */,
 				BC92EC0762B0CD3C4F182241 /* [CP] Embed Pods Frameworks */,
+				2C9D52372CE2801C0052B8CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -986,6 +1016,7 @@
 			packageProductDependencies = (
 				BD29D9D92B3E07F1006B8755 /* SwiftUIMapView */,
 				37A9A32B2C8A1C7800A47DA6 /* NSideMenu */,
+				2C9D523C2CE282B70052B8CB /* asnycImage */,
 			);
 			productName = Teatherapp;
 			productReference = A2BCBB632AA0FE9800DE6255 /* Tethr.app */;
@@ -1018,6 +1049,7 @@
 			packageReferences = (
 				BD29D9D82B3E07F1006B8755 /* XCRemoteSwiftPackageReference "swiftui-mapview" */,
 				37A9A32A2C8A1C7800A47DA6 /* XCRemoteSwiftPackageReference "NSideMenu" */,
+				2C9D523B2CE282B70052B8CB /* XCRemoteSwiftPackageReference "asyncImage" */,
 			);
 			productRefGroup = A2BCBB642AA0FE9800DE6255 /* Products */;
 			projectDirPath = "";
@@ -1109,6 +1141,7 @@
 				A2002EE22AAB750C006D9AB8 /* TFBottomBar.swift in Sources */,
 				2CE3B5DB2CA6CA04000A5F5E /* ContactUsView.swift in Sources */,
 				2C160A912CA858E400609207 /* FavoriteLocationsView.swift in Sources */,
+				2CA38A7B2CE11C5B00210550 /* DashboardMapComponentView.swift in Sources */,
 				2CE3B5ED2CA6D3D7000A5F5E /* PhoneNumberView.swift in Sources */,
 				BD0F55FB2AE4556B00198F67 /* CalendarView.swift in Sources */,
 				A2BCBB692AA0FE9800DE6255 /* LoginView.swift in Sources */,
@@ -1143,6 +1176,7 @@
 				2CE3B5FA2CA72888000A5F5E /* AddMediaButtonView.swift in Sources */,
 				2CE4D0FD2CDA4D84004C0B92 /* AddNewMemberView.swift in Sources */,
 				2CE3B5FE2CA7311F000A5F5E /* SelectAllRadioButton.swift in Sources */,
+				2C9D522D2CE258EA0052B8CB /* ViewFavoriteLocationView.swift in Sources */,
 				2CE3B5EB2CA6D361000A5F5E /* CountryPhoneDataDecoder.swift in Sources */,
 				2CE3B60D2CA77B57000A5F5E /* EasterEggsViewModel.swift in Sources */,
 				2CE3B6082CA772DD000A5F5E /* TimeSelectView.swift in Sources */,
@@ -1187,8 +1221,8 @@
 				2C6E384D2CD1735C005C4044 /* DashboardModel.swift in Sources */,
 				A2097B272AB38216003C27C6 /* Helpers.swift in Sources */,
 				2C160AA72CA87ED000609207 /* ReportMainView.swift in Sources */,
+				2C9D52312CE26B300052B8CB /* LocatonMemberRowView.swift in Sources */,
 				2CE3B5F62CA711C0000A5F5E /* AddEasterEggViewModel.swift in Sources */,
-				BD29D9DC2B3E083D006B8755 /* LocationManager.swift in Sources */,
 				BD547E2E2AFE62FC008BDAA5 /* UserDetailsViewModel.swift in Sources */,
 				37A9A3572C8A3A2200A47DA6 /* ImageOnCircle.swift in Sources */,
 				A2DED4012AAF77D6004CF21B /* CheckinView.swift in Sources */,
@@ -1197,6 +1231,7 @@
 				BDD6F73A2AE849700080AC4C /* HeaderBarView.swift in Sources */,
 				BD4B18F22AF2E27D0066E9DB /* ChatModel.swift in Sources */,
 				2CA38A792CDABEB800210550 /* GlobalMessageView.swift in Sources */,
+				2C9D522F2CE25B9B0052B8CB /* PrefixTitleRowView.swift in Sources */,
 				BD1AF1522B29F1E800DC3388 /* UsersLocationModel.swift in Sources */,
 				2CE4D0F72CDA4C20004C0B92 /* InviteMemberView.swift in Sources */,
 				2C160AA42CA872B100609207 /* CheckInScheduleView.swift in Sources */,
@@ -1211,6 +1246,7 @@
 				BD27D6112AF3FAFE00D54FA6 /* UserAuth.swift in Sources */,
 				2C1911AE2CA9CDDD0079B27F /* AddCheckInTitleView.swift in Sources */,
 				2CC74FC12CCAC0C2003E9038 /* ManageLocationViewModel.swift in Sources */,
+				2C9D522B2CE2495F0052B8CB /* FavoritePinComponentView.swift in Sources */,
 				2CD5811A2CBD7516004C24A5 /* InitialsOnCircleView.swift in Sources */,
 				A2DED4032AAF7CCE004CF21B /* ShapeClasses.swift in Sources */,
 				2C48542C2CC6892700E9E316 /* AddressModel.swift in Sources */,
@@ -1462,6 +1498,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2C9D523B2CE282B70052B8CB /* XCRemoteSwiftPackageReference "asyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/baskurthalit/asyncImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 		37A9A32A2C8A1C7800A47DA6 /* XCRemoteSwiftPackageReference "NSideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/itisnajim/NSideMenu.git";
@@ -1481,6 +1525,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2C9D523C2CE282B70052B8CB /* asnycImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C9D523B2CE282B70052B8CB /* XCRemoteSwiftPackageReference "asyncImage" */;
+			productName = asnycImage;
+		};
 		37A9A32B2C8A1C7800A47DA6 /* NSideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37A9A32A2C8A1C7800A47DA6 /* XCRemoteSwiftPackageReference "NSideMenu" */;

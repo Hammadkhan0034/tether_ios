@@ -16,12 +16,12 @@ struct GlobalMessageView: View {
         }
         
         switch messageType {
-            case .error:
-                return .red
-            case .info:
-                return .blue
-            case .success:
-                return .green
+        case .error:
+            return .red
+        case .info:
+            return .blue
+        case .success:
+            return .green
         }
     }
     
@@ -92,7 +92,11 @@ struct ShowMessageAction {
     let action: Action
     
     func callAsFunction(_ message: String, _ messageType: MessageType = .error, _ delay: Double = 2.0) {
-        action(message, messageType, delay)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            action(message, messageType, delay)
+            
+        }
+        
     }
 }
 

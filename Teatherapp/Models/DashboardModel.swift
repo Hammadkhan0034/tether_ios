@@ -4,7 +4,7 @@ import Foundation
 struct DashboardModel: Codable {
     let circles: [CircleModel]
     let circleSettings: CircleSettings
-    let favouriteLocations: [FavouriteLocation]
+    let favouriteLocations: [FavoriteLocationModel]
 
     enum CodingKeys: String, CodingKey {
         case circles
@@ -21,7 +21,7 @@ struct CircleSettings: Codable {
     }
 }
 
-struct CircleModel: Codable, Identifiable {
+struct CircleModel: Identifiable, Codable  {
     let id, userID, circleName, type: String
     let invitationCode, codeGeneratedDate, status, createdAt: String
     let updatedAt, name, userName, circleImage: String
@@ -141,7 +141,7 @@ struct SubscriptionPackage: Codable {
 }
 
 // MARK: - FavouriteLocation
-struct FavouriteLocation: Codable {
+struct FavoriteLocationModel: Identifiable, Codable {
     let id, userID, circleID, title: String
     let address, latitude, longitude, note: String
     let shareWith, createdAt, updatedAt, createdBy: String
@@ -165,7 +165,7 @@ struct FavouriteLocation: Codable {
 }
 
 // MARK: - Attachment
-struct Attachment: Codable {
+struct Attachment: Identifiable, Codable  {
     let id, favouriteLocationID, name: String
     let path: String
     let createdAt, updatedAt: String
@@ -228,6 +228,32 @@ enum ShareWithListType: Codable {
         throw DecodingError.dataCorruptedError(in: container, debugDescription: "Unable to decode as ShareWithTeamListModel or ShareWithMemberListModel")
     }
     
+    func getListLength() -> Int{
+        // Access team data if it is a team case
+        if case .team(let teamList) = self {
+            return teamList.count
+        }
+
+        // Access member data if it is a member case
+        if case .member(let memberList) = self {
+            return memberList.count
+        }
+        return 1
+    }
+    
+    func getListType() -> String{
+        // Access team data if it is a team case
+        if case .team(let teamList) = self {
+            return "Teams"
+        }
+
+        // Access member data if it is a member case
+        if case .member(let memberList) = self {
+            return "Members"
+        }
+        return "Teams"
+    }
+    
     // Custom encoding based on the enum case
     func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
@@ -285,126 +311,12 @@ extension CircleModel {
                 MemberDashboardModel.sampleData1(),
                 MemberDashboardModel.sampleData2()
             ],
-            subscriptionPackage: SubscriptionPackage.sampleData()
+            subscriptionPackage: SubscriptionPackage.sampleData3()
         )
     }
 }
 
-extension MemberDashboardModel {
-    static func sampleData1() -> MemberDashboardModel {
-        return MemberDashboardModel(
-            id: "1",
-            circleID: "1",
-            userID: "1001",
-            role: "member",
-            accessType: "public",
-            locationSharingOn: "true",
-            isAvailable: "true",
-            lastAvailableTime: "2024-10-28T18:00:00Z",
-            autoUnavailableStatus: "false",
-            isDefault: "true",
-            sequence: "1",
-            isNotification: "true",
-            status: "active",
-            createdAt: "2024-01-01T08:00:00Z",
-            updatedAt: "2024-10-01T08:00:00Z",
-            name: "Alice Johnson",
-            userName: "AliceJ",
-            username: "AliceJ",
-            photo: "https://example.com/alice_photo.png",
-            phoneCode: "+1",
-            phoneNumber: "1234567890",
-            zelloUsername: "aliceZello",
-            userEmail: "alice@example.com",
-            userImage: "https://example.com/alice_user_image.png",
-            userLatitude: "37.7749",
-            userLongitude: "-122.4194",
-            userAddress: "123 Main St",
-            latitude: "37.7749",
-            longitude: "-122.4194",
-            address: "123 Main St",
-            city: "San Francisco",
-            state: "CA",
-            tag: "Friend",
-            locationUpdateTime: "2024-10-28T18:10:00Z",
-            battery: "80%",
-            wifi: "true",
-            mobileData: "true",
-            deviceID: "device123",
-            breadcrumbIntervalTime: "10",
-            breadcrumbIntervalDistance: "50",
-            noOfLocationHistory: "15"
-        )
-    }
 
-    static func sampleData2() -> MemberDashboardModel {
-        return MemberDashboardModel(
-            id: "2",
-            circleID: "1",
-            userID: "1002",
-            role: "member",
-            accessType: "private",
-            locationSharingOn: "true",
-            isAvailable: "false",
-            lastAvailableTime: "2024-10-28T17:00:00Z",
-            autoUnavailableStatus: "true",
-            isDefault: "false",
-            sequence: "2",
-            isNotification: "false",
-            status: "inactive",
-            createdAt: "2024-01-02T08:00:00Z",
-            updatedAt: "2024-10-02T08:00:00Z",
-            name: "Bob Smith",
-            userName: "BobS",
-            username: "BobS",
-            photo: "https://example.com/bob_photo.png",
-            phoneCode: "+1",
-            phoneNumber: "9876543210",
-            zelloUsername: "bobZello",
-            userEmail: "bob@example.com",
-            userImage: "https://example.com/bob_user_image.png",
-            userLatitude: "34.0522",
-            userLongitude: "-118.2437",
-            userAddress: "456 Market St",
-            latitude: "34.0522",
-            longitude: "-118.2437",
-            address: "456 Market St",
-            city: "Los Angeles",
-            state: "CA",
-            tag: "Coworker",
-            locationUpdateTime: "2024-10-28T17:30:00Z",
-            battery: "50%",
-            wifi: "false",
-            mobileData: "true",
-            deviceID: "device456",
-            breadcrumbIntervalTime: "15",
-            breadcrumbIntervalDistance: "30",
-            noOfLocationHistory: "10"
-        )
-    }
-}
 
-extension SubscriptionPackage {
-    static func sampleData() -> SubscriptionPackage {
-        return SubscriptionPackage(
-            id: "1",
-            circleID: "1",
-            userID: "1001",
-            subscriptionID: "sub123",
-            packageID: "pkg001",
-            packageName: "Standard Plan",
-            noOfEmployees: "10",
-            noOfLocationHistory: "100",
-            noOfGeoFences: "5",
-            noOfJobs: "20",
-            noOfDispatchHistory: "30",
-            noOfFavLocations: "10",
-            noOfEasterEggs: "5",
-            breadcrumbIntervalTime: "10",
-            breadcrumbIntervalDistance: "50",
-            createdOn: "2024-01-01T08:00:00Z",
-            updatedOn: "2024-10-01T08:00:00Z",
-            packagePriceID: "price001"
-        )
-    }
-}
+
+

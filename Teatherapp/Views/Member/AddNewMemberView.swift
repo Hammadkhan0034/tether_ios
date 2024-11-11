@@ -10,6 +10,8 @@ import SwiftUI
 struct AddNewMemberView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.showMessage) private var showMessage
+
     
     @StateObject var viewModel =  AddNewMemberViewModel()
     
@@ -181,6 +183,9 @@ struct AddNewMemberView: View {
         .onChange(of: viewModel.apiSuccessFullyCalled) {oldValue, newValue in
             dismiss()
             dismiss()
+            showMessage("Hello there",.success)
+
+            
         }
     }
     
