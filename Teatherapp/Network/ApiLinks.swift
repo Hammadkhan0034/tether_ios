@@ -20,6 +20,10 @@ struct Endpoints{
     static let shareLocationWithTeamMembers = "share-location-with-team-members"
     static let circleJoiningCodeGenerate = "circle-joining-code-generate"
     static let addMemberInCircle = "add-member-in-circle"
+    static let getCircleMembers = "get-circle-members"
+    static let getConversations = "get-conversations"
+    static let getChat = "get-chat"
+    static let saveChat = "save-chat"
     
 }
 

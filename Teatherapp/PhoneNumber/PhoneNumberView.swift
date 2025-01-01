@@ -145,12 +145,6 @@ extension View {
         }
 }
 extension View {
-    func hideKeyboard() {
-        let resign = #selector(UIResponder.resignFirstResponder)
-        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
-    }
-}
-extension View {
     func disableWithOpacity(_ condition: Bool) -> some View {
         self
             .disabled(condition)

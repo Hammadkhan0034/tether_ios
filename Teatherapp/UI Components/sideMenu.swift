@@ -27,7 +27,7 @@ struct SideMenuView: View {
                     
                     HStack{
                         
-                        InitialsOnCircleView( initials: (AppKeysConstant.name.getValue as! String).initials, radius: 30, circleColor: .red)
+                        InitialsOnCircleView( name: (AppKeysConstant.name.getValue as! String), radius: 30, circleColor: .red)
                         VStack(alignment: .leading,spacing: 0){
                             Text((AppKeysConstant.name.getValue as! String)).font(.body).fontWeight(.semibold).lineLimit(1)
                             Text((AppKeysConstant.phone.getValue as! String)).font(.caption).lineLimit(1)

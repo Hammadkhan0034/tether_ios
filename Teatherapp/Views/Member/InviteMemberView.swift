@@ -69,6 +69,7 @@ struct Invite_Member_view: View {
                 Text("Select Permission Level").font(.title3).bold().padding(.top, 5)
             
                 RadioView(value: PermissionLevels.fullAccess.getValue, isSelected: PermissionLevels.fullAccess == selectedPermissionLevel, onTap: {
+                    print("qwertyuio")
                     selectedPermissionLevel = PermissionLevels.fullAccess
                 })
                 

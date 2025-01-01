@@ -11,7 +11,6 @@ import NSideMenu
 
 
 struct DashboardMap: View {
-    @Environment(\.showMessage) private var showMessage
 
     @Environment(\.dashboardVM)  var dashboardVM
     @EnvironmentObject var tfModel: TFBottomBarModel
@@ -94,7 +93,6 @@ struct DashboardMap: View {
                     //MARK: - Current Location
                     Button(action: {
                         print("hellllllllo")
-                        showMessage("Hello",.success)
                     }, label: {
                         Image("img_gps")
                             .frame(width: 25, height: 25)

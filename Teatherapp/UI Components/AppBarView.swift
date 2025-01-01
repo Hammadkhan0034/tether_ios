@@ -21,7 +21,7 @@ struct AppBarView: View {
         HStack{
             Text(title).foregroundStyle(textColor).font(.title3).bold()
             Spacer()
-            Button(action: {dismiss()}, label: {            ImageOnCircle(icon: "arrow.left", radius: 24, circleColor: .backIconbackground, imageColor: .backIcon)
+            Button(action: {dismiss()}, label: {            ImageOnCircle(icon: "arrow.left", radius: 18, circleColor: .backIconbackground, imageColor: .backIcon)
 })
             
         }

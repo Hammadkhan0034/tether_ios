@@ -23,7 +23,11 @@ struct AddFavoriteLocationView: View {
                     addFavoriteLocationViewModel.isShowingSelectAddress = true
                 }
                 SimpleTextField(placeHolder: "Enter Notes", inputField: $addFavoriteLocationViewModel.note).padding(.horizontal)
-                AddMediaButtonView().padding(.horizontal).padding()
+                
+                MediaPickerButton { mediaType, media in
+                    
+                }
+                
                 
                 ShareWithView(selectedOption: $addFavoriteLocationViewModel.shareWith).padding(.top)
                 

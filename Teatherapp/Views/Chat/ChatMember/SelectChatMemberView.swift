@@ -8,30 +8,64 @@
 import SwiftUI
 
 struct SelectChatMemberView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    @State var viewModel =  ChatMemberViewController()
+    
     var body: some View {
-        NavigationView{
-            VStack{
-                AppBarView(title: "Select Member", textColor: .appBlue)
-                Spacer()
-                Text("Add members to Send Messages").foregroundStyle(.appBlue).font(.headline)
-                Text("At least one member needs to join your circle to be able to chat").foregroundStyle(.appBlue).font(.caption).multilineTextAlignment(.center)
+        NavigationView {
+            ZStack(alignment: .bottomTrailing){
+                VStack{
+                    AppBarView(title: "Chat",textColor: .appBlue).padding(.horizontal)
+                    
+                    
+                    
+                    if viewModel.membersList.isEmpty {
+                        if(viewModel.chatPlaceholderMessage == "Loading Members."){
+                            Spacer()
+                            Text(viewModel.chatPlaceholderMessage)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.appBlue)
+                        }else{
+                            AddMemberPlaceHolder()
+                        }
+                    }
+                    else {
+                        List(0..<viewModel.membersList.count, id: \.self) { index in
+                            
+                            let memberModel = viewModel.membersList[index]
+                            NavigationLink(destination: {
+//                                ChatView(conversationModel: conversationModel)
+                            }, label: {
+                                MemberRowComponent(memberModel: memberModel)
+                            }).listRowInsets(EdgeInsets.init(top: 5, leading: 0, bottom: 5, trailing: 0))
+                        }
+                        .listStyle(.plain)
+                    }
+                    
+                    Spacer()
+                }
+                .navigationBarBackButtonHidden()
+                .overlay(self.viewModel.isLoading ? LoadingView(): nil)
+                
+                .onAppear {
+                    Task {
+                        await viewModel.getMembers()
+                        
+                    }
+                }
+                
                 
                 NavigationLink(destination: {
-                    Invite_Member_view().navigationBarBackButtonHidden(true)
+                    SelectChatMemberView().navigationBarBackButtonHidden(true)
                 }, label: {
                     
-                    Text("Add a new Member")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 20, weight: .bold))
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                        .background(Capsule().foregroundStyle(.appBlue))
-                    .padding(EdgeInsets(top: 10, leading: 15, bottom: 15, trailing: 15))
+                    Image(systemName: "message.circle.fill").resizable().frame(width: 60, height: 60).foregroundStyle(.appBlue).padding(.all)
                 })
                 
-                Spacer()
-            }.padding()
+            }
         }
+
     }
 }
 

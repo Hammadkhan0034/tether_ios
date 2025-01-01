@@ -7,20 +7,11 @@
 
 import Foundation
 
+
+
+
 // MARK: - ChatModel
-struct ChatModel: Decodable {
-    let status, message, conversationID: String
-    let data: [ChatModelData]
-
-    enum CodingKeys: String, CodingKey {
-        case status, message
-        case conversationID = "conversation_id"
-        case data
-    }
-}
-
-// MARK: - ChatModelData
-struct ChatModelData: Decodable {
+struct ChatModel: Codable, Equatable {
     let id, circleID, senderID, receiverID: String
     let conversationID, groupID, message, location: String
     let createdAt, updatedAt, senderName, receiverName: String

@@ -17,8 +17,14 @@ struct CircleMembersModel:Codable {
         self.members = members
     }
 }
+struct ChatMembersModel:Codable {
+    let members: [MemberModel]
+    init(members: [MemberModel]) {
+        self.members = members
+    }
+}
 
-struct MemberModel: Codable , Identifiable{
+struct MemberModel: Codable , Identifiable, Equatable{
     let id, circleID, userID, role: String
     let accessType, locationSharingOn, isAvailable, lastAvailableTime: String
     let autoUnavailableStatus, isDefault, sequence, isNotification: String

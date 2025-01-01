@@ -57,7 +57,7 @@ struct AddNewLocationView: View {
                 
                 List(viewModel.memberNotificationConfigList){member in
                     HStack{
-                        InitialsOnCircleView(initials: member.name.initials, radius: 30, circleColor: .red)
+                        InitialsOnCircleView(name: member.name, radius: 30, circleColor: .red)
                         Text(member.name).bold()
                         Spacer()
                         VStack{

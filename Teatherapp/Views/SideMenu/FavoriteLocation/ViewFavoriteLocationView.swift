@@ -31,6 +31,11 @@ struct ViewFavoriteLocationView: View {
             PrefixTitleRowView(prefix: "circle.fill", title: favoriteLocation.title, width: 30)
             
             BackgroundViewWrapper(text: "Share with:  \(favoriteLocation.shareWith)")
+//            List{
+//                ForEach(favoriteLocation.shareWithList) { sharedWith in
+//                    
+//                }
+//            }
             Spacer()
         }
     }

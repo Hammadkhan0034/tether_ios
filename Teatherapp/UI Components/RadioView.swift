@@ -33,7 +33,7 @@ struct RadioView: View {
                     .foregroundColor(.textBluishBlack).fontWeight(.semibold).font(.body)
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.horizontal).onTapGesture(perform: onTap)
         
     }
 }

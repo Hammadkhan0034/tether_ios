@@ -1,5 +1,5 @@
 {
-  "originHash" : "4d19614527bbd677bf4f4475eb15eea0ec854be44f186656e67734228002e8c3",
+  "originHash" : "977ef2d0b08e2c9b5e5af1688eca0398ca7e0a8beb79e16a5136e268aa36fed7",
   "pins" : [
     {
       "identity" : "asyncimage",
@@ -17,15 +17,6 @@
       "state" : {
         "revision" : "a90f35d92d87ab0cc3466625cf235525aa832c51",
         "version" : "1.0.1"
-      }
-    },
-    {
-      "identity" : "swiftui-mapview",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sgade/swiftui-mapview",
-      "state" : {
-        "revision" : "be7a09f42176519e8504c1db4290506edcbcbda6",
-        "version" : "1.2.2"
       }
     }
   ],

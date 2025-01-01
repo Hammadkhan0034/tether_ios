@@ -44,7 +44,7 @@ struct HomeAppBarView: View {
             }
             
             
-        }.padding(.horizontal)
+        }.padding(.horizontal).padding(.top,100)
         
     }
 }

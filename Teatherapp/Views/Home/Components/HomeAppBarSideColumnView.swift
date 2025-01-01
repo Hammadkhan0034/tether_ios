@@ -67,6 +67,13 @@ struct HomeAppBarSideColumnView: View {
                     
                 }.animation(.bouncy, value: showFilters)
             }
+            
+            NavigationLink {
+                AddFavoriteLocationView()
+            } label: {
+                ImageOnCircle(icon: "bell.and.waves.left.and.right.fill", radius: 18, circleColor: .white, imageColor: .appBlue,shadowRadius:1)
+            }
+
         }
         .foregroundColor(Color.appBlue).padding(.horizontal)    }
 }

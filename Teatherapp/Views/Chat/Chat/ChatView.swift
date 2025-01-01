@@ -11,20 +11,18 @@ struct ChatView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var chatViewModel =  ChatViewModel()
-    @StateObject var messageViewModel =  MessageViewModel()
+    @StateObject var chatViewModel =  ChatController()
     
-    @State var icon : String
-    @State var name : String
-    @State var conversationID : String
-    @State var receiverID : String
-    @State var conversationType : String
+   
     
-    @State var receiverName = ""
     @State var position = 0
-    @State var messagesArray = [ChatModelData]()
     
-    @State var message : String = ""
+    
+    let conversationModel: ConversationModel
+    init(conversationModel: ConversationModel) {
+       
+        self.conversationModel = conversationModel
+    }
     
     var body: some View {
         VStack{
@@ -37,7 +35,7 @@ struct ChatView: View {
                 }
                 .padding(.trailing, 6)
                 
-                AsyncImage(url: URL(string: self.icon)) { phase in
+                AsyncImage(url: URL(string: conversationModel.icon)) { phase in
                     if let image = phase.image {
                         image
                             .resizable()
@@ -46,15 +44,11 @@ struct ChatView: View {
                             .clipShape(.circle)
                     }
                     else {
-                        Image("userPlaceholder")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 40,height: 40)
-                            .clipShape(.circle)
+                        InitialsOnCircleView(name: conversationModel.name, radius: 30, circleColor: Color.red)
                     }
                 }
                 
-                Text(self.name)
+                Text(conversationModel.name)
                     .foregroundColor(.white)
                     .font(.system(size: 18).weight(.bold))
                 
@@ -62,18 +56,18 @@ struct ChatView: View {
             }
             .padding()
             .background(Color.appBlue)
-            
+            ScrollViewReader { proxy in
+
             ScrollView {
-                ScrollViewReader { proxy in
-                    ForEach(0..<messagesArray.count, id: \.self) { index in
+                    ForEach(0..<chatViewModel.chatList.count, id: \.self) { index in
                         
-                        MessageView(direction: messagesArray[index].receiverName == self.name ? .right : .left) {
+                        MessageView(direction: chatViewModel.chatList[index].receiverName == conversationModel.name ? .right : .left) {
                             
                             HStack{
-                                Text(messagesArray[index].message)
+                                Text(chatViewModel.chatList[index].message)
                                     .font(.system(size: 16))
                                 
-                                Text(getTime(dateString: messagesArray[index].createdAt))
+                                Text(getTime(dateString: chatViewModel.chatList[index].createdAt))
                                     .font(.system(size: 10))
                                     .offset(y: 8)
                                 
@@ -83,85 +77,68 @@ struct ChatView: View {
                             .background(Color.blue)
                         }
                     }
-                    .onChange(of: position) { value in
+                }.onChange(of: chatViewModel.chatList.count) {
+                    // Scroll to the latest message when the messages array changes
+                    if let lastMessageIndex = chatViewModel.chatList.indices.last {
                         withAnimation {
-                            proxy.scrollTo(value, anchor: .center)
+                            proxy.scrollTo(lastMessageIndex, anchor: .bottom)
                         }
                     }
                 }
             }
             .scrollIndicators(.hidden)
-//            .defaultScrollAnchor(.bottom)
             
             Spacer()
-            
             HStack{
-                TextField("Type Message",text: $message)
-                    .padding(.leading, 6)
-                    .submitLabel(.send)
-                    .autocorrectionDisabled()
-                    .onSubmit{
-                        hideKeyboard()
-                        sendMessage()
-                    }
+                HStack{
+                    TextField("Type Message",text: $chatViewModel.message)
+                        .padding(.leading, 6)
+                        .submitLabel(.send)
+                        .autocorrectionDisabled()
+                        .onSubmit{
+                            Task{
+                                await chatViewModel.sendMessage(recieverId: conversationModel.receiverID,groupId: conversationModel.groupID)
+                            }
+                        }
+                    
+                    Button(action: {
+                        Task{
+                            chatViewModel.isCameraPresented = true
+                        }
+                    }, label: {
+                        Image(systemName: "paperclip")
+                    })
+                }
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
+                .padding()
                 
-                Button(action: {
-                    if !message.isEmpty {
-                        hideKeyboard()
-                        sendMessage()
+                Image(systemName: "paperplane.circle.fill").resizable().frame(width: 45,height: 45).foregroundStyle(Color.appBlue).padding(.trailing).onTapGesture {
+                    Task{
+                        await chatViewModel.sendMessage(recieverId: conversationModel.receiverID, groupId: conversationModel.groupID)
                     }
-                }, label: {
-                    Image(systemName: "paperplane.fill")
-                })
+                }
+
             }
-            .padding()
-            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
-            .padding()
+            
         }
         .navigationBarBackButtonHidden()
-        .overlay(self.chatViewModel.isLoading || self.messageViewModel.isLoading ? LoadingView(): nil)
-        
+        .overlay(self.chatViewModel.isLoading ? LoadingView(): nil)
+        .alert(chatViewModel.errorString, isPresented: $chatViewModel.showingAlert){}
+        .sheet(isPresented: $chatViewModel.isCameraPresented) {
+            CameraPicker(image: $chatViewModel.capturedImage)
+                }
         .onAppear{
-            getChat()
-        }
-        .onChange(of: chatViewModel.apiSuccessFullyCalled) { newValue in
-            
-            if let arr = chatViewModel.chatModel?.data {
-                let sortedArr = arr.sorted(by: {$0.createdAt > $1.createdAt})
-                self.messagesArray.removeAll()
-                self.messagesArray = sortedArr.reversed()
+            Task{
+                await chatViewModel.getChat(connversationId: conversationModel.receiverID, conversationType: conversationModel.conType)
             }
         }
-        .onChange(of: messageViewModel.apiSuccessFullyCalled) { newValue in
-            self.message = ""
-            getChat()
-        }
+        
+        
     }
 }
 
-//#Preview {
-//    ChatView()
-//}
-
-extension ChatView {
-    
-    func getChat() {
-        chatViewModel.chat(TemporaryAccessCode: UserDefaults.standard.string(forKey: "temporaryAccessCode") ?? "",
-                           UserName: UserDefaults.standard.string(forKey: "username") ?? "",
-                           circle_id: UserDefaults.standard.string(forKey: "circleID") ?? "",
-                           conversation_id: self.conversationID,
-                           conversation_type: self.conversationType)
-    }
-    
-    func sendMessage() {
-        messageViewModel.sendMessage(TemporaryAccessCode: UserDefaults.standard.string(forKey: "temporaryAccessCode") ?? "",
-                                     UserName: UserDefaults.standard.string(forKey: "username") ?? "",
-                                     circle_id: UserDefaults.standard.string(forKey: "circleID") ?? "",
-                                     receiver_id: self.receiverID,
-                                     message: self.message)
-    }
-    
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
+#Preview {
+    ChatView(conversationModel: conversationTestData)
 }
+

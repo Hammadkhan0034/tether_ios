@@ -1,7 +1,7 @@
 import SwiftUI
 struct InitialsOnCircleView: View {
     
-    let initials: String
+    let name: String
     let radius: CGFloat
     let circleColor: Color
     var squareSide: CGFloat {
@@ -13,7 +13,7 @@ struct InitialsOnCircleView: View {
             Circle().fill(circleColor)
                .frame(width: radius * 2, height: radius * 2)
             // Use this implementation for an SF Symbol
-            Text(initials).font(.title3).bold().foregroundStyle(.white)
+            Text(name.initials).font(.title3).bold().foregroundStyle(.white)
             
         }
     }

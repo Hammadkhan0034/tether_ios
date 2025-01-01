@@ -13,7 +13,7 @@ struct TeamRowView: View {
             Rectangle().foregroundStyle(.sky).frame(height: 70)
             HStack{
                 
-                InitialsOnCircleView(initials: "Special Someones".initials, radius: 25, circleColor: .green).padding(.leading)
+                InitialsOnCircleView(name: "Special Someones", radius: 25, circleColor: .green).padding(.leading)
                 VStack(alignment: .leading, spacing: 0){
                     Text("Special Someones").font(.body).fontWeight(.medium)
                     Text("Created by you").font(.caption).foregroundStyle(.green)
