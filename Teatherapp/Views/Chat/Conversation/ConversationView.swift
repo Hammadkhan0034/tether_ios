@@ -15,7 +15,6 @@ struct ConversationView: View {
     
     
     var body: some View {
-        NavigationView {
             ZStack(alignment: .bottomTrailing){
                 VStack{
                     AppBarView(title: "Chat",textColor: .appBlue).padding(.horizontal)
@@ -29,7 +28,8 @@ struct ConversationView: View {
                             .foregroundColor(Color.appBlue)
                     }
                     else {
-                    
+                        
+                        
                         List(0..<viewModel.conversationList.count, id: \.self) { index in
                             let conversationModel = viewModel.conversationList[index]
                             NavigationLink(destination: {
@@ -66,7 +66,7 @@ struct ConversationView: View {
                     LoadingView()
                 }
             }
-        }.alert(viewModel.errorString, isPresented: $viewModel.showingAlert){}
+        .alert(viewModel.errorString, isPresented: $viewModel.showingAlert){}
         }
     
 }

@@ -26,7 +26,7 @@ struct MemberRowComponent: View {
                 else {
                     InitialsOnCircleView(name: memberModel.name, radius: 30, circleColor: Color.red)
                 }
-            }.padding(.trailing,10)
+            }.padding(.horizontal,10)
             
                 
                 VStack(alignment: .leading){
@@ -44,7 +44,7 @@ struct MemberRowComponent: View {
                     
                 }
             Spacer()
-        }.padding(.bottom, 5)
+        }.padding(.vertical, 10)
 //            .overlay(
 //            Rectangle()
 //                .frame(height: 1)
