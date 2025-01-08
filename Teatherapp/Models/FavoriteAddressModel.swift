@@ -13,7 +13,7 @@
 import Foundation
 
 // MARK: - Favorite
-struct FavoriteAddressModel: Codable {
+struct FavoriteAddressModel: Codable, Identifiable {
     let id, userID, circleID, title: String
     let address, latitude, longitude, note: String
     let shareWith, createdAt, updatedAt, createdBy: String

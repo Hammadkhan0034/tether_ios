@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct FavoriteLocationsView: View {
+    var viewModel: FavoriteLocationViewModel = FavoriteLocationViewModel()
     var body: some View {
         NavigationView{
             VStack{
                 AppBarView(title: "Favorite Location")
                 Spacer()
-                Text("No Favorite Location").font(.title2).foregroundStyle(.appBlue).fontWeight(.semibold)
-                Spacer()
                 
+                
+                if(!viewModel.locations.isEmpty){
+                    List(viewModel.locations){ location in
+                        FavoriteLocationRowComponent(favoriteLocationModel:  location).listRowSeparator(.hidden).listRowInsets(EdgeInsets())
+                    }.listStyle(.inset)
+                }
+                
+                if(viewModel.isLoading != true && viewModel.locations.isEmpty)
+                {
+                    VStack{
+                        Spacer()
+                        
+                        Image(systemName: "text.page.badge.magnifyingglass").resizable().frame(width: 40,height: 50).foregroundStyle(.appBlue)
+                        Text("Unable to get favorite locations data").font(.headline)
+                        Text("Please add a new favorite location").font(.caption)
+                        Spacer()
+                        
+                    }
+                }
+                Spacer()
                 NavigationLink(destination: {
                     AddFavoriteLocationView().navigationBarBackButtonHidden(true)
                 }, label: {
@@ -23,6 +42,7 @@ struct FavoriteLocationsView: View {
                     
                     
                 }).navigationBarBackButtonHidden(true)
+                
             }.padding(.horizontal)
             
         }

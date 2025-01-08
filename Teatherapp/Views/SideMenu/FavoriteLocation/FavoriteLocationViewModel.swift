@@ -1,29 +1,24 @@
 
-//
-//  DashboardModel.swift
-//  Teatherapp
-//
-//  Created by Hammad Khan on 30/10/2024.
-//
 import Foundation
-import SwiftData
 import Alamofire
-import SwiftUI
+import Observation
 
 @Observable
-class DashboardModelViewModel{
+class FavoriteLocationViewModel{
     
-    var dashboardModel : DashboardModel?
-    var selectedCircle: CircleModel?
-    var showCircleSheet = false
-
     
+    var locations: [FavoriteAddressModel] = []
     var errorMessage = ""
     var successMessage = ""
     var isAlertPresented = false
     var isSnackbarPresented = false
     var isLoading = false
     var showConfirmation = false
+    var selectedLocation : LocationModel?
+    var isShowingBottomsheet = false
+    var selectedLocationId = ""
+
+
     
     
     func showAlert(message: String){
@@ -31,33 +26,47 @@ class DashboardModelViewModel{
         isAlertPresented = true
     }
     
-    func getDashboardModel()async{
-        Task{
+    func showDeleteLocationConfirmation(location: LocationModel){
+        selectedLocation = location
+        showConfirmation = true
+    }
+
+    func showMemberBottomSheet(location: LocationModel){
+        selectedLocationId = location.id
+        isShowingBottomsheet = true
+        
+    }
+    
+    
+    
+    
+    func getLocations()async{
             do{
                 let params: Parameters = [
                     "TemporaryAccessCode":AppKeysConstant.temporaryAccessCode.getValue,
                     "UserName":AppKeysConstant.userName.getValue,
+                    "user_id": AppKeysConstant.userID.getValue,
                     "circle_id": AppKeysConstant.circleID.getValue,
-                    "user_id": AppKeysConstant.userID.getValue
                 ]
+                
                 isLoading = true
-                let res: ApiGenericResponseModel<DashboardModel> =  try await APIManager.shared.postAsyncGeneric(endpoint: Endpoints.getUserDashboard, parameter: params)
+                let res: ApiGenericResponseModel<[FavoriteAddressModel]> =  try await APIManager.shared.postAsyncGeneric(endpoint: Endpoints.getFavoriteLocations, parameter: params)
                 isLoading = false
                 
                 guard res.status == "1" else{
                     showAlert(message: res.message)
                     return
                 }
-                dashboardModel = res.data
-                selectedCircle = dashboardModel?.circles.first
-                print("aaaaaaaaaaaa")
+                locations.removeAll()
+                locations.append(contentsOf: res.data)
                 } catch(let error){
                 isLoading = false
                 showAlert(message: error.localizedDescription)
                 print(error);
                 
             }
-        }
+        
 
     }
+    
 }

@@ -24,6 +24,7 @@ struct Endpoints{
     static let getConversations = "get-conversations"
     static let getChat = "get-chat"
     static let saveChat = "save-chat"
+    static let getFavoriteLocations = "get-fav-locations"
     
 }
 

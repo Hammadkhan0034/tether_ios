@@ -55,6 +55,9 @@
 		2CA38A792CDABEB800210550 /* GlobalMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38A782CDABEAA00210550 /* GlobalMessageView.swift */; };
 		2CA38A7B2CE11C5B00210550 /* DashboardMapComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38A7A2CE11C5B00210550 /* DashboardMapComponentView.swift */; };
 		2CA99F592CD38BBB0083B47A /* SelectMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA99F582CD38BBB0083B47A /* SelectMemberView.swift */; };
+		2CB7D9FD2D2D36660048F314 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7D9FC2D2D36650048F314 /* LocationManager.swift */; };
+		2CB7D9FF2D2D6A250048F314 /* FavoriteLocationRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7D9FE2D2D6A250048F314 /* FavoriteLocationRowComponent.swift */; };
+		2CB7DA012D2D7AC10048F314 /* FavoriteLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7DA002D2D7AB50048F314 /* FavoriteLocationViewModel.swift */; };
 		2CB9536B2CB6B9CF0044A08E /* toasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9536A2CB6B9C70044A08E /* toasts.swift */; };
 		2CC2E9802CC4064100846A75 /* FavoriteAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2E97F2CC4062F00846A75 /* FavoriteAddressModel.swift */; };
 		2CC2E9842CC45E2B00846A75 /* AddNewLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2E9832CC45E2B00846A75 /* AddNewLocationView.swift */; };
@@ -237,6 +240,9 @@
 		2CA38A782CDABEAA00210550 /* GlobalMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMessageView.swift; sourceTree = "<group>"; };
 		2CA38A7A2CE11C5B00210550 /* DashboardMapComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMapComponentView.swift; sourceTree = "<group>"; };
 		2CA99F582CD38BBB0083B47A /* SelectMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMemberView.swift; sourceTree = "<group>"; };
+		2CB7D9FC2D2D36650048F314 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2CB7D9FE2D2D6A250048F314 /* FavoriteLocationRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationRowComponent.swift; sourceTree = "<group>"; };
+		2CB7DA002D2D7AB50048F314 /* FavoriteLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationViewModel.swift; sourceTree = "<group>"; };
 		2CB9536A2CB6B9C70044A08E /* toasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toasts.swift; sourceTree = "<group>"; };
 		2CC2E97F2CC4062F00846A75 /* FavoriteAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAddressModel.swift; sourceTree = "<group>"; };
 		2CC2E9832CC45E2B00846A75 /* AddNewLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationView.swift; sourceTree = "<group>"; };
@@ -384,6 +390,7 @@
 		2C160A8F2CA858B700609207 /* FavoriteLocation */ = {
 			isa = PBXGroup;
 			children = (
+				2CB7DA002D2D7AB50048F314 /* FavoriteLocationViewModel.swift */,
 				2C160A922CA85A6E00609207 /* AddFavoriteLocation */,
 				2C160A902CA858E400609207 /* FavoriteLocationsView.swift */,
 				2C9D522C2CE258EA0052B8CB /* ViewFavoriteLocationView.swift */,
@@ -674,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC2E9892CC46D1300846A75 /* UserCurrentLocationHandler.swift */,
+				2CB7D9FC2D2D36650048F314 /* LocationManager.swift */,
 				2CC2E97B2CC2D70100846A75 /* MyExtensions */,
 				2CE3B6052CA75155000A5F5E /* DateAndTimeUtils.swift */,
 				376BDB5C2C939C3500F1500F /* AppConstants.swift */,
@@ -825,6 +833,7 @@
 				2C9D522A2CE2495E0052B8CB /* FavoritePinComponentView.swift */,
 				2C9D522E2CE25B9B0052B8CB /* PrefixTitleRowView.swift */,
 				2C9D52302CE26B300052B8CB /* LocatonMemberRowView.swift */,
+				2CB7D9FE2D2D6A250048F314 /* FavoriteLocationRowComponent.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -1275,6 +1284,7 @@
 				2CE3B5E92CA6D2CA000A5F5E /* CountryPhoneData.swift in Sources */,
 				2CE3B5F82CA719DD000A5F5E /* EasterEggFrequencyEnum.swift in Sources */,
 				BDD6F73A2AE849700080AC4C /* HeaderBarView.swift in Sources */,
+				2CB7D9FF2D2D6A250048F314 /* FavoriteLocationRowComponent.swift in Sources */,
 				BD4B18F22AF2E27D0066E9DB /* ChatModel.swift in Sources */,
 				2CA38A792CDABEB800210550 /* GlobalMessageView.swift in Sources */,
 				2C9D522F2CE25B9B0052B8CB /* PrefixTitleRowView.swift in Sources */,
@@ -1282,6 +1292,7 @@
 				2CE4D0F72CDA4C20004C0B92 /* InviteMemberView.swift in Sources */,
 				2C160AA42CA872B100609207 /* CheckInScheduleView.swift in Sources */,
 				BDEF99F02AFFF62B00EDA94F /* MessageModel.swift in Sources */,
+				2CB7DA012D2D7AC10048F314 /* FavoriteLocationViewModel.swift in Sources */,
 				2CD581142CBD5682004C24A5 /* SimpleOutlinedDropdownButtonView.swift in Sources */,
 				2CD57A402CA450920012E862 /* ManageBoostView.swift in Sources */,
 				2C1911B62CA9EC230079B27F /* AddCheckInSelectDays.swift in Sources */,
@@ -1306,6 +1317,7 @@
 				2C1B6B972CB30CEA00BD818C /* EditTeamProfileView.swift in Sources */,
 				2CC74FBF2CCAB2F4003E9038 /* LocationRowView.swift in Sources */,
 				2C160AAA2CA882C400609207 /* ReportTypeView.swift in Sources */,
+				2CB7D9FD2D2D36660048F314 /* LocationManager.swift in Sources */,
 				2C1B6B9A2CB30EDC00BD818C /* LocationSharingView.swift in Sources */,
 				2C37B5CB2D255CCF001D90D9 /* CameraPicker.swift in Sources */,
 				BD547E232AFE4E79008BDAA5 /* SceneDelegate.swift in Sources */,

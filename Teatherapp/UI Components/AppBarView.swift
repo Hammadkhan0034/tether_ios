@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppBarView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     let title:String
     let textColor: Color
     

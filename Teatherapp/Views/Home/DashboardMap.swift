@@ -141,6 +141,9 @@ struct DashboardMap: View {
             .onAppear{
                 Task{
                     await dashboardVM.getDashboardModel()
+                    let locationManager = LocationManager()
+                    locationManager.requestLocationPermission()
+                    locationManager.stopUpdatingLocation()
                 }
             }
             .sheet(isPresented: $dashboardViewModel.showCircleSheet){

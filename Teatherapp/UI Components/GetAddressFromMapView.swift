@@ -24,7 +24,7 @@ struct GetAddressFromMapView: View {
         center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
-    @State var myPlaceModel: MyPlaceModel
+    @Binding var myPlaceModel: MyPlaceModel
     @State private var myPlaceModelLocal: MyPlaceModel = MyPlaceModel(name: "", latitude: 0, longitude: 0, description: "")
     @Binding var isActive: Bool
     @State var isLoading = false
@@ -49,7 +49,7 @@ struct GetAddressFromMapView: View {
                     Task{
                         if(isLoading){return}
                         isLoading = true
-                       await  fetchLocationNameAndDescription(for: CLLocationCoordinate2D(latitude: myPlaceModel.latitude, longitude: myPlaceModel.longitude))
+                        await  fetchLocationNameAndDescription(for: CLLocationCoordinate2D(latitude: myPlaceModelLocal.latitude, longitude: myPlaceModelLocal.longitude))
                         isLoading = false
                     }
                 }
@@ -77,14 +77,15 @@ struct GetAddressFromMapView: View {
                 print("No placemarks found.")
                 return
             }
-            
-            // Extract the location name and description
-            myPlaceModel.name = placemark.name ?? "Unknown Location"
-            myPlaceModel.description = [
+            myPlaceModelLocal.name = placemark.name ?? "Unknown Location"
+            myPlaceModelLocal.description = [
                 placemark.locality,
                 placemark.administrativeArea,
                 placemark.country
             ].compactMap { $0 }.joined(separator: ", ")
+            
+            
+            
         } catch {
             print("Reverse geocoding failed with error: \(error.localizedDescription)")
         }

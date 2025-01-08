@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddFavoriteLocationView: View {
     @StateObject var addFavoriteLocationViewModel = AddFavoriteLocationViewModel()
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         ZStack{
             
@@ -24,9 +26,9 @@ struct AddFavoriteLocationView: View {
                 }
                 SimpleTextField(placeHolder: "Enter Notes", inputField: $addFavoriteLocationViewModel.note).padding(.horizontal)
                 
-                MediaPickerButton { mediaType, media in
-                    
-                }
+//                MediaPickerButton { mediaType, media in
+//                    
+//                }
                 
                 
                 ShareWithView(selectedOption: $addFavoriteLocationViewModel.shareWith).padding(.top)
@@ -38,10 +40,20 @@ struct AddFavoriteLocationView: View {
             
             if(addFavoriteLocationViewModel.isShowingSelectAddress)
             {
-                GetAddressFromMapView(myPlaceModel: addFavoriteLocationViewModel.myPlaceModel, isActive: $addFavoriteLocationViewModel.isShowingSelectAddress)
+                GetAddressFromMapView(myPlaceModel: $addFavoriteLocationViewModel.myPlaceModel, isActive: $addFavoriteLocationViewModel.isShowingSelectAddress)
             }
-        }.overlay(SimpleToastView(message: addFavoriteLocationViewModel.successMessage, isShowing: $addFavoriteLocationViewModel.showSnackBar)).alert(addFavoriteLocationViewModel.errorMessage, isPresented: $addFavoriteLocationViewModel.showAlert) {
+        }.onChange(of: addFavoriteLocationViewModel.showSnackBar, { oldValue, newValue in
+            if(addFavoriteLocationViewModel.showSnackBar == true){
+                dismiss()
+            }
+        })
+//        .overlay(
+//            SimpleToastView(message: addFavoriteLocationViewModel.successMessage, isShowing: $addFavoriteLocationViewModel.showSnackBar)
+//        )
+        .alert(addFavoriteLocationViewModel.errorMessage, isPresented: $addFavoriteLocationViewModel.showAlert) {
             
+        }.onAppear {
+            addFavoriteLocationViewModel.dismissAction = { dismiss() }
         }
         
     }

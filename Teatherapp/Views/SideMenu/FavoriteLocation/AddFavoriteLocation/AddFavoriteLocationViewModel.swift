@@ -7,6 +7,10 @@
 import Foundation
 import Alamofire
 class AddFavoriteLocationViewModel: ObservableObject{
+    
+    var dismissAction: (() -> Void)?
+
+    
     @Published var isShowingSelectAddress = false
     @Published var myPlaceModel = MyPlaceModel(name: "", latitude: 0, longitude: 0, description: "")
     @Published var title: String = ""
@@ -54,7 +58,8 @@ class AddFavoriteLocationViewModel: ObservableObject{
             do{
                 let params: Parameters = [
                     "TemporaryAccessCode":AppKeysConstant.temporaryAccessCode.getValue,
-                    "UserName":AppConstants.userNameWithSpacesError.getValue,
+                    "UserName":AppKeysConstant.userName.getValue,
+                    "circle_id": AppKeysConstant.circleID.getValue,
                     "title":title,
                     "address": myPlaceModel.name,
                     "latitude":myPlaceModel.latitude,
@@ -82,8 +87,8 @@ class AddFavoriteLocationViewModel: ObservableObject{
                 
                 let favoriteAddress: FavoriteAddressModel = FavoriteAddressModel(from: data)!
                 print(favoriteAddress)
-                successMessage = res.message
-                showSnackBar = true
+//                successMessage = res.message
+       showSnackBar = true
                 print(res)
             } catch(let error){
                 isLoading = false

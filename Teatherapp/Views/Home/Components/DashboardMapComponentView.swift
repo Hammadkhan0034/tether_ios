@@ -13,12 +13,12 @@ struct DashboardMapComponentView: View {
 
     var body: some View {
         Map(position: $position) {
-//            ForEach(dashboardVM.dashboardModel?.favouriteLocations ?? []) { location in
-//                
-//                Annotation(location.title, coordinate: .init(latitude: location.latitude.toDouble, longitude: location.longitude.toDouble)) {
-//                    FavoritePinComponentView(favoriteLocation: location)
-//                }
-//                         }
+            ForEach(dashboardVM.dashboardModel?.favouriteLocations ?? []) { location in
+                
+                Annotation(location.title, coordinate: .init(latitude: location.latitude.toDouble, longitude: location.longitude.toDouble)) {
+                    FavoritePinComponentView(favoriteLocation: location)
+                }
+                         }
         }
     }
 }
